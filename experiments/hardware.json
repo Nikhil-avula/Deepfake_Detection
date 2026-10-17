@@ -1,0 +1,9 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "torch": "2.6.0+cpu",
+  "cuda": false,
+  "cpus": 5,
+  "git_commit": "5eeedcf7b91bcf356ed24b1ba56dbaddf6e1cdd6",
+  "git_dirty": true
+}

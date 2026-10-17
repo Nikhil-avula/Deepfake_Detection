@@ -1,0 +1,9 @@
+.stApp {background:#0a1422;color:#e4edf5}
+[data-testid="stSidebar"] {background:#111f30;border-right:1px solid #294455}
+h1,h2,h3 {letter-spacing:-.035em;color:#e7f9fa}
+.eyebrow {font-size:.8rem;letter-spacing:.2em;color:#60d8d0;text-transform:uppercase}
+.hero {padding:2rem;border:1px solid #2b4557;border-radius:18px;background:linear-gradient(130deg,#172c40,#102129);margin-bottom:1.5rem}
+.hero p {color:#b4cad8;max-width:700px;line-height:1.7}
+[data-testid="stMetric"] {background:#142738;border:1px solid #294455;border-radius:12px;padding:1rem}
+.stButton>button {border:1px solid #60d8d0;background:#193b45;color:#eaffff;border-radius:8px}
+a {color:#72e0d4!important}

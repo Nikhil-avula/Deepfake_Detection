@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import pytest
+from pathlib import Path
 from deepguard.data import split_pairs,assert_no_leakage
 
 
@@ -36,3 +37,30 @@ def test_leakage_rejected():
 
 def test_too_few_groups_rejected():
     with pytest.raises(ValueError,match='12'):split_pairs(frame().iloc[:4])
+
+
+@pytest.mark.parametrize('fault',[None,'changed_bytes','bad_label','class_conflict'])
+def test_confirmed_manifest_integrity_before_training(tmp_path,monkeypatch,fault):
+    from deepguard.data import prepare_labeled_dataset
+    from deepguard.utils import sha256
+    monkeypatch.setattr('deepguard.data.probe',lambda path,cfg:{'duration':1.0})
+    rows=[]
+    for i in range(49):
+        for label in [0,1]:
+            name=f'{i:04}'+('_fake' if label else '')+'.mp4'
+            path=tmp_path/name;path.write_bytes(f'{i}-{label}'.encode())
+            rows.append(dict(path=str(path),file=name,label=label,sha256=sha256(path),
+                             class_name='Fake' if label else 'Real',source_group='untrusted'))
+    if fault=='changed_bytes':Path(rows[0]['path']).write_bytes(b'changed')
+    if fault=='bad_label':rows[0]['label']=2
+    if fault=='class_conflict':rows[0]['class_name']='Fake'
+    manifest=tmp_path/'labels.csv';pd.DataFrame(rows).to_csv(manifest,index=False)
+    output=tmp_path/'splits.csv'
+    if fault:
+        with pytest.raises(ValueError):prepare_labeled_dataset(str(manifest),str(output),{'seed':42})
+        assert not output.exists()
+    else:
+        result=prepare_labeled_dataset(str(manifest),str(output),{'seed':42})
+        assert_no_leakage(result)
+        assert result.source_group.nunique()==49
+        assert len(result)==98 and output.exists()

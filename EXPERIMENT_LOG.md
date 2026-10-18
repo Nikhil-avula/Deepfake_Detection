@@ -30,3 +30,25 @@ Future experiments must record permission/source/labels, grouping metadata, spli
 configuration, code version, selection/calibration procedure, real prediction artifacts,
 coverage, failures and actual team roles. A new independent external set is needed for
 fresh generalization claims; do not repeatedly tune on the current small test set.
+
+## V002 — Confirmed labels and reproducible retraining, 2026-10-18
+
+The owner reuploaded and explicitly confirmed 49 real and 49 fake videos. SHA-256
+verification showed all 98 were exact reuploads of the V001 data. They were not
+counted as additional examples. The confirmed private manifest was validated and
+the same seed-42 filename-pair split was regenerated, without tuning on test results.
+
+The supervised classifier was fitted again using the verified frozen feature cache.
+The resulting coefficients reproduce V001: 73 quality-eligible videos, comprising
+42 train, 9 validation, 12 calibration and 10 test videos. Twenty-five videos were
+excluded by the unchanged face-quality policy. Accuracy remains 60% on 10 analyzed
+test videos out of 16 reserved; ROC-AUC remains 0.80. Reusing the same data does not
+establish new external generalization evidence.
+
+Added a prepare-dataset command, integrity checks before cached training, and an
+optional confirmed-manifest argument to scripts/train.sh. Added rejection tests for
+changed bytes, invalid labels and conflicting class names. The UI now explains
+usable/excluded dataset counts and provides current model restoration instructions.
+The full suite passed 39 tests; subsequent focused checks passed all 7 model/UI
+tests and all 9 dataset tests after their final edits. See experiments/validation.txt
+and experiments/retraining_validation.txt for captured results.

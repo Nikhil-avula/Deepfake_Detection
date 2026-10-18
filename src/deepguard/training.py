@@ -24,6 +24,12 @@ def prepare_features(manifest: str,cfg: dict,cache: str="data/processed") -> pd.
     seed_all(cfg["seed"],cfg["threads"])
     frame=pd.read_csv(manifest,keep_default_na=False,dtype={"source_group":str})
     assert_no_leakage(frame)
+    if not frame.label.isin([0,1]).all():raise ValueError("Training labels must be 0 or 1")
+    if set(frame.split)!={"train","val","calibration","test"}:
+        raise ValueError("Training requires train, val, calibration and test partitions")
+    for row in frame.itertuples():
+        if not Path(row.path).is_file() or sha256(row.path)!=row.sha256:
+            raise ValueError(f"Missing or changed training video: {row.file}")
     encoder=None; rows=[];folder=Path(cache);folder.mkdir(parents=True,exist_ok=True)
     for i,(_,row) in enumerate(frame.iterrows()):
         record=row.to_dict();path=folder/(cache_key(row.path,cfg)+".npz")

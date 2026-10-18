@@ -11,6 +11,40 @@ from .media import probe
 from .utils import sha256,write_json
 
 
+def prepare_labeled_dataset(manifest: str, output: str, cfg: dict) -> pd.DataFrame:
+    """Verify owner-confirmed labels and bytes before creating grouped splits."""
+    frame=pd.read_csv(manifest,keep_default_na=False,dtype={"source_group":str})
+    required={"path","file","label","sha256"}
+    if not required.issubset(frame.columns):
+        raise ValueError("Labeled manifest requires path, file, label and sha256 columns")
+    if frame.empty or not frame.label.isin([0,1]).all():
+        raise ValueError("Labels must be 0 (Real) or 1 (Fake)")
+    frame["label"]=frame.label.astype(int)
+    frame["path"]=[str(Path(p).resolve()) for p in frame.path]
+    if frame.path.duplicated().any() or frame.file.duplicated().any():
+        raise ValueError("Duplicate video paths or filenames in labeled manifest")
+    for _,row in frame.iterrows():
+        if not re.fullmatch(r"\d{4}(?:_fake)?\.mp4",row.file):
+            raise ValueError(f"Unexpected uploaded filename: {row.file}")
+        if not Path(row.path).is_file() or sha256(row.path)!=row.sha256:
+            raise ValueError(f"Missing or changed video: {row.file}")
+        if "class_name" in frame and row.class_name!={0:"Real",1:"Fake"}[row.label]:
+            raise ValueError(f"Conflicting class name and numeric label: {row.file}")
+        info=probe(row.path,cfg)
+        for key,value in info.items():frame.loc[row.name,key]=value
+    # Recompute conservative grouping instead of trusting a supplied group column.
+    frame["source_group"]=frame.file.str.replace(r"(?:_fake)?\.mp4$","",regex=True)
+    conflicts=frame.groupby("sha256").label.nunique().gt(1)
+    if conflicts.any():raise ValueError("Identical files have conflicting real/fake labels")
+    # Reuploads are receipts, not extra independent training examples.
+    frame=frame.sort_values("file").reset_index(drop=True)
+    result=split_pairs(frame,cfg["seed"]).drop_duplicates("sha256").reset_index(drop=True)
+    assert_no_leakage(result)
+    Path(output).parent.mkdir(parents=True,exist_ok=True)
+    result.to_csv(output,index=False)
+    return result
+
+
 def assert_no_leakage(frame: pd.DataFrame) -> None:
     if frame.path.duplicated().any():raise ValueError("Duplicate paths in dataset")
     for key in ["source_group","sha256"]:

@@ -11,6 +11,8 @@ def main():
     p.add_argument("--config",default=None)
     sub=p.add_subparsers(dest="command",required=True)
     sub.add_parser("hardware")
+    a=sub.add_parser("prepare-dataset");a.add_argument("manifest")
+    a.add_argument("--output",default="data/manifests/splits.csv")
     a=sub.add_parser("import-uploads");a.add_argument("index");a.add_argument("--destination",default="data/raw/uploaded")
     a=sub.add_parser("train");a.add_argument("manifest",default="data/manifests/splits.csv",nargs="?")
     a.add_argument("--model",default="checkpoints/visual.json");a.add_argument("--results",default="reports/results")
@@ -19,6 +21,10 @@ def main():
     args=p.parse_args();cfg=config(args.config);seed_all(cfg["seed"],cfg["threads"])
     logging.basicConfig(level=logging.INFO,format="%(asctime)s %(message)s")
     if args.command=="hardware":print(json.dumps(provenance(),indent=2))
+    elif args.command=="prepare-dataset":
+        from .data import prepare_labeled_dataset
+        frame=prepare_labeled_dataset(args.manifest,args.output,cfg)
+        print(json.dumps({"videos":len(frame),"splits":frame.split.value_counts().to_dict(),"output":args.output},indent=2))
     elif args.command=="import-uploads":
         from .data import import_uploads,split_pairs
         frame=import_uploads(args.index,args.destination,cfg,"data/manifests/inventory.csv")

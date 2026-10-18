@@ -114,7 +114,7 @@ elif page=="Check a video":
     if not shutil.which("ffprobe"):
         setup_issues.append("FFprobe is missing from PATH. Install FFmpeg including ffprobe.exe, then restart the terminal and this application.")
     if not MODEL.exists():
-        setup_issues.append("The trained model file checkpoints/visual.json is missing. Copy the trained artifact into this checkout; downloading the code alone does not include it.")
+        setup_issues.append("The trained model file checkpoints/visual.json is missing. Update your checkout with git pull, or restore the trained model file, then restart the application.")
     for issue in setup_issues:st.error("Setup required: "+issue)
     upload=st.file_uploader("Choose a video file",type=["mp4","mov","avi","mkv","webm"],key=f"upload-{st.session_state.get('upload_version',0)}")
     if upload:
@@ -186,6 +186,10 @@ elif page=="Our dataset":
         st.write("The project uses videos provided by the project owner. Files ending in _fake.mp4 were labeled fake by the owner; the matching numbered files were labeled real.")
         a,b,c=st.columns(3)
         a.metric("Real videos",inv["class_counts"].get("0",0));b.metric("Fake videos",inv["class_counts"].get("1",0));c.metric("Basic decode failures",inv["corrupt_files"])
+        trained=summary()
+        if trained:
+            st.success(f"Training and evaluation completed: {trained['usable_videos']} of {trained['received_videos']} videos had enough suitable face samples.")
+            st.caption(f"{trained['excluded_videos']} videos were excluded because the face samples did not meet the quality checks. Uploading the same files again does not add new examples.")
         manifest=ROOT/"data/manifests/splits.csv"
         if manifest.exists():
             frame=pd.read_csv(manifest)

@@ -43,10 +43,10 @@
     ],
     "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
   },
-  "seconds_including_preprocessing": 5.610273280995898,
+  "seconds_including_preprocessing": 4.741930413001683,
   "head_bytes": 201871,
   "backbone_bytes": 21444401,
-  "model_sha256": "b7001fcf0d98022f7c9c99e23312236d4f77f65f717c94e0219aa83951cc882c",
+  "model_sha256": "b05bf9ce5279551b18c6ed07f923d818004d8fcfc5e48ec7d0e2fffc26176edb",
   "limitations": [
     "Small user-labeled dataset",
     "Identity/donor-disjoint splits not verified",

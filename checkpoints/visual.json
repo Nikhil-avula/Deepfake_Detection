@@ -7780,7 +7780,7 @@
     "8da0fe19c4f3c259d33dc86ad2575542c2a51035ee9485e3fa01b724f762df60",
     "a2902aaa6c0a0674f919fec860fe89e697b8fc3e510a212b497d885303ca2840"
   ],
-  "manifest_sha256": "1cf299396bc6b7ad8ef7f6c95295c1cabc6c3432cd4c0b283a8b448afabd1e7b",
+  "manifest_sha256": "b56c9cc43432ff3c7abd9282d4fbf0eb44b342218961ae7662c25444ea450dbb",
   "config": {
     "seed": 42,
     "frames": 16,
@@ -7805,7 +7805,7 @@
     "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
     "torch": "2.6.0+cpu",
     "cuda": false,
-    "commit": "199456063dd5349077b69624b1cab2b04892a6c1",
+    "commit": "e964bbbdfd9bff0ff2a9e9d7a02cf889083eb330",
     "dirty": true
   },
   "grouping": "filename source pairs; identity/donor independence unverified",

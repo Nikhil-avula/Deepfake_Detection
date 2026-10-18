@@ -7,7 +7,7 @@
     "Accuracy at 0.5": 0.6,
     "Clear answers": 9,
     "Accuracy on clear answers": 0.6666666666666666,
-    "Mean check seconds": 1.3431980552486493
+    "Mean check seconds": 2.128660702997877
   },
   {
     "Condition": "compression",
@@ -17,7 +17,7 @@
     "Accuracy at 0.5": 0.5,
     "Clear answers": 8,
     "Accuracy on clear answers": 0.625,
-    "Mean check seconds": 1.3072904971877506
+    "Mean check seconds": 1.4802565590007362
   },
   {
     "Condition": "blur",
@@ -27,7 +27,7 @@
     "Accuracy at 0.5": 0.7,
     "Clear answers": 9,
     "Accuracy on clear answers": 0.6666666666666666,
-    "Mean check seconds": 1.7550671434992182
+    "Mean check seconds": 1.5574880440617562
   },
   {
     "Condition": "darkness",
@@ -37,6 +37,6 @@
     "Accuracy at 0.5": 0.6,
     "Clear answers": 9,
     "Accuracy on clear answers": 0.6666666666666666,
-    "Mean check seconds": 1.5641709816245566
+    "Mean check seconds": 1.6463949359986145
   }
 ]

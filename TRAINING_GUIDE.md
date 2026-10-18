@@ -1,5 +1,18 @@
 # Reproduce video-only training
 
+For the newly confirmed real/fake batch, run:
+
+```bash
+bash scripts/train.sh data/manifests/labeled_batch_20261018.csv
+```
+
+The optional argument verifies every file's SHA-256, numeric label, class name and
+video readability before rebuilding the grouped split. Reuploads are deduplicated
+by content. Matching filename stems stay in the same partition; this does not
+establish identity independence. The private manifest and videos stay outside Git.
+Training also verifies file hashes before reading cached features. Valid frozen
+backbone features can be reused, but the supervised classifier is fitted again.
+
 Run from the checkout after authorized files and the grouped manifest exist:
 
 ```bash

@@ -67,7 +67,8 @@ def test_genuine_heldout_inference_rename_invariance_and_report(tmp_path):
 def test_ui_renders_actual_inference_result():
     from streamlit.testing.v1 import AppTest
     import pandas as pd
-    if not (ROOT/'checkpoints/visual.json').exists():pytest.skip('Real trained artifact unavailable')
+    if not (ROOT/'checkpoints/visual.json').exists() or not (ROOT/'data/manifests/prepared.csv').exists():
+        pytest.skip('Local owner media and prepared manifest unavailable')
     f=pd.read_csv(ROOT/'data/manifests/prepared.csv');row=f[(f.split=='test') & f.usable].iloc[0]
     result,evidence=Analyzer(config(),str(ROOT/'checkpoints/visual.json')).analyze(row.path)
     app=AppTest.from_file('app/main.py',default_timeout=30).run()

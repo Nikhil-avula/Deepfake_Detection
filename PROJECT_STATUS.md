@@ -1,5 +1,24 @@
 # Video-only project execution status — 2026-10-18
 
+## Windows setup diagnosis and correction
+
+The owner's screenshot showed WinError2 before any face samples and Model training
+pending. The launch of ffprobe failed before model inference; the prior exception
+handler mislabeled machine setup failure as unsuitable video evidence. In addition,
+the previous repository excluded the local trained head, leaving clones without it.
+
+Added explicit FFprobe dependency errors, a distinct Setup required outcome, preflight
+UI messages and a disabled analysis action until prerequisites exist. The small fitted
+checkpoints/visual.json is now included in Git (201,871 bytes; same verified trained
+artifact). Raw videos and feature caches remain excluded. Windows installation and
+terminal/PATH restart steps are documented. No additional dataset or retraining is
+needed to fix this setup failure. Classifier parameters/evaluation results are unchanged.
+
+New regression tests distinguish missing executable/model setup from invalid media;
+real-data UI tests also check for private manifests before running in a fresh clone.
+The Linux suite passed35 tests; Windows PATH failures are simulated, not claimed as
+execution on an actual Windows machine. Exact final outcome is in experiments/validation.txt.
+
 ## Current problem statement
 
 A user uploads a video. The application analyzes visual facial evidence and gives a
@@ -89,8 +108,9 @@ the new video-only service was launched. No foreign service or user files were r
 
 - No verified independent external dataset was supplied or tested.
 - Perfect manual unknown-video accuracy cannot be guaranteed; false results are recorded.
-- Raw files and trained artifacts are intentionally ignored in Git. A fresh clone needs
-  authorized media/manifests and retraining, or the owner's local model artifacts.
+- Raw files and feature caches remain ignored. Following the Windows setup diagnosis,
+  the small trained JSON head is included in Git so clones can run inference without
+  retraining. FFprobe must be on PATH; the generic backbone downloads if not cached.
 - Origin/permission and participant identity metadata must be confirmed by the owner.
 - Windows/GPU execution is documented where relevant but was not tested here.
 - Saved cloud setup/startup guidance is refreshed for the new scope; saving is not

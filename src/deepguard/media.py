@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import math
 import subprocess
+import shutil
 from pathlib import Path
 import cv2
 import numpy as np
@@ -12,10 +13,16 @@ class MediaError(ValueError):
     """An upload cannot safely provide useful facial evidence."""
 
 
+class SetupError(RuntimeError):
+    """A machine dependency is missing; the uploaded video is not at fault."""
+
+
 def probe(path: str | Path, cfg: dict) -> dict:
     path=Path(path)
     if not path.is_file() or not 0 < path.stat().st_size <= cfg["max_upload_mb"]*1024**2:
         raise MediaError("The file is empty, missing or larger than the upload limit.")
+    if not shutil.which("ffprobe"):
+        raise SetupError("FFprobe is not installed or is not on PATH. Install FFmpeg including ffprobe, restart your terminal and restart the application. See INSTALLATION.md.")
     try:
         p=subprocess.run(["ffprobe","-v","error","-show_streams","-show_format","-of","json",str(path)],capture_output=True,text=True,timeout=20)
         if p.returncode:raise MediaError("This file could not be read as a video. Try an MP4 file.")
@@ -29,6 +36,8 @@ def probe(path: str | Path, cfg: dict) -> dict:
         if fps<=0 or w<=0 or h<=0 or w*h>cfg["max_pixels"]:
             raise MediaError("Unsupported video frame rate or resolution. Use up to 4K.")
         return {"duration":duration,"fps":fps,"width":w,"height":h,"codec":v["codec_name"],"bytes":path.stat().st_size}
+    except FileNotFoundError as exc:
+        raise SetupError("Windows could not start ffprobe. Check that ffprobe.exe is installed and its bin folder is on PATH, then restart the application.") from exc
     except (KeyError,StopIteration,ValueError,json.JSONDecodeError,subprocess.TimeoutExpired) as exc:
         if isinstance(exc,MediaError):raise
         raise MediaError("The video is damaged or uses an unsupported format.") from exc

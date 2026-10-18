@@ -4,7 +4,7 @@
 
 2. **What does the system actually inspect?** Face images sampled across the full video, not the filename or a stored class lookup.
 
-3. **What are the four possible user outcomes?** Likely real, Likely fake, Not sure and Cannot analyze. The last two avoid forced guesses.
+3. **What are the four analysis outcomes after setup?** Likely real, Likely fake, Not sure and Cannot analyze. The last two avoid forced guesses.
 
 4. **What data were provided?** The owner supplied 49 real-labeled and 49 fake-labeled videos, 98 files total.
 

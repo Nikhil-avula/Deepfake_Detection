@@ -27,8 +27,9 @@ Artifacts: checkpoints/visual.json contains the actual classifier/scaler paramet
 config, training counts, manifest hash and provenance; data/manifests/prepared.csv lists
 quality eligibility; reports/results contains model selection, predictions, metrics,
 curves, baseline comparison and exclusions. The application automatically sees checkpoint
-modification changes and invalidates its cached model. Raw owner data and artifacts are
-ignored by Git, so a fresh clone needs those local prerequisites or retraining.
+modification changes and invalidates its cached model. The small trained JSON head is
+included in Git for inference. Raw owner data and feature caches remain ignored, so
+reproducing training requires the authorized local dataset.
 
 The final held-out split was not used for candidate selection. During development an
 initial quality policy rejected an entire video after one ambiguous sampled frame;

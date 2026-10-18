@@ -2,6 +2,8 @@
 
 | Message/problem | What to do |
 |---|---|
+| Setup required / WinError 2 | Install FFmpeg including ffprobe.exe, add its bin folder to PATH, then reopen the terminal and restart Streamlit |
+| Trained model file missing | Run git pull from the repository root; checkpoints/visual.json is now included, while raw owner videos remain private |
 | Cannot analyze | Read the specific reason; use a short, clear, single-person video |
 | Too few faces | Try a front-facing subject, better light or higher resolution |
 | Several faces | Use a clip with one main person; ambiguous samples are skipped |

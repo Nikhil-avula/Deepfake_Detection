@@ -34,8 +34,9 @@ deepguard robustness
 bash scripts/validate.sh
 ```
 
-Raw owner videos, private manifests and model artifacts are local/ignored. A fresh Git
-clone does not include them or automatically reproduce the owner's trained model. The
+Raw owner videos and private manifests are local/ignored. The small trained visual head
+is included as `checkpoints/visual.json`; the official ImageNet backbone downloads through
+torchvision on first inference if not cached. A fresh clone still needs FFprobe on PATH. The
 manifest must retain real/fake pairs and identical content in one split. Filename labels
 were supplied by the owner; benchmark origin and subject identities were not verified.
 
@@ -58,7 +59,7 @@ the application displays a raw classifier score, never a guaranteed probability 
 | `configs/default.yaml` | Sampling, size limits and uncertainty thresholds |
 | `data/raw/uploaded/` | Owner's 98 video files; ignored |
 | `data/manifests/`, `data/processed/` | Grouped splits and reusable features; ignored |
-| `checkpoints/visual.json` | Actual fitted visual head; ignored |
+| `checkpoints/visual.json` | Actual fitted visual head, included for inference |
 | `reports/results/` | Real held-out predictions, comparisons, exclusions and robustness |
 | `tests/` | Unit, interface, failure-case and actual held-out integration checks |
 | `scripts/` | Reproducible setup, training, checking and startup |

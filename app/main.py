@@ -4,6 +4,7 @@ import json
 import tempfile
 import html
 import logging
+import shutil
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -44,6 +45,7 @@ def show_result():
         return
     title=result["decision"]
     descriptions={"Likely fake":"The model found visual patterns associated with manipulated faces in its small training dataset. Verify the source before drawing a conclusion.",
+        "Setup required":"The application is missing a required program or its trained model file. This is a computer setup issue, not a judgment about your video. Follow the instructions below before trying again.",
         "Likely real":"The model found fewer of the visual patterns it learned to associate with manipulated faces. This does not prove the video is authentic.",
         "Not sure":"The model cannot give a clear answer for this video. Check the original source or use an independent verification method.",
         "Cannot analyze":"There was not enough suitable facial evidence to produce a useful result. Read the guidance below and try another video."}
@@ -83,7 +85,7 @@ page=st.sidebar.radio("Explore",pages,key="page")
 st.sidebar.divider()
 st.sidebar.caption("VISUAL DETECTION ONLY")
 st.sidebar.write("Looks for learned patterns in faces. Sound is not used.")
-st.sidebar.caption("Trained pilot available" if MODEL.exists() else "Model training pending")
+st.sidebar.caption("Trained pilot available" if MODEL.exists() else "Trained model file missing")
 st.sidebar.button("Clear video and result",on_click=clear,use_container_width=True)
 
 if page=="Start":
@@ -108,12 +110,18 @@ elif page=="Check a video":
     st.title("Upload your video")
     st.write("For the best chance of a useful result, choose a front-facing person in good light. The video can be silent.")
     st.caption(f"MP4, MOV, AVI, MKV or WebM · up to {cfg['max_upload_mb']} MB · up to {cfg['max_duration']} seconds · up to 4K")
+    setup_issues=[]
+    if not shutil.which("ffprobe"):
+        setup_issues.append("FFprobe is missing from PATH. Install FFmpeg including ffprobe.exe, then restart the terminal and this application.")
+    if not MODEL.exists():
+        setup_issues.append("The trained model file checkpoints/visual.json is missing. Copy the trained artifact into this checkout; downloading the code alone does not include it.")
+    for issue in setup_issues:st.error("Setup required: "+issue)
     upload=st.file_uploader("Choose a video file",type=["mp4","mov","avi","mkv","webm"],key=f"upload-{st.session_state.get('upload_version',0)}")
     if upload:
         if upload.size>cfg["max_upload_mb"]*1024**2:st.error("This file is too large. Choose a shorter or smaller video.")
         else:
             st.video(upload)
-            if st.button("Check this video",type="primary"):
+            if st.button("Check this video",type="primary",disabled=bool(setup_issues)):
                 st.session_state.pop("result",None);st.session_state.pop("evidence",None)
                 try:
                     with st.status("Reading the video and checking face samples…",expanded=True) as status:

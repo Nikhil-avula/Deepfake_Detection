@@ -1,5 +1,8 @@
 # Using the video checker
 
+If Setup required appears, fix the missing executable or model file first. This is not
+a result about the video. Check INSTALLATION.md for Windows PATH and model setup.
+
 1. Open Check a video and choose a short video with one clearly visible person.
 2. Press Check this video and wait for the actual check to finish.
 3. Read the result and any guidance. Likely real/fake is an estimate, not proof.

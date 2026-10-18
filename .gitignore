@@ -9,6 +9,7 @@ data/interim/*
 data/processed/*
 data/manifests/*.csv
 checkpoints/*
+!checkpoints/visual.json
 uploads/
 *.mp4
 *.mov

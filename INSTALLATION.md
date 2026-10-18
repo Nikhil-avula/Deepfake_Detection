@@ -36,6 +36,19 @@ streamlit run app/main.py --server.maxUploadSize 100 --browser.gatherUsageStats 
 
 Install Python 3.12 and FFmpeg from official sources and put its bin directory on PATH:
 
+One option is `winget install --id Gyan.FFmpeg --exact`. After installation, **close and
+reopen PowerShell (and VS Code if used)** so the new PATH is inherited. Verify:
+
+```powershell
+ffmpeg -version
+ffprobe -version
+Test-Path .\checkpoints\visual.json
+```
+
+Run from the repository root. If either executable is not recognized, add the folder
+containing `ffmpeg.exe` and `ffprobe.exe` to your user PATH. Restart already running
+terminals and the application afterward.
+
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -49,6 +62,13 @@ streamlit run app/main.py --server.maxUploadSize 100 --browser.gatherUsageStats 
 
 Windows instructions have not been executed on a Windows machine. Tests needing the
 owner's local media/model skip in fresh clones; portable engineering tests still run.
-No raw owner videos or trained artifacts are published by default. Install official
-EfficientNet initialization through torchvision with integrity/TLS verification intact.
+Raw owner videos and private caches are not published. The small trained head
+`checkpoints/visual.json` is included in Git. Use `git pull` to get it; no retraining is
+needed just to run inference. The official ImageNet backbone downloads through torchvision
+on first inference, with integrity/TLS verification intact.
 The generic ImageNet initialization is not itself a trained deepfake detector.
+
+`[WinError 2]` before any face is checked indicates an executable/setup problem, not a
+lack of training data. The application now shows Setup required for missing FFprobe or
+the trained head instead of implying that the video has unsuitable faces. This behavior
+is regression-tested; Windows itself is not available in this execution environment.

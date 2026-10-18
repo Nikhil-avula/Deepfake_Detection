@@ -22,7 +22,21 @@ def test_decode_blank_and_abstain_without_fake_score(blank,tmp_path):
     f=sample_video(blank,cfg)
     assert len(f['faces'])==0 and not f['usable']
     r,_=Analyzer(cfg,str(tmp_path/'no-model.json')).analyze(blank)
-    assert r['decision']=='Cannot analyze' and r['fake_score'] is None
+    assert r['decision']=='Setup required' and r['fake_score'] is None
+
+
+def test_missing_ffprobe_is_setup_error_not_bad_video(blank,tmp_path,monkeypatch):
+    monkeypatch.setattr('deepguard.media.shutil.which',lambda name:None)
+    r,_=Analyzer(config(),str(tmp_path/'no-model')).analyze(blank)
+    assert r['decision']=='Setup required'
+    assert 'FFprobe' in r['reasons'][0]
+    assert r['fake_score'] is None
+
+
+def test_missing_model_is_named_as_missing_file(blank,tmp_path):
+    r,_=Analyzer(config(),str(tmp_path/'absent.json')).analyze(blank)
+    assert r['decision']=='Setup required'
+    assert 'checkpoints/visual.json' in r['reasons'][0]
 
 
 @pytest.mark.parametrize('content',[b'',b'not a video',b'\x00'*256])

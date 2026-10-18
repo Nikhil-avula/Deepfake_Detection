@@ -3,7 +3,7 @@ from __future__ import annotations
 import time
 from pathlib import Path
 import numpy as np
-from .media import sample_video,MediaError
+from .media import sample_video,MediaError,SetupError
 from .models import FaceEncoder,aggregate,load_head,predict_head
 from .utils import sha256
 
@@ -23,13 +23,19 @@ class Analyzer:
                 "model_status":"trained pilot" if self.head else "not trained","membership":"unknown",
                 "notice":"A model score is not proof. This small pilot has not established accuracy on unfamiliar sources."}
         try:media=sample_video(path,self.cfg)
+        except SetupError as exc:
+            report["decision"]="Setup required";report["reasons"]=[str(exc)]
+            report["seconds"]=time.perf_counter()-started
+            return report,None
         except (MediaError,OSError) as exc:
             report["reasons"]=[str(exc)];report["seconds"]=time.perf_counter()-started
             return report,None
         report.update(metadata=media["metadata"],frames_checked=media["sampled"],faces_found=len(media["faces"]),
                       missing_faces=media["missing"],multiple_face_frames=media["multiple"])
-        if not media["usable"]:report["reasons"]=media["reasons"]
-        elif not self.head:report["reasons"]=["The model has not been trained yet."]
+        if not self.head:
+            report["decision"]="Setup required"
+            report["reasons"]=["The trained model file is missing: checkpoints/visual.json. Copy the project's trained visual head here, or train with the authorized dataset. Cloning the code does not include this local artifact."]
+        elif not media["usable"]:report["reasons"]=media["reasons"]
         else:
             if self.encoder is None:self.encoder=FaceEncoder()
             embeddings=self.encoder.encode(media["faces"],self.cfg["batch_size"])

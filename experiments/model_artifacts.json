@@ -11,7 +11,11 @@
   },
   "scope": "video-only visual pilot",
   "test_log": "experiments/validation.txt",
-  "tests_passed": 33,
+  "tests_passed": 35,
   "test_failures": 0,
-  "tests_skipped_current_instance": 0
+  "tests_skipped_current_instance": 0,
+  "portable_validation": {
+    "passed": 33,
+    "skipped_requires_private_owner_media": 2
+  }
 }

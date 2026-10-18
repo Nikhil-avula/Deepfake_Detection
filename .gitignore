@@ -9,10 +9,15 @@ data/interim/*
 data/processed/*
 data/manifests/*.csv
 checkpoints/*
-experiments/runs/
 uploads/
 *.mp4
-*.wav
+*.mov
+*.avi
+*.mkv
+*.webm
+*.npz
 *.pt
+*.pth
 *.pkl
+*.log
 !**/.gitkeep

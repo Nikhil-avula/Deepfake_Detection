@@ -1,0 +1,17 @@
+{
+  "visual_head": {
+    "path": "checkpoints/visual.json",
+    "sha256": "b7001fcf0d98022f7c9c99e23312236d4f77f65f717c94e0219aa83951cc882c",
+    "bytes": 201871
+  },
+  "backbone": {
+    "name": "EfficientNet_B0_Weights.IMAGENET1K_V1",
+    "sha256": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934",
+    "bytes": 21444401
+  },
+  "scope": "video-only visual pilot",
+  "test_log": "experiments/validation.txt",
+  "tests_passed": 33,
+  "test_failures": 0,
+  "tests_skipped_current_instance": 0
+}

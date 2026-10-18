@@ -1,64 +1,69 @@
-# DeepGuard AI
+# DeepGuard — Video Deepfake Detection
 
-Explainable multimodal deepfake research in Python and Streamlit. The project examines
-face artifacts, audio spectra, temporal visual embeddings and learned audio–mouth
-alignment, then compares individual evidence with fusion.
+**Updated problem statement:** a user uploads a video; the application examines visual
+facial evidence and returns Likely real, Likely fake, Not sure, or Cannot analyze, with
+an understandable model score, face samples and a downloadable report.
 
-**Current state:** implemented research software, not a validated detector. No dataset,
-trained detection weights or benchmark results are bundled. FakeAVCeleb access requires
-approval; the user confirmed they do not yet have access. The interface honestly shows
-“Model not trained”. See [PROJECT_STATUS.md](PROJECT_STATUS.md) for executed checks and
-[REQUIREMENTS_TRACEABILITY.md](REQUIREMENTS_TRACEABILITY.md) for remaining work.
+This is a **video-only student research pilot**, not a universally reliable detector.
+The owner provided 49 real-labeled and 49 fake-labeled videos. We trained an actual
+classifier and evaluated reserved source groups. The observed test accuracy is **60% on
+10 analyzable videos**, with **62.5% test coverage**. It cannot promise correct answers on
+arbitrary unfamiliar videos. See EVALUATION_REPORT.md before interpreting the demo.
 
-## Quick start on this prepared Linux machine
+## Run the prepared application
 
 ```bash
 cd /workspace/Deepfake_Detection
-source /workspace/deepguard-venv/bin/activate
-pytest -q
-streamlit run app/main.py --server.headless true --server.address 127.0.0.1 --server.port 8501 --server.maxUploadSize 100 --browser.gatherUsageStats false
+bash scripts/run.sh
 ```
 
-See [INSTALLATION.md](INSTALLATION.md) for fresh Linux/Windows installation,
-[DATASET_GUIDE.md](DATASET_GUIDE.md) for authorized acquisition and label contracts,
-[TRAINING_GUIDE.md](TRAINING_GUIDE.md) for exact experiment commands and
-[EVALUATION_REPORT.md](EVALUATION_REPORT.md) for the distinction between engineering
-verification and research evidence.
+The application listens on port 8501. Open that port through your environment's supported
+port-forwarding interface. No localhost preview link is assumed. On a local computer,
+run Streamlit from the checkout after following INSTALLATION.md.
 
-## How it works
+## Reproduce
 
-1. Obtain permitted data and genuine modality labels; inventory every file.
-2. Group all identities, source recordings and identical content before splitting.
-3. Decode bounded video, track one face conservatively, extract log-Mel audio and
-   landmark-aligned mouth/audio windows when the optional landmark asset exists.
-4. Train classical baselines, EfficientNet, audio CNN, visual-embedding LSTM and a
-   learned two-stream synchronization model. Evaluate synchronization on aligned and
-   deliberately offset genuine pairs, separately from fake classification.
-5. Collect modality evidence on a reserved fusion split; learn logistic late fusion
-   with quality and availability covariates. Fit temperature on a separate calibration
-   split. Compare against averaging and quality-weighted log-odds.
-6. Evaluate unseen test groups and external datasets without retuning on them.
-7. Upload authorized media, inspect evidence and download an escaped HTML report.
-   Without calibrated fusion or adequate evidence, abstain.
+```bash
+bash scripts/setup.sh
+source /workspace/deepguard-venv/bin/activate
+export TORCH_HOME=/workspace/deepguard-runtime/torch
+export MPLCONFIGDIR=/workspace/deepguard-runtime/matplotlib
+# Once authorized videos and the labeled, grouped manifest exist:
+deepguard train data/manifests/splits.csv
+deepguard robustness
+bash scripts/validate.sh
+```
 
-## Repository map
+Raw owner videos, private manifests and model artifacts are local/ignored. A fresh Git
+clone does not include them or automatically reproduce the owner's trained model. The
+manifest must retain real/fake pairs and identical content in one split. Filename labels
+were supplied by the owner; benchmark origin and subject identities were not verified.
 
-| Location | Purpose |
+## Design
+
+OpenCV samples frames across the full clip and crops single faces. Official ImageNet
+EfficientNet-B0 features are frozen; a regularized visual classifier is fitted on mean/
+variation features and texture statistics. This is transfer learning, not a claim that
+we fine-tuned the entire neural backbone. Training-only scaling, separate validation,
+calibration and held-out test partitions prevent direct source-pair leakage. Identity/
+donor-disjoint evaluation remains unverified. Temperature scaling is evaluated separately;
+the application displays a raw classifier score, never a guaranteed probability of truth.
+
+## Project map
+
+| Location | Role |
 |---|---|
-| `src/deepguard/` | Data, media, model, training, fusion, evaluation, attribution, reporting and CLI modules |
-| `app/` | Eight-section Streamlit dashboard and theme |
-| `configs/default.yaml` | Reproducible processing and optimization settings |
-| `scripts/` | Setup and validation helpers |
-| `tests/` | Engineering tests; generated fixtures are not dataset benchmarks |
-| `data/` | Local authorized media, manifests and caches, ignored where large/private |
-| `checkpoints/` | Local trained weights and optional landmark asset, ignored |
-| `reports/` | Measured outputs; no invented research results |
-| `experiments/` | Environment and execution records |
+| `app/main.py`, `app/styles/` | Six-page, plain-language interface |
+| `src/deepguard/` | Video decoding, model, training, evaluation, reports and CLI |
+| `configs/default.yaml` | Sampling, size limits and uncertainty thresholds |
+| `data/raw/uploaded/` | Owner's 98 video files; ignored |
+| `data/manifests/`, `data/processed/` | Grouped splits and reusable features; ignored |
+| `checkpoints/visual.json` | Actual fitted visual head; ignored |
+| `reports/results/` | Real held-out predictions, comparisons, exclusions and robustness |
+| `tests/` | Unit, interface, failure-case and actual held-out integration checks |
+| `scripts/` | Reproducible setup, training, checking and startup |
 
-The proposed contribution is **quality- and availability-aware late fusion**. It is a
-testable experimental hypothesis, not a claim of a new state of the art. Synthetic
-engineering fixtures must never be reported as deepfake detection performance.
-
-Temporary upload files are deleted when analysis exits, including exceptions. Extracted
-evidence remains in Streamlit session memory until cleared/disconnected. Dataset caches
-persist intentionally and should only contain licensed research data.
+Read ARCHITECTURE.md, TRAINING_GUIDE.md and REQUIREMENTS_TRACEABILITY.md for implementation
+and scope details. Temporary uploaded files are deleted after analysis. Session previews
+and extracted images remain until cleared or the session ends. The initial implementation
+was AI-assisted; actual human work belongs in TEAM_CONTRIBUTIONS_TEMPLATE.md.

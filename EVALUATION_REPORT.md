@@ -1,46 +1,76 @@
-# Evaluation report
+# Actual video-only evaluation report
 
-**Detection metrics: unavailable.** No authorized dataset, trained detector or held-out
-research predictions exist. This is not zero accuracy, and no example metrics are used
-as measured results. Generated color/sine engineering fixtures are explicitly excluded
-from research reporting.
+## Dataset and separation
 
-The initial engineering suite ran `pytest -q`: **23 passed in 23.88 seconds**, with 18
-upstream warnings. It checked connected identity/source grouping, duplicate leakage
-logic, modality-label separation, metric known answers, model tensor shapes/gradients,
-audio timestamp windows, synchronization shift/gap representation, genuine FFmpeg
-decoding of generated fixtures, no-audio/corrupt/no-face cases, cache repeatability,
-abstention without weights, HTML escaping and all eight Streamlit pages. Subsequent
-expanded runs and exact outcomes are recorded in PROJECT_STATUS.
+The owner supplied 98 user-labeled videos, 49 per class. Structural probing passed for
+all 98; file content hashes were unique. Filename-related originals/derivatives remain
+in one source group. Seed 42 fixes 58 train, 12 validation, 12 calibration and 16 test
+inputs. Identity/donor metadata was absent: this is **not a certified identity-disjoint
+or externally sourced benchmark**. Dataset origin and labels were not independently verified.
 
-## Planned real evaluation
+Quality filtering retained 73 videos: 42 train, 9 validation, 12 calibration,
+10 test. All 25 excluded videos and reasons are in reports/results/excluded.csv. The
+reserved test denominator remains 16; exclusion is not success. Coverage is 62.5%.
 
-Run TRAINING_GUIDE commands only with audited data. Each prediction CSV records file,
-label, split, logit, score and forward time. Sidecars record checkpoint and manifest
-hashes, model size and coverage. `evaluate` accepts only explicit held-out test rows and
-refuses to compare raw sync mismatch to overall fake labels. Metrics JSON and curves
-come from those predictions. Baseline results similarly retain file-level predictions.
+## Primary result: raw visual classifier score at a fixed 0.5 threshold
 
-Accuracy is fraction correct; precision is correctness among predicted fakes; recall is
-fake detection rate; F1 balances precision/recall. ROC-AUC measures ranking across
-thresholds; PR-AUC integrates the precision–recall curve and differs from average
-precision (both are named separately). Confusion matrices use rows=true and columns=
-predicted with 0=real,1=fake. FPR is false fake alarms among real media; FNR is missed
-fakes among fake media. Balanced accuracy averages class recalls. Brier score measures
-squared probability error; ECE compares observed frequency and scores in ten equal-width
-bins. Undefined single-class ROC/PR AUC is null, never silently reported as perfect.
+| Metric | Actual measured value |
+|---|---|
+| Evaluated videos / source groups | 10 / 5 |
+| Accuracy / balanced accuracy | 60.0% / 60.0% |
+| Precision / recall / F1 | 0.600 / 0.600 / 0.600 |
+| ROC-AUC | 0.800 |
+| PR-AUC (trapezoid) | 0.846 |
+| Average precision (distinct metric) | 0.858 |
+| False positive / false negative rate | 40.0% / 40.0% |
+| Brier score / 10-bin ECE | 0.2828 / 0.3177 |
+| Source-pair bootstrap accuracy interval | 50%–80% |
 
-Group-bootstrap accuracy intervals are available for at least three groups. Generated
-split manifests retain connected-component IDs propagated to prediction tables for
-grouped resampling. Custom manifests lacking these IDs fall back to exact identity-set
-strings; do not describe those as independent subject intervals when sources overlap.
-All confidence intervals depend on sampling assumptions and dataset coverage.
+Confusion matrix, rows=true and columns=predicted, order Real/Fake: [[3, 2], [2, 3]].
+Six correct and four incorrect classifications occurred among ten analyzed test videos.
+Intervals use 1,000 source-pair bootstrap draws and are unstable with only five source
+groups. Subject independence is not established. A high ranking AUC does not erase
+wrong decisions or establish perfect accuracy.
 
-Runtime currently distinguishes forward time in individual predictions from end-to-end
-analysis time. Peak CPU RSS/GPU VRAM profiling and more extensive uncertainty intervals
-remain pending. Model bytes are recorded, not inferred from an architecture name.
+## Fair comparisons
 
-Compare only identical held-out targets with compatible labels. Report exclusions,
-coverage and abstention separately. Do not collapse skipped/missing evidence into correct
-predictions. Cross-dataset and unseen-method studies, calibration before/after comparisons,
-sync offset controls, retrained ablations and robustness curves remain unrun.
+| Model | Held-out accuracy | ROC-AUC |
+|---|---|---|
+| EfficientNet transfer classifier | 60% | 0.80 |
+| texture_logistic | 70% | 0.64 |
+| texture_forest | 60% | 0.56 |
+
+Candidates for the main classifier were chosen using validation only. Baselines used
+training-only features/scaling and the same test sources. We did not switch the deployed
+model to whichever scored best on test. Raw and temperature-scaled outputs are retained
+separately; the small calibration fit did not establish trustworthy confidence. The app
+therefore presents raw scores as scores, not probability of truth.
+
+## Actual upload-route robustness evaluation
+
+| Picture condition | Analyzed / reserved | Accuracy at 0.5 | Clear app answers |
+|---|---|---|---|
+| original | 10/16 | 60% | 9 |
+| compression | 10/16 | 50% | 8 |
+| blur | 10/16 | 70% | 9 |
+| darkness | 10/16 | 60% | 9 |
+
+These are fixed derivatives of held-out source videos, **not independent external data**.
+Compression uses H264 CRF35, blur Gaussian sigma1.2, and darkness brightness -0.12.
+All conditions use unchanged model parameters. Mean complete check time was about
+1.34 seconds on original inputs in this environment. These
+latencies are measurements on short local videos, not guarantees for arbitrary lengths.
+The app also uses an uncertainty band and quality/distance gates; its clear-answer
+coverage/accuracy are reported separately, not substituted for the 0.5 benchmark.
+
+## Reproducible evidence and practical limits
+
+Actual JSON/CSV files, per-file predictions, comparison curves and robustness outputs
+are in reports/results. checkpoints/visual.json is a real fitted 201,871-byte head at
+this run; the frozen official backbone is approximately 21.4 MB. Source and artifact
+hashes are recorded. The full feature extraction/first fit took about 137 seconds;
+a cached refit took about 5.61 seconds.
+
+Unit and integration test success verifies software contracts, not universal unknown-video
+accuracy. Labeled external videos were not supplied or evaluated. This model is suitable
+for demonstrating the workflow and its failures, not for reliable real-world decisions.

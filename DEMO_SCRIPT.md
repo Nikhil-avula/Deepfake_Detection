@@ -1,40 +1,28 @@
-# Ten-minute presentation and honest demonstration
+# Honest ten-minute project demonstration
 
-**0:00–1:00 — Motivation.** Explain manipulated faces versus synthetic voices and why
-one detector can miss the other. Use the abstract's fraud example without claiming the
-tool prevents fraud reliably.
+**0–1 min:** State the updated problem: a user uploads a video and receives visual
+real/fake evidence, with a clear uncertain/unsupported outcome when appropriate.
 
-**1:00–2:00 — Research question.** State the quality/availability-aware fusion hypothesis.
-Explain that a new interface alone is not the research contribution.
+**1–2 min:** Show Start and the three-step workflow. Explain that the system examines
+faces and cannot guarantee authenticity.
 
-**2:00–3:00 — Architecture.** Walk through ARCHITECTURE.md: permission, labels, connected
-splits, four modalities, fusion and separate calibration/test partitions.
+**2–3 min:** Open Our dataset: 49 real-labeled and 49 fake-labeled uploads, grouped source
+pairs, four partitions. Explain unknown origin and unverified identity independence.
 
-**3:00–4:00 — Data and ethics.** Show Dataset Explorer. Currently there are no local
-manifests. Explain FakeAVCeleb approval and why overall labels cannot supervise every
-modality. State the access blocker plainly.
+**3–5 min:** Check a held-out authorized video. Read the actual result, including a wrong
+or uncertain answer if that occurs. Do not choose a training example and call it external.
+Show face samples and download the escaped HTML report.
 
-**4:00–5:00 — Models.** Show Model Information: currently “Model not trained”. Explain
-EfficientNet, spectrogram CNN, frozen-embedding LSTM and the learned alignment task.
+**5–6 min:** Try a non-face or damaged file to demonstrate safe refusal rather than a
+fabricated prediction. Clear retained session evidence.
 
-**5:00–6:30 — Software behavior.** Launch Streamlit with the README command. Upload an
-authorized local video if available, or describe the generated decoding fixture as a
-software check. No checkpoint means no real/fake prediction; show this refusal honestly.
-Do not stage a synthetic fixture as a real research example.
+**6–8 min:** Open How reliable is it?: actual 60% accuracy on 10 analyzed held-out videos,
+62.5% coverage over the 16 reserved inputs, errors and unstable small-source intervals.
+Show baseline comparison and measured picture-quality changes. Do not hide errors.
 
-**6:30–7:30 — Evidence and report.** If a real upload was analyzed, show actual extracted
-frames/spectrogram, missing-face/audio warnings and downloadable HTML. No Grad-CAM or
-sync score is shown without the relevant trained model/asset.
+**8–9 min:** Explain frozen EfficientNet features, a genuinely trained classifier head,
+train-only scaling and independent validation/calibration/test partitions.
 
-**7:30–8:30 — Verification.** Show PROJECT_STATUS and the actual saved pytest summary.
-Explain that engineering tests differ from held-out detection metrics. Research
-Laboratory currently contains no benchmark results.
-
-**8:30–9:30 — Experimental plan.** Explain reserved fusion/calibration partitions,
-unseen-method testing, external visual/audio tests, ablations and paired degradation.
-Use planned commands, never present them as completed runs.
-
-**9:30–10:00 — Limitations and next step.** Permission and landmark asset access first,
-then audited metadata, genuine training and evaluation. Conclude with the research
-question, not a fabricated accuracy claim. After actual experiments, update this script
-with the exact artifact paths and verified results rather than illustrative numbers.
+**9–10 min:** Explain limitations and next experiments: more licensed independent sources,
+verified subject/donor grouping, stronger face detection and external evaluation. A
+working interface and passing software tests do not establish correct unknown-video detection.

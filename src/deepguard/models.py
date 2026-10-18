@@ -1,112 +1,62 @@
-"""Trainable visual, audio, temporal and audio-visual synchronization networks."""
+"""Frozen ImageNet EfficientNet-B0 features and a genuinely fitted visual head."""
 from __future__ import annotations
+import hashlib
+import json
+from pathlib import Path
+import numpy as np
 import torch
 from torch import nn
-from torch.nn import functional as F
-from torchvision.models import efficientnet_b0, EfficientNet_B0_Weights
+from torchvision.models import efficientnet_b0,EfficientNet_B0_Weights
+from .media import texture_features
+from .utils import sha256,write_json
 
 
-class Visual(nn.Module):
-    def __init__(self, pretrained: bool = False):
+class FaceEncoder(nn.Module):
+    def __init__(self,pretrained: bool=True):
         super().__init__()
-        self.encoder = efficientnet_b0(weights=EfficientNet_B0_Weights.DEFAULT if pretrained else None)
-        self.encoder.classifier = nn.Identity()
-        self.head = nn.Linear(1280, 1)
+        self.network=efficientnet_b0(weights=EfficientNet_B0_Weights.DEFAULT if pretrained else None)
+        if pretrained:
+            asset=Path(torch.hub.get_dir())/"checkpoints/efficientnet_b0_rwightman-7f5810bc.pth"
+            if sha256(asset)!="7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934":
+                raise ValueError("The cached official backbone failed integrity verification.")
+        self.network.classifier=nn.Identity()
+        self.eval()
 
-    def embed(self, x: torch.Tensor) -> torch.Tensor:
-        # Inputs are RGB in [0,1]; use pretrained ImageNet normalization consistently.
-        mean = x.new_tensor([.485, .456, .406])[None, :, None, None]
-        std = x.new_tensor([.229, .224, .225])[None, :, None, None]
-        return self.encoder((x - mean) / std)
+    def forward(self,x: torch.Tensor) -> torch.Tensor:
+        mean=x.new_tensor([.485,.456,.406])[None,:,None,None]
+        std=x.new_tensor([.229,.224,.225])[None,:,None,None]
+        return self.network((x-mean)/std)
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        return self.head(self.embed(x)).squeeze(-1)
-
-
-class Audio(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.encoder = nn.Sequential(nn.Conv2d(1, 16, 3, padding=1), nn.ReLU(), nn.MaxPool2d(2),
-                                     nn.Conv2d(16, 32, 3, padding=1), nn.ReLU(), nn.MaxPool2d(2),
-                                     nn.Conv2d(32, 64, 3, padding=1), nn.ReLU(), nn.AdaptiveAvgPool2d(1), nn.Flatten())
-        self.head = nn.Linear(64, 1)
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        return self.head(self.encoder(x)).squeeze(-1)
+    def encode(self,faces: np.ndarray,batch: int=8) -> np.ndarray:
+        if len(faces)==0:raise ValueError("No face crops available")
+        x=torch.from_numpy(faces).permute(0,3,1,2).float()/255
+        with torch.inference_mode():return torch.cat([self(p) for p in x.split(batch)]).numpy()
 
 
-class Temporal(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.rnn = nn.LSTM(1280, 128, batch_first=True)
-        self.head = nn.Linear(128, 1)
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        _, (hidden, _) = self.rnn(x)
-        return self.head(hidden[-1]).squeeze(-1)
+def aggregate(embeddings: np.ndarray,faces: np.ndarray) -> np.ndarray:
+    return np.r_[embeddings.mean(0),embeddings.std(0),texture_features(faces)].astype(np.float32)
 
 
-class Synchronizer(nn.Module):
-    """Learn an aligned-pair vs time-shifted-pair task; NOT a deepfake classifier.
-
-    Five frames and five audio windows encode local dynamics in a two-stream model.
-    Training uses real face/real audio only; offsets are generated within a recording.
-    """
-    def __init__(self):
-        super().__init__()
-        self.mouth = nn.Sequential(nn.Conv3d(3, 16, (3, 3, 3), padding=1), nn.ReLU(),
-                                   nn.MaxPool3d((1, 2, 2)), nn.Conv3d(16, 32, 3, padding=1),
-                                   nn.ReLU(), nn.AdaptiveAvgPool3d(1), nn.Flatten(), nn.Linear(32, 64))
-        self.audio = nn.Sequential(nn.Conv3d(1, 16, 3, padding=1), nn.ReLU(),
-                                   nn.AdaptiveAvgPool3d((1, 8, 8)), nn.Flatten(), nn.Linear(1024, 64))
-        self.log_scale = nn.Parameter(torch.tensor(1.))
-        self.bias = nn.Parameter(torch.tensor(0.))
-
-    def forward(self, mouth: torch.Tensor, audio: torch.Tensor) -> torch.Tensor:
-        similarity = F.cosine_similarity(self.mouth(mouth), self.audio(audio))
-        return similarity * self.log_scale.exp().clamp(max=100) + self.bias
+def cache_key(path: str | Path,cfg: dict) -> str:
+    feature_cfg={k:cfg[k] for k in ["frames","image_size","max_duration","max_upload_mb","max_pixels","min_faces","min_face_fraction","max_multiple_fraction","min_sharpness"]}
+    return sha256(path)+"-"+hashlib.sha256(json.dumps(feature_cfg,sort_keys=True).encode()).hexdigest()[:16]
 
 
-class Fusion(nn.Module):
-    def __init__(self):
-        super().__init__()
-        # Four probabilities, four quality measures, four availability masks.
-        self.net = nn.Sequential(nn.Linear(12, 16), nn.ReLU(), nn.Dropout(.1), nn.Linear(16, 1))
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        return self.net(x).squeeze(-1)
+def predict_head(features: np.ndarray,head: dict,calibrated: bool=True) -> np.ndarray:
+    from scipy.special import expit
+    x=np.atleast_2d(features)
+    logits=((x-np.asarray(head["mean"]))/np.asarray(head["scale"])) @ np.asarray(head["coef"])+head["intercept"]
+    return expit(logits/(head.get("temperature",1.) if calibrated else 1.))
 
 
-def make_model(kind: str, pretrained: bool = False) -> nn.Module:
-    constructors = {"visual": lambda: Visual(pretrained), "audio": Audio,
-                    "temporal": Temporal, "sync": Synchronizer, "fusion": Fusion}
-    if kind not in constructors:
-        raise ValueError(f"Unknown model kind: {kind}")
-    return constructors[kind]()
-
-
-def load_checkpoint(path: str, device: str = "cpu") -> tuple[nn.Module, dict]:
-    # No pickle fallback: checkpoint format restricted to tensors and primitives.
-    checkpoint = torch.load(path, map_location=device, weights_only=True)
-    if checkpoint.get("schema") != 1 or checkpoint.get("trained_samples", 0) < 1:
-        raise ValueError("Missing training provenance; refusing checkpoint")
-    model = make_model(checkpoint["kind"]).to(device)
-    model.load_state_dict(checkpoint["state_dict"])
-    model.eval()
-    return model, checkpoint
-
-
-def reliability_fusion(probabilities: torch.Tensor, quality: torch.Tensor,
-                       available: torch.Tensor) -> torch.Tensor:
-    """Quality-weighted log-odds; hypotheses about quality must be evaluated."""
-    weights = quality.clamp(0, 1) * available
-    if torch.any(weights.sum(-1) <= 0):
-        raise ValueError("Insufficient Evidence")
-    logits = torch.logit(probabilities.clamp(.0001, .9999))
-    return torch.sigmoid((weights * logits).sum(-1) / weights.sum(-1))
-
-
-def disagreement(probabilities: dict[str, float]) -> float | None:
-    if "visual" not in probabilities or "audio" not in probabilities:
-        return None
-    return abs(probabilities["visual"] - probabilities["audio"])
+def load_head(path: str | Path) -> dict:
+    head=json.loads(Path(path).read_text())
+    if head.get("schema")!=2 or head.get("kind")!="visual" or head.get("training_videos",0)<1:
+        raise ValueError("This is not a trained video-only model artifact.")
+    size=len(head.get("coef",[]))
+    arrays=[np.asarray(head[k],dtype=float) for k in ["mean","scale","coef"]]
+    if size!=2568 or any(a.shape!=(size,) or not np.isfinite(a).all() for a in arrays) or (arrays[1]<=0).any():
+        raise ValueError("Invalid visual classifier parameters.")
+    if not np.isfinite(head["intercept"]) or not .05<=head.get("temperature",1.)<=20:
+        raise ValueError("Invalid model calibration parameters.")
+    return head

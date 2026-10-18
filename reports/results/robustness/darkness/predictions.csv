@@ -1,0 +1,17 @@
+file,label,source_group,condition,decision,fake_score,seconds,unfamiliar_features,reason
+0001.mp4,0,0001,darkness,Likely fake,0.9753322871824888,1.694975118007278,False,
+0001_fake.mp4,1,0001,darkness,Likely fake,0.9997979409857529,1.8515702320000855,False,
+0002.mp4,0,0002,darkness,Cannot analyze,,1.184777442002087,False,Too many frames contain several faces. Please use a single-person video.
+0002_fake.mp4,1,0002,darkness,Cannot analyze,,1.2961401539942017,False,Too many frames contain several faces. Please use a single-person video.
+0008.mp4,0,0008,darkness,Cannot analyze,,1.6878637140034698,False,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
+0008_fake.mp4,1,0008,darkness,Cannot analyze,,1.9328208780061686,False,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
+0013.mp4,0,0013,darkness,Likely real,0.010439694527987622,1.64271338499384,False,
+0013_fake.mp4,1,0013,darkness,Likely real,0.2399207523169957,1.5310412449907744,False,
+0014.mp4,0,0014,darkness,Likely real,0.03795281313729989,1.537258069991367,False,
+0014_fake.mp4,1,0014,darkness,Likely fake,0.9892754998989348,1.6175264089979464,False,
+0033.mp4,0,0033,darkness,Not sure,0.5848027136217051,1.5168218059989158,False,The result is too close to the decision boundary to give a clear answer.
+0033_fake.mp4,1,0033,darkness,Likely fake,0.9794878089668483,1.834893163992092,False,
+0036.mp4,0,0036,darkness,Likely real,0.005701515621850126,1.011805408008513,False,
+0036_fake.mp4,1,0036,darkness,Likely real,0.04352458426819429,1.1977676870010328,False,
+0047.mp4,0,0047,darkness,Cannot analyze,,1.8070406199985882,False,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
+0047_fake.mp4,1,0047,darkness,Cannot analyze,,1.6817203740065452,False,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.

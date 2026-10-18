@@ -1,61 +1,50 @@
-# Architecture and data flow
+# Video-only architecture
 
 ```mermaid
 flowchart TD
- A[Authorized media and explicit labels] --> B[Inventory and hashes]
- B --> C[Identity/source connected components]
- C --> D[Train / val / fusion / calibration / test]
- D --> E[Bounded FFmpeg and OpenCV processing]
- E --> F[Faces and timestamps]
- E --> G[Audio log-Mel windows]
- E --> H[Landmark mouth and aligned audio windows]
- F --> I[EfficientNet visual model]
- I --> J[Frozen visual embeddings and LSTM]
- G --> K[Audio CNN]
- H --> L[Learned aligned versus shifted pairs]
- I --> M[Quality and availability gates]
- J --> M
- K --> M
- L --> M
- M --> N[Average / weighted log-odds / learned late fusion]
- N --> O[Separate calibration and uncertainty gate]
- O --> P[Evidence dashboard and HTML report]
+ A[Owner-labeled video dataset] --> B[Decode and hash audit]
+ B --> C[Group original/fake pairs and duplicate content]
+ C --> D[Train / validation / calibration / test]
+ D --> E[Uniform whole-video frame samples]
+ E --> F[Single-face crops and quality checks]
+ F --> G[Frozen EfficientNet-B0 image encoder]
+ G --> H[Video mean and variation plus texture]
+ H --> I[Training-only scaling and fitted classifier]
+ I --> J[Score and uncertainty gates]
+ J --> K[Plain-language result and HTML report]
 ```
 
-`data.py` validates label and provenance metadata. `split_manifest` uses union-find:
-if two files share any identity/source, directly or through another derivative, they
-remain together. This can produce a giant component and infeasible splits; collecting
-better metadata or changing the study design is preferable to leakage. Group allocation
-is seeded but not class-stratified; audit class counts and do not train single-class
-partitions. Duplicate-content hashes are grouped by the CLI.
+`data.py` preserves owner labels, hashes inputs, probes media and splits filename-related
+source pairs. All byte-identical copies are grouped; conflicting identical labels fail.
+The grouping does not certify person/donor independence because those metadata were not
+provided. The seed and split membership are fixed before final evaluation.
 
-`media.py` probes duration, codec, FPS, dimensions and audio start offset. It decodes
-frames at configured timestamps, accepts one Haar-detected face, rejects ambiguous
-multiple faces and tracks overlapping boxes. This is a conservative baseline tracker,
-not robust identity recognition. Mouth crops use actual MediaPipe landmarks only when
-the external asset is present. The audio energy gate excludes silence; it is **not** a
-validated speech VAD. Log-Mel values use a fixed range without test-set fitting.
+`media.py` validates size, duration, dimensions and video frame rate. Sixteen timestamps
+cover the entire clip. Haar detection accepts one face per sample and skips ambiguous
+frames. More than a quarter of sampled frames with several faces, insufficient faces,
+or median sharpness below the configured gate causes abstention. The detector is a
+limited baseline: false/missed boxes and pose sensitivity remain known risks.
 
-Visual and audio models optimize video-level average logits over frames/segments.
-Temporal learning freezes the trained visual encoder and rejects gaps. The synchronizer
-uses 3D convolution streams over five mouth frames and five time-aligned Mel windows.
-Its positive pairs are real/real; negative pairs shift audio within the same recording.
-No heuristic mouth score substitutes for this model. A model must still demonstrate
-offset discrimination on held-out genuine speech before its evidence is scientifically
-useful.
+`models.py` loads verified official ImageNet EfficientNet-B0 parameters. Its 1,280-wide
+frame embeddings are summarized by mean and standard deviation; eight texture features
+produce a 2,568-dimensional video representation. A fitted standardized logistic head
+is stored as safe JSON. Filename, class name and file-size metadata are never model
+features. The backbone is frozen; the head is genuinely trained on owner media.
 
-Fusion fits regularized logistic regression on twelve features: four modality scores,
-four quality measures and four availability bits. Missing scores have a neutral numeric
-placeholder **with availability zero**, never a fabricated reported prediction. Sync
-scores enter learned fusion as alignment evidence; direct averaging and weighted
-log-odds exclude sync because mismatch is not a fake class label.
+`training.py` selects regularization using validation only, fits temperature on a
+separate calibration split, evaluates raw/scaled scores and two simpler baselines, and
+records all predictions and exclusions. Cached features make repeat runs inexpensive.
+`evaluation.py` produces real metrics, source-group bootstrap intervals and curves.
+`experiments.py` tests the same held-out inputs through actual inference and fixed visual
+changes. These are robustness derivatives, not a new external dataset.
 
-`inference.py` rejects incompatible settings and encoder/fusion hashes. Only calibrated
-learned fusion can issue a final classification, and intermediate scores remain labeled
-as model evidence. Quality and disagreement can force abstention. Thresholds are
-provisional policy values requiring validation, not measured safety guarantees.
+`inference.py` refuses inadequate faces/media, returns a raw model score, and uses a
+predeclared uncertainty band plus a heuristic feature-distance gate. It recognizes exact
+training-file hashes only to warn about nonindependent demos; that lookup never changes
+the predicted score. Unknown-source accuracy is not established. `reporting.py` escapes
+untrusted text in portable HTML reports.
 
-`app/main.py` exposes eight navigation sections, caches models by file modification
-version, deletes temporary media and retains evidence only in session memory. No external
-APIs or inference credentials are needed. Structured JSON, CSV and plots form local
-experiment tracking without an additional database service.
+`app/main.py` has six pages: Start, Check a video, Your result, How reliable is it?, Our
+dataset, About this project. Models are cached by checkpoint modification version.
+Temporary disk uploads are removed even after exceptions. Clear video and result resets
+session evidence and the uploader. No remote inference service is required.

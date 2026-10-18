@@ -1,0 +1,13 @@
+{
+  "files": 98,
+  "bytes": 154505158,
+  "class_counts": {
+    "0": 49,
+    "1": 49
+  },
+  "corrupt_files": 0,
+  "unique_hashes": 98,
+  "dataset_origin": "Not verified; no named benchmark provenance claimed",
+  "grouping": "Matching filename stems are conservatively treated as related originals/derivatives",
+  "identity_disjoint": "Not verified; identity/donor metadata was not supplied"
+}

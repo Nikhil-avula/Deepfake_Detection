@@ -1,13 +1,13 @@
-# Actual team contributions
+# Record actual team contributions
 
-This initial implementation was AI-assisted through Codex. Do not attribute its creation
-or unrun experiments to a human teammate. Each person should record their actual work,
-review, understanding and reproducible evidence, following institutional AI-use policy.
+The initial implementation and video-only revision were AI-assisted through Codex.
+Human members must record work they personally performed, reviewed and can explain.
+Do not fabricate training runs, human authorship, dataset permission or accuracy.
 
-| Member | Dates | Work personally performed | Files/commits | Commands/results reviewed | Explanation responsibility |
+| Member | Dates | Actual work | Files/commits | Verified commands/artifacts | Explanation responsibility |
 |---|---|---|---|---|---|
-| To be filled by team | | | | | |
+| Fill with actual team member | | | | | |
 
-Record dataset permission holder, license review, metadata audit, training operator,
-evaluation reviewer and presentation owner only after the work happens. Keep mistakes
-and corrections in EXPERIMENT_LOG rather than inventing a seamless research history.
+Record who verified dataset permission/labels, reviewed grouping, ran training,
+checked evaluation failures, reviewed UI accessibility and presented the limitations.
+Follow the institution's policy for disclosing AI assistance.

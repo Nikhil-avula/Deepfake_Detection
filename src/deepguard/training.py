@@ -1,253 +1,125 @@
-"""Video-level training, fixed-encoder temporal training and genuine pair sync tasks."""
+"""Train a small-data visual classifier with independent validation/calibration/test sets."""
 from __future__ import annotations
-import copy
 import json
 import logging
 import time
 from pathlib import Path
 import numpy as np
 import pandas as pd
-import torch
-from torch import nn
-from .data import assert_no_leakage, read_manifest
-from .media import preprocess, handcrafted
-from .models import make_model, load_checkpoint
-from .utils import seed_all, sha256, provenance, write_json
-from .evaluation import evaluate, fit_temperature
+from scipy.special import logit
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from .media import sample_video
+from .models import FaceEncoder,aggregate,cache_key,predict_head
+from .data import assert_no_leakage
+from .evaluation import score,evaluate,temperature
+from .utils import seed_all,sha256,write_json,provenance
 
-LOG = logging.getLogger(__name__)
-
-
-def tensors(features: dict, device: str = "cpu") -> tuple[torch.Tensor, torch.Tensor]:
-    faces = torch.as_tensor(features["faces"], device=device).float().permute(0, 3, 1, 2)/255
-    audio = torch.as_tensor(features["audio_mels"], device=device).float()
-    return faces, audio[:, None] if audio.ndim == 3 else audio
+LOG=logging.getLogger(__name__)
 
 
-def sync_inputs(features: dict, device: str = "cpu", offset: int = 0) -> tuple[torch.Tensor, torch.Tensor] | None:
-    mouths, audio, times = features["mouths"], features["sync_mels"], features["sync_times"]
-    count = len(mouths)
-    starts = [i for i in range(max(0, -offset), count - 4 - max(0, offset), 5)
-              if np.diff(times[i:i+5]).max(initial=0) <= .35]
-    if not starts:
-        return None
-    m = np.stack([mouths[i:i+5] for i in starts])
-    a = np.stack([audio[i+offset:i+offset+5] for i in starts])
-    return (torch.as_tensor(m, device=device).float().permute(0, 4, 1, 2, 3)/255,
-            torch.as_tensor(a, device=device).float()[:, None])
-
-
-def predict_logit(model: nn.Module, kind: str, features: dict, device: str,
-                  encoder: nn.Module | None = None, augment: bool = False) -> torch.Tensor | None:
-    faces, audio = tensors(features, device)
-    if kind in {"visual", "temporal"} and len(faces) < (8 if kind == "temporal" else 1):
-        return None
-    if kind == "visual":
-        if augment:
-            if torch.rand(()) < .5:
-                faces = faces.flip(-1)
-            faces = (faces * (1 + (torch.rand((), device=device)-.5)*.2)).clamp(0, 1)
-        # Chunk to bound CPU/GPU memory, average frame logits at video level.
-        return torch.cat([model(part) for part in faces.split(8)]).mean()
-    if kind == "audio":
-        if not len(audio):
-            return None
-        if augment:
-            audio = (audio + torch.randn_like(audio)*.02).clamp(0, 1)
-        return model(audio).mean()
-    if kind == "temporal":
-        if encoder is None:
-            raise ValueError("Temporal model requires the trained visual encoder")
-        gaps = np.diff(features["times"])
-        if gaps.max(initial=0) > .35:
-            return None
-        with torch.no_grad():
-            embeddings = torch.cat([encoder.embed(part) for part in faces.split(8)])
-        return model(embeddings[None]).mean()
-    if kind == "sync":
-        inputs = sync_inputs(features, device)
-        return -model(*inputs).mean() if inputs else None  # mismatch logit
-    raise ValueError(f"Unsupported modality: {kind}")
-
-
-def label_column(kind: str) -> str:
-    return "audio_label" if kind == "audio" else "visual_label" if kind in {"visual", "temporal"} else "label"
-
-
-def train(manifest: str, kind: str, cfg: dict, output: str, visual_checkpoint: str | None = None,
-          landmark_asset: str | None = None) -> None:
-    seed_all(cfg["seed"])
-    frame = read_manifest(manifest)
-    if "split" not in frame:
-        raise ValueError("Create identity/source splits first")
+def prepare_features(manifest: str,cfg: dict,cache: str="data/processed") -> pd.DataFrame:
+    seed_all(cfg["seed"],cfg["threads"])
+    frame=pd.read_csv(manifest,keep_default_na=False,dtype={"source_group":str})
     assert_no_leakage(frame)
-    device = cfg["device"]
-    if device.startswith("cuda") and not torch.cuda.is_available():
-        raise ValueError("CUDA requested but unavailable")
-    if kind == "sync" and not landmark_asset:
-        raise ValueError("Sync training needs a licensed FaceLandmarker asset; see DATASET_GUIDE")
-    encoder = None
-    if kind == "temporal":
-        if not visual_checkpoint:
-            raise ValueError("Train visual model before temporal training")
-        encoder, meta = load_checkpoint(visual_checkpoint, device)
-        if meta["kind"] != "visual":
-            raise ValueError("Expected visual checkpoint")
-        if meta["manifest_sha256"] != sha256(manifest):
-            raise ValueError("Encoder must use the same split manifest")
-    model = make_model(kind, cfg.get("pretrained", False)).to(device)
-    optimizer = torch.optim.AdamW(model.parameters(), lr=cfg["learning_rate"], weight_decay=.0001)
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=2)
-    parts: dict[str, list] = {"train": [], "val": []}
-    col = label_column(kind)
-    for _, row in frame[frame.split.isin(parts)].iterrows():
-        if kind == "sync":
-            if row.visual_label != 0 or row.audio_label != 0:
-                continue
-        elif row[col] < 0:
-            continue
-        f = preprocess(row.path, cfg, "data/processed", landmark_asset)
-        with torch.no_grad():
-            valid = sync_inputs(f, device, 5) is not None if kind == "sync" else predict_logit(model.eval(), kind, f, device, encoder) is not None
-        if valid:
-            parts[row.split].append((f, int(row[col])))
-    for part, rows in parts.items():
-        if not rows or (kind != "sync" and len({y for _, y in rows}) < 2):
-            raise ValueError(f"{part} needs usable media from both classes (real pairs for sync)")
-    positive = sum(y for _, y in parts["train"])
-    weight = 1. if kind == "sync" else (len(parts["train"])-positive)/positive
-    criterion = nn.BCEWithLogitsLoss(pos_weight=torch.tensor(weight, device=device))
-    best, stale, history, state = float("inf"), 0, [], None
-    start = time.perf_counter()
-    for epoch in range(cfg["epochs"]):
-        losses = {}
-        for part, rows in parts.items():
-            model.train(part == "train")
-            order = np.random.permutation(len(rows)) if part == "train" else range(len(rows))
-            values = []
-            for index in order:
-                f, y = rows[index]
-                with torch.set_grad_enabled(part == "train"):
-                    if kind == "sync":
-                        paired = sync_inputs(f, device)
-                        shifted = sync_inputs(f, device, 5)
-                        a, b = model(*paired), model(*shifted)
-                        logits = torch.cat([a, b])
-                        target = torch.cat([torch.ones_like(a), torch.zeros_like(b)])
-                    else:
-                        logits = predict_logit(model, kind, f, device, encoder, part == "train" and cfg["augment"]).view(1)
-                        target = logits.new_tensor([y])
-                    loss = criterion(logits, target)
-                    if part == "train":
-                        optimizer.zero_grad()
-                        loss.backward()
-                        nn.utils.clip_grad_norm_(model.parameters(), 5)
-                        optimizer.step()
-                    values.append(loss.item())
-            losses[part] = float(np.mean(values))
-        scheduler.step(losses["val"])
-        history.append({"epoch": epoch+1, **losses})
-        LOG.info("Epoch %s %s", epoch+1, losses)
-        if losses["val"] < best:
-            best, stale, state = losses["val"], 0, copy.deepcopy(model.state_dict())
+    encoder=None; rows=[];folder=Path(cache);folder.mkdir(parents=True,exist_ok=True)
+    for i,(_,row) in enumerate(frame.iterrows()):
+        record=row.to_dict();path=folder/(cache_key(row.path,cfg)+".npz")
+        started=time.perf_counter()
+        if path.exists():
+            with np.load(path,allow_pickle=False) as f:
+                usable=bool(f["usable"]);reason=str(f["reason"]);count=len(f["faces"])
         else:
-            stale += 1
-        if stale >= cfg["patience"]:
-            break
-    if state is None:
-        raise ValueError("No finite validation checkpoint produced")
-    metadata = {"schema": 1, "kind": kind, "state_dict": state, "config": cfg,
-                "trained_samples": len(parts["train"]), "validation_samples": len(parts["val"]),
-                "manifest_sha256": sha256(manifest), "provenance": provenance(),
-                "temperature": 1., "calibrated": False,
-                "visual_checkpoint_sha256": sha256(visual_checkpoint) if visual_checkpoint else None,
-                "landmark_sha256": sha256(landmark_asset) if landmark_asset else None,
-                "label_semantics": "alignment (negative logit is mismatch)" if kind == "sync" else col}
-    Path(output).parent.mkdir(parents=True, exist_ok=True)
-    torch.save(metadata, output)
-    write_json(str(output)+".history.json", {"epochs": history, "seconds": time.perf_counter()-start,
-                                            "trained_samples": len(parts["train"]), "config": cfg})
-
-
-def baseline(manifest: str, cfg: dict, output: str) -> None:
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.ensemble import RandomForestClassifier
-    from sklearn.impute import SimpleImputer
-    from sklearn.preprocessing import StandardScaler
-    from sklearn.pipeline import make_pipeline
-    from xgboost import XGBClassifier
-    import pickle
-    seed_all(cfg["seed"])
-    frame = read_manifest(manifest)
-    assert_no_leakage(frame)
-    x = np.stack([handcrafted(preprocess(p, cfg, "data/processed")) for p in frame.path])
-    train_mask, test_mask = (frame.split == "train").to_numpy(), (frame.split == "test").to_numpy()
-    if len(np.unique(frame.label[train_mask])) < 2 or not test_mask.any():
-        raise ValueError("Both training classes and held-out test files required")
-    models = {"logistic": LogisticRegression(class_weight="balanced", max_iter=1000, random_state=cfg["seed"]),
-              "forest": RandomForestClassifier(n_estimators=200, class_weight="balanced", random_state=cfg["seed"], n_jobs=4),
-              "xgboost": XGBClassifier(n_estimators=200, max_depth=4, random_state=cfg["seed"], n_jobs=4,
-                                       scale_pos_weight=float((frame.label[train_mask]==0).sum()/max(1,(frame.label[train_mask]==1).sum())))}
-    for name, classifier in models.items():
-        model = make_pipeline(SimpleImputer(), StandardScaler(), classifier)
-        model.fit(x[train_mask], frame.label[train_mask])
-        p = model.predict_proba(x[test_mask])[:, 1]
-        folder = Path(output)/name
-        result = evaluate(frame.label[test_mask].to_numpy(), p, str(folder),
-                          frame.loc[test_mask,"group_id"].to_numpy() if "group_id" in frame else None)
-        pd.DataFrame({"path": frame.path[test_mask], "label": frame.label[test_mask], "probability": p}).to_csv(folder/"predictions.csv", index=False)
-        # Local research artifact only; never accept uploaded pickle models.
-        with (folder/"model.pkl").open("wb") as handle:
-            pickle.dump(model, handle)
-        write_json(folder/"provenance.json", {"manifest_sha256": sha256(manifest), "config": cfg, **provenance()})
-
-
-def predict_manifest(manifest: str, checkpoint: str, output: str, split: str = "test",
-                     visual_checkpoint: str | None = None, landmark_asset: str | None = None) -> None:
-    frame = read_manifest(manifest)
-    assert_no_leakage(frame)
-    model, meta = load_checkpoint(checkpoint)
-    seed_all(meta["config"]["seed"])
-    kind = meta["kind"]
-    encoder = load_checkpoint(visual_checkpoint)[0] if visual_checkpoint else None
-    if kind == "temporal" and (not visual_checkpoint or sha256(visual_checkpoint) != meta["visual_checkpoint_sha256"]):
-        raise ValueError("Temporal encoder checksum mismatch")
-    rows = []
-    for _, row in frame[frame.split == split].iterrows():
-        f = preprocess(row.path, meta["config"], "data/processed", landmark_asset)
-        t = time.perf_counter()
-        with torch.no_grad():
-            value = predict_logit(model, kind, f, "cpu", encoder)
-        if value is None:
-            continue
-        probability = torch.sigmoid(value/meta["temperature"]).item()
-        record = {"path": row.path, "label": int(row[label_column(kind)]), "overall_label": int(row.label),
-                  "probability": probability, "logit": value.item(), "split": split,
-                  "seconds": time.perf_counter()-t, "identities": row.identities,
-                  "group_id": row.get("group_id", row.identities),
-                  "quality": float(f["audio_quality"] if kind == "audio" else f["visual_quality"])}
+            media=sample_video(row.path,cfg)
+            usable=media["usable"];reason=" ".join(media["reasons"]);count=len(media["faces"])
+            if count:
+                if encoder is None:encoder=FaceEncoder()
+                embeddings=encoder.encode(media["faces"],cfg["batch_size"])
+                features=aggregate(embeddings,media["faces"])
+            else:embeddings=np.empty((0,1280));features=np.zeros(2568,dtype=np.float32)
+            np.savez_compressed(path,features=features,embeddings=embeddings,faces=media["faces"],times=media["times"],
+                sharpness=media["sharpness"],sizes=media["sizes"],usable=np.asarray(usable),reason=np.asarray(reason))
+        record.update(feature_path=str(path.resolve()),usable=usable,face_crops=count,quality_reason=reason,
+                      preprocessing_seconds=time.perf_counter()-started)
         rows.append(record)
-    if not rows:
-        raise ValueError("No usable predictions executed")
-    Path(output).parent.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame(rows).to_csv(output, index=False)
-    write_json(output+".meta.json", {"kind": kind, "checkpoint_sha256": sha256(checkpoint),
-                                   "manifest_sha256": sha256(manifest), "split": split,
-                                   "model_bytes": Path(checkpoint).stat().st_size,
-                                   "coverage": len(rows)/max(1, sum(frame.split == split))})
+        LOG.info("Features %d/%d %s: %d face crops, usable=%s",i+1,len(frame),row.file,count,usable)
+    output=pd.DataFrame(rows)
+    output.to_csv(Path(manifest).with_name("prepared.csv"),index=False)
+    return output
 
 
-def calibrate(checkpoint: str, predictions: str, output: str) -> None:
-    table = pd.read_csv(predictions)
-    if set(table.split) != {"calibration"}:
-        raise ValueError("Use the reserved calibration split, not training/validation/test")
-    model, meta = load_checkpoint(checkpoint)
-    if meta["kind"] == "sync":
-        raise ValueError("Sync alignment is not a calibrated deepfake probability")
-    source = json.loads(Path(predictions+".meta.json").read_text())
-    if source["checkpoint_sha256"] != sha256(checkpoint):
-        raise ValueError("Calibration predictions do not belong to checkpoint")
-    temperature = fit_temperature(table.label.to_numpy(), table.logit.to_numpy())
-    payload = torch.load(checkpoint, weights_only=True)
-    payload.update(temperature=temperature, calibrated=True, calibration_sha256=sha256(predictions))
-    torch.save(payload, output)
+def train(manifest: str,cfg: dict,output: str="checkpoints/visual.json",results: str="reports/results") -> dict:
+    started=time.perf_counter();seed_all(cfg["seed"],cfg["threads"])
+    frame=prepare_features(manifest,cfg)
+    usable=frame[frame.usable].copy().reset_index(drop=True)
+    assert_no_leakage(usable)
+    for name in ["train","val","calibration","test"]:
+        if set(usable.loc[usable.split==name,"label"])!={0,1}:raise ValueError(f"Usable {name} videos must include both classes")
+    x=np.stack([np.load(p,allow_pickle=False)["features"] for p in usable.feature_path])
+    y=usable.label.to_numpy()
+    masks={name:(usable.split==name).to_numpy() for name in ["train","val","calibration","test"]}
+    folder=Path(results);folder.mkdir(parents=True,exist_ok=True)
+    choices=[];fitted=[]
+    for c in [.001,.01,.1,1.,10.]:
+        model=make_pipeline(StandardScaler(),LogisticRegression(C=c,class_weight="balanced",max_iter=2000,random_state=cfg["seed"]))
+        model.fit(x[masks["train"]],y[masks["train"]])
+        result=score(y[masks["val"]],model.predict_proba(x[masks["val"]])[:,1])
+        choices.append({"C":c,"validation":result});fitted.append(model)
+    index=max(range(len(choices)),key=lambda i:(choices[i]["validation"]["roc_auc"],-choices[i]["validation"]["brier"]))
+    model=fitted[index];scaler=model[0];clf=model[1]
+    calibration_logits=model.decision_function(x[masks["calibration"]])
+    fitted_temperature=temperature(y[masks["calibration"]],calibration_logits)
+    z=(x-scaler.mean_)/scaler.scale_
+    reference=masks["train"]|masks["val"]
+    distance=np.sqrt(np.mean(z**2,axis=1))
+    threshold=float(np.quantile(distance[reference],.99)*1.5)
+    head={"schema":2,"kind":"visual","problem_statement":"Classify facial visual evidence in an uploaded video as real or manipulated, with uncertainty and limitations.",
+        "architecture":"Frozen ImageNet EfficientNet-B0; video mean/std embeddings plus eight texture statistics; fitted regularized logistic head",
+        "backbone":"EfficientNet_B0_Weights.IMAGENET1K_V1","feature_schema":"mean1280_std1280_texture8",
+        "mean":scaler.mean_.tolist(),"scale":scaler.scale_.tolist(),"coef":clf.coef_[0].tolist(),
+        "intercept":float(clf.intercept_[0]),"temperature":fitted_temperature,"temperature_fitted":True,
+        "calibration_note":"Fitted on a small separate calibration split; not a guarantee of reliable confidence or external accuracy.",
+        "display_score":"uncalibrated classifier score; temperature-scaled variant is evaluated separately",
+        "training_videos":int(masks["train"].sum()),"validation_videos":int(masks["val"].sum()),
+        "calibration_videos":int(masks["calibration"].sum()),"test_videos":int(masks["test"].sum()),
+        "train_hashes":usable.loc[masks["train"],"sha256"].tolist(),
+        "test_hashes":usable.loc[masks["test"],"sha256"].tolist(),
+        "manifest_sha256":sha256(manifest),"config":cfg,"chosen_C":choices[index]["C"],
+        "ood_distance_threshold":threshold,"ood_note":"Heuristic distance gate derived only from train/validation features; not validated out-of-distribution detection.",
+        "provenance":provenance(),"grouping":"filename source pairs; identity/donor independence unverified",
+        "dataset_origin":"User uploads; labels supplied by user; origin/license not independently verified"}
+    write_json(output,head)
+    p=predict_head(x,head,calibrated=False)
+    calibrated_p=predict_head(x,head,calibrated=True)
+    test=masks["test"]
+    measured=evaluate(y[test],p[test],usable.loc[test,"source_group"].to_numpy(),str(folder/"visual"))
+    evaluate(y[test],calibrated_p[test],usable.loc[test,"source_group"].to_numpy(),str(folder/"visual_temperature_scaled"))
+    predictions=usable[["file","label","source_group","split","sha256"]].copy()
+    predictions["fake_score"]=p;predictions["temperature_scaled_score"]=calibrated_p
+    predictions["prediction_at_0_5"]=(p>=.5).astype(int)
+    predictions["feature_distance"]=distance
+    predictions.to_csv(folder/"all_predictions.csv",index=False)
+    predictions[test].to_csv(folder/"heldout_predictions.csv",index=False)
+    comparisons=[{"model":"EfficientNet transfer classifier","test":measured}]
+    # Baselines use texture only and fit all transforms on training rows only.
+    for name,baseline in [("texture_logistic",make_pipeline(StandardScaler(),LogisticRegression(C=.1,class_weight="balanced",max_iter=2000,random_state=42))),
+                          ("texture_forest",RandomForestClassifier(n_estimators=300,max_depth=5,min_samples_leaf=2,class_weight="balanced",random_state=42,n_jobs=4))]:
+        baseline.fit(x[masks["train"],-8:],y[masks["train"]])
+        probs=baseline.predict_proba(x[test,-8:])[:,1]
+        stats=evaluate(y[test],probs,usable.loc[test,"source_group"].to_numpy(),str(folder/name))
+        comparisons.append({"model":name,"test":stats})
+    excluded=frame.loc[~frame.usable,["file","label","split","quality_reason"]]
+    excluded.to_csv(folder/"excluded.csv",index=False)
+    write_json(folder/"model_selection.json",{"selection_split":"val only; test not used for tuning","candidates":choices})
+    write_json(folder/"comparison.json",comparisons)
+    summary={"scope":"video-only visual pilot","received_videos":len(frame),"usable_videos":len(usable),
+        "excluded_videos":len(excluded),"test_total":int((frame.split=="test").sum()),
+        "test_evaluated":int(test.sum()),"test_coverage":float(test.sum()/max(1,(frame.split=="test").sum())),
+        "split_counts":{name:int(mask.sum()) for name,mask in masks.items()},"test_metrics":measured,
+        "seconds_including_preprocessing":time.perf_counter()-started,"head_bytes":Path(output).stat().st_size,
+        "backbone_bytes":(Path(__import__("torch").hub.get_dir())/"checkpoints/efficientnet_b0_rwightman-7f5810bc.pth").stat().st_size,"model_sha256":sha256(output),
+        "limitations":["Small user-labeled dataset","Identity/donor-disjoint splits not verified","External unfamiliar-video accuracy not measured","No perfect accuracy or universal detection claim"]}
+    write_json(folder/"summary.json",summary)
+    return summary

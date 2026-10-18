@@ -1,47 +1,35 @@
 No broken requirements found.
-.............................                                            [100%]
+.................................                                        [100%]
 =============================== warnings summary ===============================
-tests/test_data_metrics.py::test_metric_values_and_plots
-  /workspace/deepguard-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
-    prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
-
-tests/test_data_metrics.py::test_metric_values_and_plots
-tests/test_data_metrics.py::test_metric_values_and_plots
-tests/test_data_metrics.py::test_metric_values_and_plots
-tests/test_data_metrics.py::test_metric_values_and_plots
-tests/test_data_metrics.py::test_metric_values_and_plots
-tests/test_data_metrics.py::test_metric_values_and_plots
-  /workspace/deepguard-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
-    parse = parser.parseString(pattern)
-
-tests/test_data_metrics.py::test_metric_values_and_plots
-tests/test_data_metrics.py::test_metric_values_and_plots
-tests/test_data_metrics.py::test_metric_values_and_plots
-tests/test_data_metrics.py::test_metric_values_and_plots
-tests/test_data_metrics.py::test_metric_values_and_plots
-tests/test_data_metrics.py::test_metric_values_and_plots
-  /workspace/deepguard-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
-    parser.resetCache()
-
-tests/test_data_metrics.py::test_metric_values_and_plots
-  /workspace/deepguard-venv/lib/python3.12/site-packages/matplotlib/_mathtext.py:45: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'
-    ParserElement.enablePackrat()
-
-tests/test_data_metrics.py::test_single_class_auc_is_undefined
+tests/test_metrics.py::test_single_class_auc_is_undefined
   /workspace/deepguard-venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
     warnings.warn(
 
-tests/test_media_app.py::test_real_decode_no_face_no_prediction_cache_and_report
-  /workspace/deepguard-venv/lib/python3.12/site-packages/audioread/rawread.py:16: DeprecationWarning: 'aifc' is deprecated and slated for removal in Python 3.13
-    import aifc
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+  /workspace/deepguard-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
 
-tests/test_media_app.py::test_real_decode_no_face_no_prediction_cache_and_report
-  /workspace/deepguard-venv/lib/python3.12/site-packages/audioread/rawread.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
-    import audioop
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+  /workspace/deepguard-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+    parse = parser.parseString(pattern)
 
-tests/test_media_app.py::test_real_decode_no_face_no_prediction_cache_and_report
-  /workspace/deepguard-venv/lib/python3.12/site-packages/audioread/rawread.py:19: DeprecationWarning: 'sunau' is deprecated and slated for removal in Python 3.13
-    import sunau
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+  /workspace/deepguard-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+    parser.resetCache()
+
+tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
+  /workspace/deepguard-venv/lib/python3.12/site-packages/matplotlib/_mathtext.py:45: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'
+    ParserElement.enablePackrat()
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-29 passed, 18 warnings in 13.22s
+33 passed, 15 warnings in 14.10s

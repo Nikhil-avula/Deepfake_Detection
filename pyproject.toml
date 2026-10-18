@@ -4,13 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "deepguard-ai"
-version = "0.1.0"
-description = "Research tooling for honest multimodal deepfake analysis"
+version = "0.2.0"
+description = "Video-only facial deepfake detection with measured pilot evaluation"
 requires-python = ">=3.11,<3.13"
 dynamic = ["dependencies"]
-
-[project.optional-dependencies]
-landmarks = ["mediapipe==0.10.32"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = "requirements.txt"}
@@ -23,3 +20,4 @@ deepguard = "deepguard.cli:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["real_data: requires the owner's local uploaded videos and trained artifact"]

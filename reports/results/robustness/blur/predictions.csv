@@ -1,0 +1,17 @@
+file,label,source_group,condition,decision,fake_score,seconds,unfamiliar_features,reason
+0001.mp4,0,0001,blur,Likely fake,0.9908266901602346,1.9910743729997193,False,
+0001_fake.mp4,1,0001,blur,Likely fake,0.9993308125680664,2.053672905996791,False,
+0002.mp4,0,0002,blur,Cannot analyze,,1.2340478580008494,False,Too many frames contain several faces. Please use a single-person video.
+0002_fake.mp4,1,0002,blur,Cannot analyze,,1.3760274590022163,False,Too many frames contain several faces. Please use a single-person video.
+0008.mp4,0,0008,blur,Cannot analyze,,1.6975449500023387,False,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
+0008_fake.mp4,1,0008,blur,Cannot analyze,,2.0447301590029383,False,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
+0013.mp4,0,0013,blur,Likely real,0.009749498067288073,1.6482138590072282,False,
+0013_fake.mp4,1,0013,blur,Likely real,0.14828847844022794,2.410145743007888,False,
+0014.mp4,0,0014,blur,Likely real,0.11969954334829319,3.006078874997911,False,
+0014_fake.mp4,1,0014,blur,Likely fake,0.9607445801442631,1.905039539997233,False,
+0033.mp4,0,0033,blur,Not sure,0.43633017608047464,1.6469909209990874,False,The result is too close to the decision boundary to give a clear answer.
+0033_fake.mp4,1,0033,blur,Likely fake,0.980475948836242,1.5829638919967692,False,
+0036.mp4,0,0036,blur,Likely real,0.025261132739893985,1.1079747719923034,False,
+0036_fake.mp4,1,0036,blur,Likely real,0.06173037095248689,0.9338181189959869,False,
+0047.mp4,0,0047,blur,Cannot analyze,,1.7386510159994941,False,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
+0047_fake.mp4,1,0047,blur,Cannot analyze,,1.7040998539887369,False,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.

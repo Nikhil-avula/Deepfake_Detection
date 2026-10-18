@@ -1,0 +1,17 @@
+file,label,source_group,condition,decision,fake_score,seconds,unfamiliar_features,reason
+0001.mp4,0,0001,compression,Likely fake,0.9991683503771022,1.658021547991666,False,
+0001_fake.mp4,1,0001,compression,Likely fake,0.9999619846927333,1.6068163909949362,False,
+0002.mp4,0,0002,compression,Cannot analyze,,0.9682069480040809,False,Too many frames contain several faces. Please use a single-person video.
+0002_fake.mp4,1,0002,compression,Cannot analyze,,0.9504318760009483,False,Too many frames contain several faces. Please use a single-person video.
+0008.mp4,0,0008,compression,Cannot analyze,,1.3759650150022935,False,Too many frames contain several faces. Please use a single-person video.
+0008_fake.mp4,1,0008,compression,Cannot analyze,,1.3072203710034955,False,Too many frames contain several faces. Please use a single-person video.
+0013.mp4,0,0013,compression,Likely real,0.013645474982240688,1.4352717579895398,False,
+0013_fake.mp4,1,0013,compression,Likely real,0.1598215993319595,1.3066620960016735,False,
+0014.mp4,0,0014,compression,Not sure,0.5533854044328932,1.4544507350074127,False,The result is too close to the decision boundary to give a clear answer.
+0014_fake.mp4,1,0014,compression,Likely fake,0.9970648305723839,1.5179329450038495,False,
+0033.mp4,0,0033,compression,Likely fake,0.9343131163068953,1.450027194005088,False,
+0033_fake.mp4,1,0033,compression,Likely fake,0.9974975993047983,1.6074928769958206,False,
+0036.mp4,0,0036,compression,Likely real,0.2729133903953066,0.7796099900006084,False,
+0036_fake.mp4,1,0036,compression,Not sure,0.3610745457082306,0.8151464760012459,False,The result is too close to the decision boundary to give a clear answer.
+0047.mp4,0,0047,compression,Cannot analyze,,1.3277839649963425,False,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
+0047_fake.mp4,1,0047,compression,Cannot analyze,,1.3556077700050082,False,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.

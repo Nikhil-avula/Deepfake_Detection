@@ -1,2 +1,2 @@
-"""DeepGuard AI. Research code; no weights or performance claims are bundled."""
-__version__ = "0.1.0"
+"""DeepGuard: video-only facial deepfake detection research."""
+__version__ = "0.2.0"

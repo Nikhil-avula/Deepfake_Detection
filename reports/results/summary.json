@@ -1,0 +1,56 @@
+{
+  "scope": "video-only visual pilot",
+  "received_videos": 98,
+  "usable_videos": 73,
+  "excluded_videos": 25,
+  "test_total": 16,
+  "test_evaluated": 10,
+  "test_coverage": 0.625,
+  "split_counts": {
+    "train": 42,
+    "val": 9,
+    "calibration": 12,
+    "test": 10
+  },
+  "test_metrics": {
+    "videos": 10,
+    "accuracy": 0.6,
+    "balanced_accuracy": 0.6,
+    "precision": 0.6,
+    "recall": 0.6,
+    "f1": 0.6,
+    "roc_auc": 0.8,
+    "pr_auc": 0.8463095238095237,
+    "average_precision": 0.8583333333333332,
+    "confusion_matrix": [
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "false_positive_rate": 0.4,
+    "false_negative_rate": 0.4,
+    "brier": 0.2827759325109979,
+    "ece": 0.31772407047542506,
+    "source_groups": 5,
+    "accuracy_group_bootstrap_95_ci": [
+      0.5,
+      0.8
+    ],
+    "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
+  },
+  "seconds_including_preprocessing": 5.610273280995898,
+  "head_bytes": 201871,
+  "backbone_bytes": 21444401,
+  "model_sha256": "b7001fcf0d98022f7c9c99e23312236d4f77f65f717c94e0219aa83951cc882c",
+  "limitations": [
+    "Small user-labeled dataset",
+    "Identity/donor-disjoint splits not verified",
+    "External unfamiliar-video accuracy not measured",
+    "No perfect accuracy or universal detection claim"
+  ]
+}

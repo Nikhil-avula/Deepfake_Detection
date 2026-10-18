@@ -1,0 +1,37 @@
+[
+  {
+    "band": 0,
+    "coverage": 1.0,
+    "error_rate": 0.4
+  },
+  {
+    "band": 0.05,
+    "coverage": 0.9,
+    "error_rate": 0.4444444444444444
+  },
+  {
+    "band": 0.1,
+    "coverage": 0.8,
+    "error_rate": 0.375
+  },
+  {
+    "band": 0.15,
+    "coverage": 0.3,
+    "error_rate": 0.3333333333333333
+  },
+  {
+    "band": 0.2,
+    "coverage": 0.1,
+    "error_rate": 0.0
+  },
+  {
+    "band": 0.3,
+    "coverage": 0.0,
+    "error_rate": null
+  },
+  {
+    "band": 0.4,
+    "coverage": 0.0,
+    "error_rate": null
+  }
+]

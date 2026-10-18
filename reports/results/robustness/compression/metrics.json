@@ -1,0 +1,31 @@
+{
+  "videos": 10,
+  "accuracy": 0.5,
+  "balanced_accuracy": 0.5,
+  "precision": 0.5,
+  "recall": 0.6,
+  "f1": 0.5454545454545454,
+  "roc_auc": 0.6399999999999999,
+  "pr_auc": 0.671031746031746,
+  "average_precision": 0.7087301587301587,
+  "confusion_matrix": [
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "false_positive_rate": 0.6,
+  "false_negative_rate": 0.4,
+  "brier": 0.3366322074947332,
+  "ece": 0.42470540060241635,
+  "source_groups": 5,
+  "accuracy_group_bootstrap_95_ci": [
+    0.5,
+    0.5
+  ],
+  "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
+}

@@ -1,22 +1,37 @@
 {
   "visual_head": {
     "path": "checkpoints/visual.json",
-    "sha256": "b05bf9ce5279551b18c6ed07f923d818004d8fcfc5e48ec7d0e2fffc26176edb",
-    "bytes": 201871
+    "sha256": "58b1c05534013c037ab7aa04fd13b298a50d78decddf2479f436923d3695cf5f",
+    "bytes": 2536077
   },
   "backbone": {
     "name": "EfficientNet_B0_Weights.IMAGENET1K_V1",
     "sha256": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934",
     "bytes": 21444401
   },
-  "scope": "video-only visual pilot",
+  "scope": "video-only two-pass visual pilot",
   "test_log": "experiments/validation.txt",
-  "tests_passed": 39,
+  "tests_passed": 63,
   "test_failures": 0,
   "tests_skipped_current_instance": 0,
   "portable_validation": {
-    "passed": 33,
-    "skipped_requires_private_owner_media": 2,
-    "note": "Historical pre-retraining export validation; not rerun for V002"
+    "passed": 58,
+    "skipped_requires_private_owner_media": 5,
+    "failures": 0
+  },
+  "face_detector": {
+    "face_res10.caffemodel": {
+      "sha256": "510ffd2471bd81e3fcc88a5beb4eae4fb445ccf8333ebc54e7302b83f4158a76",
+      "bytes": 5351047
+    },
+    "face_res10.prototxt": {
+      "sha256": "dcd661dc48fc9de0a341db1f666a2164ea63a67265c7f779bc12d6b3f2fa67e9",
+      "bytes": 28104
+    }
+  },
+  "retry_head": {
+    "path": "checkpoints/coverage_retry.json",
+    "sha256": "7e7991782274fab2d24bddc59cd4014440edb0de091593d9bec34d0dfc47b78f",
+    "bytes": 2523608
   }
 }

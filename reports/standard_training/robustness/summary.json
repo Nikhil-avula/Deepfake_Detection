@@ -1,0 +1,42 @@
+[
+  {
+    "Condition": "original",
+    "Reserved videos": 20,
+    "Analyzed": 18,
+    "Coverage": 0.9,
+    "Accuracy at 0.5": 0.7222222222222222,
+    "Clear answers": 12,
+    "Accuracy on clear answers": 0.8333333333333334,
+    "Mean check seconds": 1.1990585637046025
+  },
+  {
+    "Condition": "compression",
+    "Reserved videos": 20,
+    "Analyzed": 17,
+    "Coverage": 0.85,
+    "Accuracy at 0.5": 0.7058823529411765,
+    "Clear answers": 9,
+    "Accuracy on clear answers": 0.8888888888888888,
+    "Mean check seconds": 1.7282926643529208
+  },
+  {
+    "Condition": "blur",
+    "Reserved videos": 20,
+    "Analyzed": 15,
+    "Coverage": 0.75,
+    "Accuracy at 0.5": 0.6666666666666666,
+    "Clear answers": 8,
+    "Accuracy on clear answers": 0.875,
+    "Mean check seconds": 1.7776419373010868
+  },
+  {
+    "Condition": "darkness",
+    "Reserved videos": 20,
+    "Analyzed": 18,
+    "Coverage": 0.9,
+    "Accuracy at 0.5": 0.7777777777777778,
+    "Clear answers": 9,
+    "Accuracy on clear answers": 0.8888888888888888,
+    "Mean check seconds": 1.858213308347331
+  }
+]

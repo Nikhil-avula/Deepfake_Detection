@@ -24,7 +24,7 @@ def prepare_labeled_dataset(manifest: str, output: str, cfg: dict) -> pd.DataFra
     if frame.path.duplicated().any() or frame.file.duplicated().any():
         raise ValueError("Duplicate video paths or filenames in labeled manifest")
     for _,row in frame.iterrows():
-        if not re.fullmatch(r"\d{4}(?:_fake)?\.mp4",row.file):
+        if not re.fullmatch(r"(?:\d{4}(?:_fake)?|v\d+|vs\d+|(?:real_v|fake_vs)\d+_aug_\d+[^/]*)\.mp4",row.file):
             raise ValueError(f"Unexpected uploaded filename: {row.file}")
         if not Path(row.path).is_file() or sha256(row.path)!=row.sha256:
             raise ValueError(f"Missing or changed video: {row.file}")
@@ -33,7 +33,7 @@ def prepare_labeled_dataset(manifest: str, output: str, cfg: dict) -> pd.DataFra
         info=probe(row.path,cfg)
         for key,value in info.items():frame.loc[row.name,key]=value
     # Recompute conservative grouping instead of trusting a supplied group column.
-    frame["source_group"]=frame.file.str.replace(r"(?:_fake)?\.mp4$","",regex=True)
+    frame["source_group"]=[filename_family(name) for name in frame.file]
     conflicts=frame.groupby("sha256").label.nunique().gt(1)
     if conflicts.any():raise ValueError("Identical files have conflicting real/fake labels")
     # Reuploads are receipts, not extra independent training examples.
@@ -42,6 +42,59 @@ def prepare_labeled_dataset(manifest: str, output: str, cfg: dict) -> pd.DataFra
     assert_no_leakage(result)
     Path(output).parent.mkdir(parents=True,exist_ok=True)
     result.to_csv(output,index=False)
+    return result
+
+
+def filename_family(name: str) -> str:
+    """Conservatively group numbered real/fake sources and every augmentation.
+
+    Matching numbers are a possible relationship, not verified donor identities.
+    Legacy 0000 clips have a separate namespace from new v1/vs1 clips.
+    """
+    legacy=re.fullmatch(r"(\d{4})(?:_fake)?\.mp4",name)
+    if legacy:return legacy.group(1)
+    expanded=re.match(r"(?:(?:real_v|fake_vs)(\d+)_aug_\d+|v(?:s)?(\d+)(?:\.mp4|__))",name)
+    if not expanded:raise ValueError(f"Unrecognized source filename: {name}")
+    return f"expanded:{int(expanded.group(1) or expanded.group(2)):04}"
+
+
+def expanded_splits(frame: pd.DataFrame, previous: pd.DataFrame, seed: int=42) -> pd.DataFrame:
+    """Preserve old assignments; split only new filename families."""
+    result=frame.copy()
+    result['source_group']=[filename_family(name) for name in result.file]
+    old=previous.assign(source_group=previous.file.map(filename_family)).groupby('source_group').split.first().to_dict()
+    fresh=result[~result.source_group.isin(old)].copy()
+    assigned=split_pairs(fresh,seed).groupby('source_group').split.first().to_dict() if len(fresh) else {}
+    result['split']=result.source_group.map({**old,**assigned})
+    cohorts=previous.assign(source_group=previous.file.map(filename_family)).groupby('source_group').evaluation_cohort.first().to_dict() if 'evaluation_cohort' in previous else {g:'historical' for g in old}
+    result['evaluation_cohort']=result.source_group.map(cohorts).fillna('new_sources')
+    assert_no_leakage(result)
+    return result
+
+
+def augmentation_mask(frame: pd.DataFrame) -> pd.Series:
+    """Handle CSV-inferred booleans as well as explicit owner-manifest strings."""
+    return frame.get('is_augmented',pd.Series(False,index=frame.index)).astype(str).str.lower().eq('true')
+
+
+def balanced_eligible(frame: pd.DataFrame, seed: int=42) -> pd.DataFrame:
+    """Balance after quality filtering; evaluate originals, never augmentations."""
+    result=frame.copy();result['selected']=False;result['selection_reason']='quality excluded'
+    augmented=augmentation_mask(result)
+    result.loc[result.usable,'selection_reason']='balance reserve'
+    for split in ['train','val','calibration','test']:
+        for aug in ([False,True] if split=='train' else [False]):
+            pool=result[result.usable & result.split.eq(split) & augmented.eq(aug)]
+            # Keep historical monitoring separate from the new-source test cohort.
+            cohorts=pool.evaluation_cohort.unique() if 'evaluation_cohort' in pool else [None]
+            for cohort in cohorts:
+                part=pool if cohort is None else pool[pool.evaluation_cohort.eq(cohort)]
+                n=min(int(part.label.eq(0).sum()),int(part.label.eq(1).sum()))
+                for label in [0,1]:
+                    chosen=part[part.label.eq(label)].sort_values('sha256').sample(n=n,random_state=seed).index
+                    result.loc[chosen,'selected']=True;result.loc[chosen,'selection_reason']='selected'
+    result.loc[result.usable & ~result.split.eq('train') & augmented,'selection_reason']='evaluation augmentation reserved'
+    assert_no_leakage(result)
     return result
 
 

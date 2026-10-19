@@ -1,56 +1,184 @@
 {
-  "scope": "video-only visual pilot",
-  "received_videos": 98,
-  "usable_videos": 73,
-  "excluded_videos": 25,
-  "test_total": 16,
-  "test_evaluated": 10,
-  "test_coverage": 0.625,
+  "scope": "video-only two-pass visual pilot",
+  "received_videos": 638,
+  "usable_videos": 593,
+  "selected_videos": 432,
+  "balance_reserved_videos": 161,
+  "classifier": "EfficientNet standard classifier with quality-triggered retry classifier",
+  "evaluation_scope": "Reused inspected reserved originals; regression monitoring, not fresh external testing",
+  "balanced_class_counts": {
+    "train": {
+      "0": 177,
+      "1": 177
+    },
+    "val": {
+      "0": 11,
+      "1": 11
+    },
+    "calibration": {
+      "0": 11,
+      "1": 11
+    },
+    "test": {
+      "0": 17,
+      "1": 17
+    }
+  },
+  "primary_test_class_counts": {
+    "0": 10,
+    "1": 10
+  },
+  "training_original_class_counts": {
+    "0": 56,
+    "1": 56
+  },
+  "training_augmented_class_counts": {
+    "1": 121,
+    "0": 121
+  },
+  "excluded_videos": 45,
+  "test_total": 20,
+  "test_evaluated": 20,
+  "test_coverage": 1.0,
   "split_counts": {
-    "train": 42,
-    "val": 9,
-    "calibration": 12,
-    "test": 10
+    "train": 354,
+    "val": 22,
+    "calibration": 22,
+    "test": 34
   },
   "test_metrics": {
-    "videos": 10,
-    "accuracy": 0.6,
-    "balanced_accuracy": 0.6,
-    "precision": 0.6,
-    "recall": 0.6,
-    "f1": 0.6,
-    "roc_auc": 0.8,
-    "pr_auc": 0.8463095238095237,
-    "average_precision": 0.8583333333333332,
+    "videos": 20,
+    "accuracy": 0.75,
+    "balanced_accuracy": 0.75,
+    "precision": 0.7272727272727273,
+    "recall": 0.8,
+    "f1": 0.7619047619047619,
+    "roc_auc": 0.8400000000000001,
+    "pr_auc": 0.7723282273282274,
+    "average_precision": 0.7949206349206348,
     "confusion_matrix": [
       [
-        3,
-        2
+        7,
+        3
       ],
       [
         2,
-        3
+        8
       ]
     ],
-    "false_positive_rate": 0.4,
-    "false_negative_rate": 0.4,
-    "brier": 0.2827759325109979,
-    "ece": 0.31772407047542506,
-    "source_groups": 5,
+    "false_positive_rate": 0.3,
+    "false_negative_rate": 0.2,
+    "brier": 0.15072623766398124,
+    "ece": 0.17135478895034129,
+    "source_groups": 10,
     "accuracy_group_bootstrap_95_ci": [
-      0.5,
-      0.8
+      0.6,
+      0.9
     ],
     "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
   },
-  "seconds_including_preprocessing": 4.741930413001683,
-  "head_bytes": 201871,
+  "seconds_including_preprocessing": 12.064161080023041,
+  "head_bytes": 2536077,
   "backbone_bytes": 21444401,
-  "model_sha256": "b05bf9ce5279551b18c6ed07f923d818004d8fcfc5e48ec7d0e2fffc26176edb",
+  "model_sha256": "58b1c05534013c037ab7aa04fd13b298a50d78decddf2479f436923d3695cf5f",
   "limitations": [
     "Small user-labeled dataset",
     "Identity/donor-disjoint splits not verified",
     "External unfamiliar-video accuracy not measured",
     "No perfect accuracy or universal detection claim"
-  ]
+  ],
+  "quality_scope": "standard fitting counts below; full pipeline quality eligibility reported separately",
+  "pipeline_usable_videos": 616,
+  "pipeline_excluded_videos": 22,
+  "retry_classifier_training": {
+    "scope": "video-only visual pilot",
+    "received_videos": 638,
+    "usable_videos": 616,
+    "selected_videos": 440,
+    "balance_reserved_videos": 176,
+    "classifier": "EfficientNet + neural head",
+    "evaluation_scope": "new-source original videos only",
+    "balanced_class_counts": {
+      "train": {
+        "0": 179,
+        "1": 179
+      },
+      "val": {
+        "0": 11,
+        "1": 11
+      },
+      "calibration": {
+        "0": 12,
+        "1": 12
+      },
+      "test": {
+        "0": 18,
+        "1": 18
+      }
+    },
+    "primary_test_class_counts": {
+      "0": 10,
+      "1": 10
+    },
+    "training_original_class_counts": {
+      "0": 57,
+      "1": 57
+    },
+    "training_augmented_class_counts": {
+      "1": 122,
+      "0": 122
+    },
+    "excluded_videos": 22,
+    "test_total": 20,
+    "test_evaluated": 20,
+    "test_coverage": 1.0,
+    "split_counts": {
+      "train": 358,
+      "val": 22,
+      "calibration": 24,
+      "test": 36
+    },
+    "test_metrics": {
+      "videos": 20,
+      "accuracy": 0.65,
+      "balanced_accuracy": 0.6499999999999999,
+      "precision": 0.6666666666666666,
+      "recall": 0.6,
+      "f1": 0.631578947368421,
+      "roc_auc": 0.8,
+      "pr_auc": 0.7736201298701297,
+      "average_precision": 0.7893939393939393,
+      "confusion_matrix": [
+        [
+          7,
+          3
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "false_positive_rate": 0.3,
+      "false_negative_rate": 0.4,
+      "brier": 0.29356945425913006,
+      "ece": 0.313686217083902,
+      "source_groups": 10,
+      "accuracy_group_bootstrap_95_ci": [
+        0.5,
+        0.8
+      ],
+      "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
+    },
+    "seconds_including_preprocessing": 924.8653815430007,
+    "head_bytes": 2523608,
+    "backbone_bytes": 21444401,
+    "model_sha256": "7e7991782274fab2d24bddc59cd4014440edb0de091593d9bec34d0dfc47b78f",
+    "limitations": [
+      "Small user-labeled dataset",
+      "Identity/donor-disjoint splits not verified",
+      "External unfamiliar-video accuracy not measured",
+      "No perfect accuracy or universal detection claim"
+    ]
+  },
+  "fitting_counts_scope": "standard classifier only; retry counts nested separately"
 }

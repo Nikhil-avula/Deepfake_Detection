@@ -13,17 +13,23 @@ def main():
     sub.add_parser("hardware")
     a=sub.add_parser("prepare-dataset");a.add_argument("manifest")
     a.add_argument("--output",default="data/manifests/splits.csv")
+    a.add_argument('--previous-splits',default=None,help='Preserve previous filename-family partitions when adding new sources')
     a=sub.add_parser("import-uploads");a.add_argument("index");a.add_argument("--destination",default="data/raw/uploaded")
     a=sub.add_parser("train");a.add_argument("manifest",default="data/manifests/splits.csv",nargs="?")
     a.add_argument("--model",default="checkpoints/visual.json");a.add_argument("--results",default="reports/results")
+    a.add_argument('--balanced',action='store_true',help='Balance quality-eligible classes and evaluate new-source originals')
     a=sub.add_parser("analyze");a.add_argument("video");a.add_argument("output");a.add_argument("--model",default="checkpoints/visual.json")
     a=sub.add_parser("robustness");a.add_argument("--model",default="checkpoints/visual.json")
     args=p.parse_args();cfg=config(args.config);seed_all(cfg["seed"],cfg["threads"])
     logging.basicConfig(level=logging.INFO,format="%(asctime)s %(message)s")
     if args.command=="hardware":print(json.dumps(provenance(),indent=2))
     elif args.command=="prepare-dataset":
-        from .data import prepare_labeled_dataset
+        from .data import prepare_labeled_dataset,expanded_splits
+        import pandas as pd
+        previous=pd.read_csv(args.previous_splits,dtype={'source_group':str}) if args.previous_splits else None
         frame=prepare_labeled_dataset(args.manifest,args.output,cfg)
+        if previous is not None:
+            frame=expanded_splits(frame,previous,cfg['seed']);frame.to_csv(args.output,index=False)
         print(json.dumps({"videos":len(frame),"splits":frame.split.value_counts().to_dict(),"output":args.output},indent=2))
     elif args.command=="import-uploads":
         from .data import import_uploads,split_pairs
@@ -32,6 +38,7 @@ def main():
         split_pairs(frame,cfg["seed"]).to_csv("data/manifests/splits.csv",index=False)
     elif args.command=="train":
         from .training import train
+        if args.balanced:cfg['balanced_training']=True
         print(json.dumps(train(args.manifest,cfg,args.model,args.results),indent=2))
     elif args.command=="analyze":
         from .inference import Analyzer

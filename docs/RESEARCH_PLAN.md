@@ -16,7 +16,7 @@ of accurate operational decisions.
 
 Success criteria: no source-pair leakage, real trained artifacts, real per-video test
 predictions, explicit exclusions/coverage, reproducible commands and understandable UI.
-The current 60% analyzed-test accuracy is not scientific success for a reliable detector.
+The current measured test accuracy alone cannot establish a reliable external detector.
 More data with known origin, permissions, subjects and manipulation methods are needed.
 
 Next independent study: acquire genuinely new licensed subjects/methods; lock them away

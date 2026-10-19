@@ -1,4 +1,4 @@
-.................................ss                                      [100%]
+....................................................sss...ss...          [100%]
 =============================== warnings summary ===============================
 tests/test_metrics.py::test_single_class_auc_is_undefined
   /workspace/deepguard-venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
@@ -31,4 +31,4 @@ tests/test_metrics.py::test_group_bootstrap_and_plots_are_real_outputs
     ParserElement.enablePackrat()
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-33 passed, 2 skipped, 15 warnings in 9.73s
+58 passed, 5 skipped, 15 warnings in 14.53s

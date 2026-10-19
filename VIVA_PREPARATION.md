@@ -6,9 +6,9 @@
 
 3. **What are the four analysis outcomes after setup?** Likely real, Likely fake, Not sure and Cannot analyze. The last two avoid forced guesses.
 
-4. **What data were provided?** The owner supplied 49 real-labeled and 49 fake-labeled videos, 98 files total.
+4. **What data were provided?** The expanded inventory has 822 files. The balanced candidate selection has 319 Real and 319 Fake files, including 102 originals and 217 supplied augmentations per class.
 
-5. **Who supplied the labels?** The owner defined numbered files as real and _fake files as fake; label truth and benchmark origin were not independently verified.
+5. **Who supplied the labels?** The owner explicitly declared Real and Fake batches; label truth and benchmark origin were not independently verified.
 
 6. **Why not randomly split frames?** Frames and derivatives of the same source could leak nearly identical information into evaluation.
 
@@ -18,9 +18,9 @@
 
 9. **What are the four data partitions?** Train fits the classifier, validation chooses settings, calibration fits a score transformation, and test measures reserved source groups.
 
-10. **How many inputs are in each partition?** Before quality exclusions: 58 train, 12 validation, 12 calibration and 16 test.
+10. **How many inputs are in each partition?** Current exact counts are in reports/results/summary.json and the dataset page. Counts are reported after quality filtering and class balancing.
 
-11. **What happens after quality filtering?** The usable counts are 42 train, 9 validation, 12 calibration and 10 test; all exclusions are recorded.
+11. **What happens after quality filtering?** Each partition is balanced by class. Training uses originals and augmentations; validation, calibration and testing use original files only. Exclusions and balance reserves are recorded separately.
 
 12. **What is a CNN?** A network with shared local filters that can learn spatial image patterns.
 
@@ -38,7 +38,7 @@
 
 19. **Why scale features using training data only?** Using evaluation statistics during fitting would leak information and make the procedure less honest.
 
-20. **How was regularization chosen?** Five C values were compared on validation ROC-AUC, with validation Brier score as a tie-breaker.
+20. **How was the model chosen?** Five logistic heads and two small neural heads are compared on validation ROC-AUC, with validation Brier score as tie-breaker. Neural epochs are also chosen using validation, never test labels.
 
 21. **Why include simpler baselines?** Texture logistic and forest models show whether the more expensive representation adds value under the same split.
 
@@ -60,7 +60,7 @@
 
 30. **Does the unfamiliar-feature gate guarantee safe unknown detection?** No. It is a heuristic based on train/validation feature distances and has not been validated as universal out-of-distribution detection.
 
-31. **What was the actual test accuracy?** 60 percent among ten analyzed held-out videos; this is not a strong real-world reliability result.
+31. **What was the actual test accuracy?** Quote the current accuracy, analyzed original-video count and coverage from EVALUATION_REPORT.md or the reliability page. Do not reuse the historical pilot score or claim external-video accuracy.
 
 32. **What is test coverage?** The fraction of reserved inputs receiving usable scores: 10 of 16, or 62.5 percent.
 

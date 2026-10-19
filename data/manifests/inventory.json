@@ -9,5 +9,6 @@
   "unique_hashes": 98,
   "dataset_origin": "Not verified; no named benchmark provenance claimed",
   "grouping": "Matching filename stems are conservatively treated as related originals/derivatives",
-  "identity_disjoint": "Not verified; identity/donor metadata was not supplied"
+  "identity_disjoint": "Not verified; identity/donor metadata was not supplied",
+  "scope": "Historical first 98-file import; expanded inventory and current training selection are separate manifests."
 }

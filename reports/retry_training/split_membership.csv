@@ -1,0 +1,639 @@
+file,label,source_group,split,usable,selected,selection_reason,evaluation_cohort,is_augmented
+0000.mp4,0,0000,calibration,True,True,selected,historical,
+0000_fake.mp4,1,0000,calibration,True,True,selected,historical,
+0001.mp4,0,0001,test,True,True,selected,historical,
+0001_fake.mp4,1,0001,test,True,True,selected,historical,
+0002.mp4,0,0002,test,True,True,selected,historical,
+0002_fake.mp4,1,0002,test,True,True,selected,historical,
+0003.mp4,0,0003,train,True,True,selected,historical,
+0003_fake.mp4,1,0003,train,True,True,selected,historical,
+0004.mp4,0,0004,train,True,True,selected,historical,
+0004_fake.mp4,1,0004,train,True,True,selected,historical,
+0005.mp4,0,0005,train,True,True,selected,historical,
+0005_fake.mp4,1,0005,train,True,True,selected,historical,
+0006.mp4,0,0006,val,True,True,selected,historical,
+0006_fake.mp4,1,0006,val,True,True,selected,historical,
+0007.mp4,0,0007,train,True,True,selected,historical,
+0007_fake.mp4,1,0007,train,True,True,selected,historical,
+0008.mp4,0,0008,test,True,True,selected,historical,
+0008_fake.mp4,1,0008,test,True,True,selected,historical,
+0009.mp4,0,0009,train,True,True,selected,historical,
+0009_fake.mp4,1,0009,train,True,True,selected,historical,
+0010.mp4,0,0010,val,True,True,selected,historical,
+0010_fake.mp4,1,0010,val,True,True,selected,historical,
+0011.mp4,0,0011,calibration,True,True,selected,historical,
+0011_fake.mp4,1,0011,calibration,True,True,selected,historical,
+0012.mp4,0,0012,calibration,True,True,selected,historical,
+0012_fake.mp4,1,0012,calibration,True,True,selected,historical,
+0013.mp4,0,0013,test,True,True,selected,historical,
+0013_fake.mp4,1,0013,test,True,True,selected,historical,
+0014.mp4,0,0014,test,True,True,selected,historical,
+0014_fake.mp4,1,0014,test,True,True,selected,historical,
+0015.mp4,0,0015,train,True,True,selected,historical,
+0015_fake.mp4,1,0015,train,True,True,selected,historical,
+0016.mp4,0,0016,train,True,True,selected,historical,
+0016_fake.mp4,1,0016,train,True,True,selected,historical,
+0017.mp4,0,0017,train,True,True,selected,historical,
+0017_fake.mp4,1,0017,train,True,True,selected,historical,
+0018.mp4,0,0018,train,False,False,quality excluded,historical,
+0018_fake.mp4,1,0018,train,True,True,selected,historical,
+0019.mp4,0,0019,calibration,True,True,selected,historical,
+0019_fake.mp4,1,0019,calibration,True,True,selected,historical,
+0020.mp4,0,0020,train,True,True,selected,historical,
+0020_fake.mp4,1,0020,train,True,True,selected,historical,
+0021.mp4,0,0021,train,True,True,selected,historical,
+0021_fake.mp4,1,0021,train,True,True,selected,historical,
+0022.mp4,0,0022,calibration,True,True,selected,historical,
+0022_fake.mp4,1,0022,calibration,True,True,selected,historical,
+0023.mp4,0,0023,train,True,True,selected,historical,
+0023_fake.mp4,1,0023,train,True,True,selected,historical,
+0024.mp4,0,0024,train,True,True,selected,historical,
+0024_fake.mp4,1,0024,train,True,True,selected,historical,
+0025.mp4,0,0025,train,True,True,selected,historical,
+0025_fake.mp4,1,0025,train,True,True,selected,historical,
+0026.mp4,0,0026,val,True,True,selected,historical,
+0026_fake.mp4,1,0026,val,True,True,selected,historical,
+0027.mp4,0,0027,train,True,True,selected,historical,
+0027_fake.mp4,1,0027,train,True,True,selected,historical,
+0028.mp4,0,0028,train,True,True,selected,historical,
+0028_fake.mp4,1,0028,train,True,True,selected,historical,
+0029.mp4,0,0029,train,True,True,selected,historical,
+0029_fake.mp4,1,0029,train,True,False,balance reserve,historical,
+0030.mp4,0,0030,val,True,True,selected,historical,
+0030_fake.mp4,1,0030,val,True,True,selected,historical,
+0031.mp4,0,0031,train,True,True,selected,historical,
+0031_fake.mp4,1,0031,train,True,True,selected,historical,
+0032.mp4,0,0032,train,True,True,selected,historical,
+0032_fake.mp4,1,0032,train,True,True,selected,historical,
+0033.mp4,0,0033,test,True,True,selected,historical,
+0033_fake.mp4,1,0033,test,True,True,selected,historical,
+0034.mp4,0,0034,train,True,True,selected,historical,
+0034_fake.mp4,1,0034,train,True,True,selected,historical,
+0035.mp4,0,0035,calibration,True,True,selected,historical,
+0035_fake.mp4,1,0035,calibration,True,True,selected,historical,
+0036.mp4,0,0036,test,True,True,selected,historical,
+0036_fake.mp4,1,0036,test,True,True,selected,historical,
+0037.mp4,0,0037,train,True,True,selected,historical,
+0037_fake.mp4,1,0037,train,True,True,selected,historical,
+0038.mp4,0,0038,train,True,True,selected,historical,
+0038_fake.mp4,1,0038,train,True,True,selected,historical,
+0039.mp4,0,0039,train,True,True,selected,historical,
+0039_fake.mp4,1,0039,train,True,True,selected,historical,
+0040.mp4,0,0040,train,True,True,selected,historical,
+0040_fake.mp4,1,0040,train,True,True,selected,historical,
+0041.mp4,0,0041,train,True,True,selected,historical,
+0041_fake.mp4,1,0041,train,True,True,selected,historical,
+0042.mp4,0,0042,val,True,True,selected,historical,
+0042_fake.mp4,1,0042,val,True,True,selected,historical,
+0043.mp4,0,0043,val,True,True,selected,historical,
+0043_fake.mp4,1,0043,val,True,True,selected,historical,
+0044.mp4,0,0044,train,True,True,selected,historical,
+0044_fake.mp4,1,0044,train,True,True,selected,historical,
+0045.mp4,0,0045,train,True,True,selected,historical,
+0045_fake.mp4,1,0045,train,True,True,selected,historical,
+0046.mp4,0,0046,train,True,True,selected,historical,
+0046_fake.mp4,1,0046,train,True,True,selected,historical,
+0047.mp4,0,0047,test,True,True,selected,historical,
+0047_fake.mp4,1,0047,test,True,True,selected,historical,
+0048.mp4,0,0048,train,True,True,selected,historical,
+0048_fake.mp4,1,0048,train,True,True,selected,historical,
+fake_vs10_aug_0-if9E0y-c76x32-0x81kS-VFM3mL.mp4,1,expanded:0010,train,True,True,selected,new_sources,true
+fake_vs10_aug_2-9lqvO4-5F1dqq-pQz3tv-3N2Jl5.mp4,1,expanded:0010,train,True,True,selected,new_sources,true
+fake_vs10_aug_4-cPoSYD-yp6rZr-LwA3P1-vuvVhv.mp4,1,expanded:0010,train,True,True,selected,new_sources,true
+fake_vs10_aug_6-97Ynlr-ZeQG3w-4wod5m.mp4,1,expanded:0010,train,True,True,selected,new_sources,true
+fake_vs11_aug_1-DQ6Z9U-9rrS9u-TWfRRh.mp4,1,expanded:0011,val,False,False,quality excluded,new_sources,true
+fake_vs11_aug_2-G3KiF8-DZUu2i-YWSRCC.mp4,1,expanded:0011,val,False,False,quality excluded,new_sources,true
+fake_vs11_aug_3-MMa9v1-h1krLw-l8kKr2.mp4,1,expanded:0011,val,False,False,quality excluded,new_sources,true
+fake_vs11_aug_7-84LrWq-9V2THU-znOTA4.mp4,1,expanded:0011,val,False,False,quality excluded,new_sources,true
+fake_vs12_aug_1-tb9wSy.mp4,1,expanded:0012,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs12_aug_2-DHiZ6m.mp4,1,expanded:0012,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs12_aug_5-QC6rOA.mp4,1,expanded:0012,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs12_aug_7-B8xSQ5.mp4,1,expanded:0012,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs13_aug_3.mp4,1,expanded:0013,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs13_aug_4.mp4,1,expanded:0013,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs13_aug_5.mp4,1,expanded:0013,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs13_aug_7.mp4,1,expanded:0013,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs14_aug_1.mp4,1,expanded:0014,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs14_aug_2.mp4,1,expanded:0014,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs14_aug_3.mp4,1,expanded:0014,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs14_aug_5.mp4,1,expanded:0014,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs15_aug_0.mp4,1,expanded:0015,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs15_aug_2.mp4,1,expanded:0015,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs15_aug_3.mp4,1,expanded:0015,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs15_aug_5.mp4,1,expanded:0015,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs16_aug_1.mp4,1,expanded:0016,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs16_aug_2.mp4,1,expanded:0016,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs16_aug_5.mp4,1,expanded:0016,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs16_aug_6.mp4,1,expanded:0016,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs17_aug_1.mp4,1,expanded:0017,train,True,True,selected,new_sources,true
+fake_vs17_aug_3.mp4,1,expanded:0017,train,True,True,selected,new_sources,true
+fake_vs17_aug_5.mp4,1,expanded:0017,train,True,True,selected,new_sources,true
+fake_vs17_aug_6.mp4,1,expanded:0017,train,True,True,selected,new_sources,true
+fake_vs18_aug_0.mp4,1,expanded:0018,train,True,True,selected,new_sources,true
+fake_vs18_aug_1.mp4,1,expanded:0018,train,True,True,selected,new_sources,true
+fake_vs18_aug_2.mp4,1,expanded:0018,train,True,True,selected,new_sources,true
+fake_vs18_aug_5.mp4,1,expanded:0018,train,True,True,selected,new_sources,true
+fake_vs19_aug_1.mp4,1,expanded:0019,train,True,True,selected,new_sources,true
+fake_vs19_aug_3.mp4,1,expanded:0019,train,True,True,selected,new_sources,true
+fake_vs19_aug_5.mp4,1,expanded:0019,train,True,True,selected,new_sources,true
+fake_vs19_aug_7.mp4,1,expanded:0019,train,True,True,selected,new_sources,true
+fake_vs1_aug_0-zupq9I-C4qUe7-oAltTD.mp4,1,expanded:0001,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs1_aug_1-YxkyoS-OdMFjx-gExZv8.mp4,1,expanded:0001,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs1_aug_2-uNHUDk-ZvTdUu-JGS4qN.mp4,1,expanded:0001,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs1_aug_6-PYh67y-bn4OOG.mp4,1,expanded:0001,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs20_aug_0.mp4,1,expanded:0020,calibration,False,False,quality excluded,new_sources,true
+fake_vs20_aug_1.mp4,1,expanded:0020,calibration,False,False,quality excluded,new_sources,true
+fake_vs20_aug_4.mp4,1,expanded:0020,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs20_aug_6.mp4,1,expanded:0020,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs21_aug_0.mp4,1,expanded:0021,train,True,True,selected,new_sources,true
+fake_vs21_aug_3.mp4,1,expanded:0021,train,True,True,selected,new_sources,true
+fake_vs21_aug_4.mp4,1,expanded:0021,train,True,True,selected,new_sources,true
+fake_vs21_aug_6.mp4,1,expanded:0021,train,True,True,selected,new_sources,true
+fake_vs22_aug_3.mp4,1,expanded:0022,train,True,True,selected,new_sources,true
+fake_vs22_aug_5.mp4,1,expanded:0022,train,True,True,selected,new_sources,true
+fake_vs22_aug_6.mp4,1,expanded:0022,train,True,True,selected,new_sources,true
+fake_vs22_aug_7.mp4,1,expanded:0022,train,True,True,selected,new_sources,true
+fake_vs23_aug_0.mp4,1,expanded:0023,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs23_aug_3.mp4,1,expanded:0023,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs23_aug_4.mp4,1,expanded:0023,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs23_aug_5.mp4,1,expanded:0023,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs24_aug_1.mp4,1,expanded:0024,train,True,True,selected,new_sources,true
+fake_vs24_aug_2.mp4,1,expanded:0024,train,True,True,selected,new_sources,true
+fake_vs24_aug_3.mp4,1,expanded:0024,train,True,True,selected,new_sources,true
+fake_vs24_aug_5.mp4,1,expanded:0024,train,True,True,selected,new_sources,true
+fake_vs25_aug_0.mp4,1,expanded:0025,train,True,True,selected,new_sources,true
+fake_vs25_aug_1.mp4,1,expanded:0025,train,True,True,selected,new_sources,true
+fake_vs25_aug_2.mp4,1,expanded:0025,train,True,True,selected,new_sources,true
+fake_vs26_aug_1.mp4,1,expanded:0026,train,True,True,selected,new_sources,true
+fake_vs26_aug_2.mp4,1,expanded:0026,train,True,True,selected,new_sources,true
+fake_vs26_aug_4.mp4,1,expanded:0026,train,True,True,selected,new_sources,true
+fake_vs26_aug_5.mp4,1,expanded:0026,train,True,True,selected,new_sources,true
+fake_vs26_aug_7.mp4,1,expanded:0026,train,False,False,quality excluded,new_sources,true
+fake_vs27_aug_2.mp4,1,expanded:0027,train,True,True,selected,new_sources,true
+fake_vs27_aug_3.mp4,1,expanded:0027,train,True,True,selected,new_sources,true
+fake_vs27_aug_4.mp4,1,expanded:0027,train,True,True,selected,new_sources,true
+fake_vs27_aug_7.mp4,1,expanded:0027,train,True,True,selected,new_sources,true
+fake_vs28_aug_2.mp4,1,expanded:0028,train,True,True,selected,new_sources,true
+fake_vs28_aug_3.mp4,1,expanded:0028,train,True,True,selected,new_sources,true
+fake_vs28_aug_4.mp4,1,expanded:0028,train,True,True,selected,new_sources,true
+fake_vs28_aug_5.mp4,1,expanded:0028,train,True,True,selected,new_sources,true
+fake_vs29_aug_2.mp4,1,expanded:0029,train,True,True,selected,new_sources,true
+fake_vs29_aug_3.mp4,1,expanded:0029,train,True,True,selected,new_sources,true
+fake_vs29_aug_4.mp4,1,expanded:0029,train,True,True,selected,new_sources,true
+fake_vs29_aug_6.mp4,1,expanded:0029,train,True,True,selected,new_sources,true
+fake_vs2_aug_1-y0aW80-nCc7NI-Z0R7UX.mp4,1,expanded:0002,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs2_aug_4-wPrNaN-cpa6Ju.mp4,1,expanded:0002,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs2_aug_5-LhtcZB-H9b4wm-73tYoq.mp4,1,expanded:0002,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs2_aug_7-W9E72g-XabVNG-cx27lO.mp4,1,expanded:0002,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs30_aug_1.mp4,1,expanded:0030,train,True,True,selected,new_sources,true
+fake_vs30_aug_2.mp4,1,expanded:0030,train,True,True,selected,new_sources,true
+fake_vs30_aug_3.mp4,1,expanded:0030,train,True,True,selected,new_sources,true
+fake_vs30_aug_4.mp4,1,expanded:0030,train,True,True,selected,new_sources,true
+fake_vs30_aug_5.mp4,1,expanded:0030,train,True,True,selected,new_sources,true
+fake_vs31_aug_0.mp4,1,expanded:0031,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs31_aug_1.mp4,1,expanded:0031,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs31_aug_2.mp4,1,expanded:0031,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs31_aug_4.mp4,1,expanded:0031,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs32_aug_0.mp4,1,expanded:0032,train,True,True,selected,new_sources,true
+fake_vs32_aug_2.mp4,1,expanded:0032,train,True,True,selected,new_sources,true
+fake_vs32_aug_4.mp4,1,expanded:0032,train,True,True,selected,new_sources,true
+fake_vs32_aug_5.mp4,1,expanded:0032,train,True,True,selected,new_sources,true
+fake_vs33_aug_2.mp4,1,expanded:0033,train,True,True,selected,new_sources,true
+fake_vs33_aug_3.mp4,1,expanded:0033,train,True,True,selected,new_sources,true
+fake_vs33_aug_4.mp4,1,expanded:0033,train,True,True,selected,new_sources,true
+fake_vs33_aug_5.mp4,1,expanded:0033,train,True,True,selected,new_sources,true
+fake_vs34_aug_0.mp4,1,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs34_aug_4.mp4,1,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs34_aug_6.mp4,1,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs34_aug_7.mp4,1,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs35_aug_0.mp4,1,expanded:0035,train,True,True,selected,new_sources,true
+fake_vs35_aug_1.mp4,1,expanded:0035,train,True,True,selected,new_sources,true
+fake_vs35_aug_5.mp4,1,expanded:0035,train,True,True,selected,new_sources,true
+fake_vs35_aug_7.mp4,1,expanded:0035,train,False,False,quality excluded,new_sources,true
+fake_vs36_aug_4.mp4,1,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs36_aug_5.mp4,1,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs36_aug_6.mp4,1,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs36_aug_7.mp4,1,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs37_aug_1.mp4,1,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs37_aug_2.mp4,1,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs37_aug_4.mp4,1,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs37_aug_6.mp4,1,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs38_aug_2.mp4,1,expanded:0038,train,True,True,selected,new_sources,true
+fake_vs38_aug_3.mp4,1,expanded:0038,train,True,True,selected,new_sources,true
+fake_vs38_aug_5.mp4,1,expanded:0038,train,True,True,selected,new_sources,true
+fake_vs38_aug_6.mp4,1,expanded:0038,train,True,True,selected,new_sources,true
+fake_vs39_aug_1.mp4,1,expanded:0039,train,True,True,selected,new_sources,true
+fake_vs39_aug_3.mp4,1,expanded:0039,train,True,True,selected,new_sources,true
+fake_vs39_aug_4.mp4,1,expanded:0039,train,True,True,selected,new_sources,true
+fake_vs39_aug_6.mp4,1,expanded:0039,train,True,True,selected,new_sources,true
+fake_vs3_aug_0-LUqBmw-eijI0M-LbRtQx.mp4,1,expanded:0003,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs3_aug_1-PfCTF4-OedqD7.mp4,1,expanded:0003,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs3_aug_3-EBMZ4t-lKGI7c-7XeHLs.mp4,1,expanded:0003,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs3_aug_5-OARdag-LJ4674.mp4,1,expanded:0003,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs40_aug_0.mp4,1,expanded:0040,train,True,True,selected,new_sources,true
+fake_vs40_aug_3.mp4,1,expanded:0040,train,True,True,selected,new_sources,true
+fake_vs40_aug_4.mp4,1,expanded:0040,train,True,True,selected,new_sources,true
+fake_vs40_aug_7.mp4,1,expanded:0040,train,True,True,selected,new_sources,true
+fake_vs41_aug_0.mp4,1,expanded:0041,train,True,True,selected,new_sources,true
+fake_vs41_aug_1.mp4,1,expanded:0041,train,True,True,selected,new_sources,true
+fake_vs41_aug_5.mp4,1,expanded:0041,train,True,True,selected,new_sources,true
+fake_vs41_aug_7.mp4,1,expanded:0041,train,True,True,selected,new_sources,true
+fake_vs42_aug_1.mp4,1,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs42_aug_2.mp4,1,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs42_aug_5.mp4,1,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs42_aug_6.mp4,1,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs42_aug_7.mp4,1,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs43_aug_1.mp4,1,expanded:0043,train,True,True,selected,new_sources,true
+fake_vs43_aug_2.mp4,1,expanded:0043,train,True,True,selected,new_sources,true
+fake_vs43_aug_3.mp4,1,expanded:0043,train,True,True,selected,new_sources,true
+fake_vs43_aug_4.mp4,1,expanded:0043,train,True,True,selected,new_sources,true
+fake_vs44_aug_0.mp4,1,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs44_aug_2.mp4,1,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs44_aug_3.mp4,1,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs44_aug_4.mp4,1,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs45_aug_0.mp4,1,expanded:0045,train,True,True,selected,new_sources,true
+fake_vs45_aug_2.mp4,1,expanded:0045,train,True,True,selected,new_sources,true
+fake_vs45_aug_4.mp4,1,expanded:0045,train,True,True,selected,new_sources,true
+fake_vs45_aug_5.mp4,1,expanded:0045,train,True,True,selected,new_sources,true
+fake_vs46_aug_0.mp4,1,expanded:0046,train,True,True,selected,new_sources,true
+fake_vs46_aug_2.mp4,1,expanded:0046,train,True,True,selected,new_sources,true
+fake_vs46_aug_5.mp4,1,expanded:0046,train,True,True,selected,new_sources,true
+fake_vs46_aug_6.mp4,1,expanded:0046,train,True,True,selected,new_sources,true
+fake_vs47_aug_0.mp4,1,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs47_aug_2.mp4,1,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs47_aug_5.mp4,1,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs47_aug_6.mp4,1,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs48_aug_2-Zf8rvv.mp4,1,expanded:0048,train,True,True,selected,new_sources,true
+fake_vs48_aug_3-rVAcgX.mp4,1,expanded:0048,train,True,True,selected,new_sources,true
+fake_vs48_aug_4-fxE1RL.mp4,1,expanded:0048,train,True,True,selected,new_sources,true
+fake_vs48_aug_6-lZMVlI.mp4,1,expanded:0048,train,True,True,selected,new_sources,true
+fake_vs49_aug_2.mp4,1,expanded:0049,train,True,True,selected,new_sources,true
+fake_vs49_aug_3.mp4,1,expanded:0049,train,False,False,quality excluded,new_sources,true
+fake_vs49_aug_4.mp4,1,expanded:0049,train,False,False,quality excluded,new_sources,true
+fake_vs49_aug_5.mp4,1,expanded:0049,train,False,False,quality excluded,new_sources,true
+fake_vs4_aug_0-lEKGPF-aIl7WQ.mp4,1,expanded:0004,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs4_aug_3-4lK4Wp.mp4,1,expanded:0004,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs4_aug_5-bnS1pw-m8wzMx.mp4,1,expanded:0004,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs4_aug_6-CxXZJP-sma92O.mp4,1,expanded:0004,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs4_aug_7-KhMieg-mdbe2D-WDnnRR.mp4,1,expanded:0004,val,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs50_aug_0.mp4,1,expanded:0050,train,True,True,selected,new_sources,true
+fake_vs50_aug_2.mp4,1,expanded:0050,train,True,True,selected,new_sources,true
+fake_vs50_aug_3.mp4,1,expanded:0050,train,True,True,selected,new_sources,true
+fake_vs50_aug_5.mp4,1,expanded:0050,train,True,True,selected,new_sources,true
+fake_vs51_aug_0-we4gCS.mp4,1,expanded:0051,train,True,True,selected,new_sources,true
+fake_vs51_aug_1-bDUVdw.mp4,1,expanded:0051,train,True,True,selected,new_sources,true
+fake_vs51_aug_5-x4xv3P.mp4,1,expanded:0051,train,True,True,selected,new_sources,true
+fake_vs51_aug_6-L21Zcq.mp4,1,expanded:0051,train,True,True,selected,new_sources,true
+fake_vs51_aug_7-FgBsr5.mp4,1,expanded:0051,train,True,True,selected,new_sources,true
+fake_vs52_aug_0.mp4,1,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs52_aug_3.mp4,1,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs52_aug_5.mp4,1,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs52_aug_7.mp4,1,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs53_aug_1.mp4,1,expanded:0053,train,True,True,selected,new_sources,true
+fake_vs53_aug_3.mp4,1,expanded:0053,train,True,True,selected,new_sources,true
+fake_vs53_aug_4.mp4,1,expanded:0053,train,True,True,selected,new_sources,true
+fake_vs53_aug_6.mp4,1,expanded:0053,train,True,True,selected,new_sources,true
+fake_vs5_aug_1 - Copy-dUnQf0-xvVW5c.mp4,1,expanded:0005,train,True,True,selected,new_sources,true
+fake_vs5_aug_3 - Copy-V3umPG-9pIInH-cKuvZT.mp4,1,expanded:0005,train,True,True,selected,new_sources,true
+fake_vs5_aug_5-oyhVwO-WBSN53.mp4,1,expanded:0005,train,True,True,selected,new_sources,true
+fake_vs5_aug_7-dtN7QC-m8lWQG.mp4,1,expanded:0005,train,True,True,selected,new_sources,true
+fake_vs6_aug_0-ri3Pu1-gnxDGN-IuvduL.mp4,1,expanded:0006,train,True,True,selected,new_sources,true
+fake_vs6_aug_1-ya9s20-FjAn2I-ME4c6i.mp4,1,expanded:0006,train,True,True,selected,new_sources,true
+fake_vs6_aug_3-gn5CE2-RQrOGy-J1c8ZV.mp4,1,expanded:0006,train,True,True,selected,new_sources,true
+fake_vs6_aug_4-BM4JZo-DVgemQ.mp4,1,expanded:0006,train,True,True,selected,new_sources,true
+fake_vs7_aug_0-0qWAvv-VEmVNy-tMrWeF.mp4,1,expanded:0007,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs7_aug_2-f0Tblt-7QJIDe-3dlVXN.mp4,1,expanded:0007,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs7_aug_4-Or8lRA-ED1viU-RVMTzW.mp4,1,expanded:0007,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs7_aug_5-W0yCXr-lsqMfc-X4kTS9.mp4,1,expanded:0007,calibration,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs8_aug_0-gMyEbP-HLMX4f-LKSXk3.mp4,1,expanded:0008,train,True,True,selected,new_sources,true
+fake_vs8_aug_1-CpCli9-kk8TOF.mp4,1,expanded:0008,train,True,True,selected,new_sources,true
+fake_vs8_aug_2-4B3ehL-fnOFwd.mp4,1,expanded:0008,train,True,True,selected,new_sources,true
+fake_vs8_aug_3-0Ow2PP-oPoYXx-lQXiVp.mp4,1,expanded:0008,train,True,True,selected,new_sources,true
+fake_vs8_aug_5-EV9CCJ.mp4,1,expanded:0008,train,True,True,selected,new_sources,true
+fake_vs9_aug_1-iX7UCc-NDd6Zt-RnJM9j.mp4,1,expanded:0009,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs9_aug_2-lR9zpg-BGY8o2-lRfqj4.mp4,1,expanded:0009,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs9_aug_3-ISQ4lD-2mBOHv-DC0aHv.mp4,1,expanded:0009,test,True,False,evaluation augmentation reserved,new_sources,true
+fake_vs9_aug_4-SHpzA8-ok6Uvs-cuhUDl.mp4,1,expanded:0009,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v25_aug_3.mp4,0,expanded:0025,train,True,True,selected,new_sources,true
+real_v26_aug_0.mp4,0,expanded:0026,train,True,True,selected,new_sources,true
+real_v26_aug_1.mp4,0,expanded:0026,train,True,True,selected,new_sources,true
+real_v26_aug_2.mp4,0,expanded:0026,train,True,True,selected,new_sources,true
+real_v26_aug_3.mp4,0,expanded:0026,train,True,True,selected,new_sources,true
+real_v26_aug_4.mp4,0,expanded:0026,train,True,True,selected,new_sources,true
+real_v26_aug_5.mp4,0,expanded:0026,train,True,True,selected,new_sources,true
+real_v26_aug_6.mp4,0,expanded:0026,train,True,False,balance reserve,new_sources,true
+real_v26_aug_7.mp4,0,expanded:0026,train,True,False,balance reserve,new_sources,true
+real_v27_aug_0.mp4,0,expanded:0027,train,True,True,selected,new_sources,true
+real_v27_aug_1.mp4,0,expanded:0027,train,True,True,selected,new_sources,true
+real_v27_aug_2.mp4,0,expanded:0027,train,True,True,selected,new_sources,true
+real_v27_aug_3.mp4,0,expanded:0027,train,True,True,selected,new_sources,true
+real_v27_aug_4.mp4,0,expanded:0027,train,True,True,selected,new_sources,true
+real_v27_aug_5.mp4,0,expanded:0027,train,True,True,selected,new_sources,true
+real_v27_aug_6.mp4,0,expanded:0027,train,True,False,balance reserve,new_sources,true
+real_v27_aug_7.mp4,0,expanded:0027,train,True,True,selected,new_sources,true
+real_v28_aug_0.mp4,0,expanded:0028,train,True,True,selected,new_sources,true
+real_v28_aug_1.mp4,0,expanded:0028,train,True,True,selected,new_sources,true
+real_v28_aug_2.mp4,0,expanded:0028,train,True,True,selected,new_sources,true
+real_v28_aug_3.mp4,0,expanded:0028,train,True,False,balance reserve,new_sources,true
+real_v28_aug_4.mp4,0,expanded:0028,train,True,True,selected,new_sources,true
+real_v28_aug_5.mp4,0,expanded:0028,train,True,True,selected,new_sources,true
+real_v29_aug_0.mp4,0,expanded:0029,train,True,True,selected,new_sources,true
+real_v29_aug_1.mp4,0,expanded:0029,train,True,True,selected,new_sources,true
+real_v29_aug_2.mp4,0,expanded:0029,train,True,False,balance reserve,new_sources,true
+real_v29_aug_3.mp4,0,expanded:0029,train,True,True,selected,new_sources,true
+real_v29_aug_4.mp4,0,expanded:0029,train,True,True,selected,new_sources,true
+real_v29_aug_5.mp4,0,expanded:0029,train,True,True,selected,new_sources,true
+real_v29_aug_6.mp4,0,expanded:0029,train,True,True,selected,new_sources,true
+real_v29_aug_7.mp4,0,expanded:0029,train,True,True,selected,new_sources,true
+real_v30_aug_0.mp4,0,expanded:0030,train,True,True,selected,new_sources,true
+real_v30_aug_1.mp4,0,expanded:0030,train,True,True,selected,new_sources,true
+real_v30_aug_2.mp4,0,expanded:0030,train,True,False,balance reserve,new_sources,true
+real_v30_aug_3.mp4,0,expanded:0030,train,True,False,balance reserve,new_sources,true
+real_v30_aug_4.mp4,0,expanded:0030,train,True,True,selected,new_sources,true
+real_v30_aug_5.mp4,0,expanded:0030,train,True,True,selected,new_sources,true
+real_v31_aug_0.mp4,0,expanded:0031,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v31_aug_1.mp4,0,expanded:0031,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v31_aug_2.mp4,0,expanded:0031,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v31_aug_3.mp4,0,expanded:0031,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v31_aug_4.mp4,0,expanded:0031,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v31_aug_5.mp4,0,expanded:0031,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v32_aug_0.mp4,0,expanded:0032,train,True,True,selected,new_sources,true
+real_v32_aug_1.mp4,0,expanded:0032,train,True,False,balance reserve,new_sources,true
+real_v32_aug_2.mp4,0,expanded:0032,train,True,True,selected,new_sources,true
+real_v32_aug_3.mp4,0,expanded:0032,train,True,True,selected,new_sources,true
+real_v32_aug_4.mp4,0,expanded:0032,train,True,True,selected,new_sources,true
+real_v32_aug_5.mp4,0,expanded:0032,train,True,True,selected,new_sources,true
+real_v33_aug_0.mp4,0,expanded:0033,train,True,True,selected,new_sources,true
+real_v33_aug_1.mp4,0,expanded:0033,train,True,False,balance reserve,new_sources,true
+real_v33_aug_2.mp4,0,expanded:0033,train,True,False,balance reserve,new_sources,true
+real_v33_aug_3.mp4,0,expanded:0033,train,True,False,balance reserve,new_sources,true
+real_v33_aug_4.mp4,0,expanded:0033,train,True,True,selected,new_sources,true
+real_v33_aug_5.mp4,0,expanded:0033,train,True,False,balance reserve,new_sources,true
+real_v33_aug_6.mp4,0,expanded:0033,train,True,False,balance reserve,new_sources,true
+real_v33_aug_7.mp4,0,expanded:0033,train,True,False,balance reserve,new_sources,true
+real_v34_aug_0.mp4,0,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v34_aug_1.mp4,0,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v34_aug_2.mp4,0,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v34_aug_3.mp4,0,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v34_aug_4.mp4,0,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v34_aug_5.mp4,0,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v34_aug_6.mp4,0,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v34_aug_7.mp4,0,expanded:0034,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v35_aug_0.mp4,0,expanded:0035,train,True,True,selected,new_sources,true
+real_v35_aug_1.mp4,0,expanded:0035,train,True,True,selected,new_sources,true
+real_v35_aug_2.mp4,0,expanded:0035,train,True,False,balance reserve,new_sources,true
+real_v35_aug_3.mp4,0,expanded:0035,train,True,True,selected,new_sources,true
+real_v35_aug_4.mp4,0,expanded:0035,train,True,True,selected,new_sources,true
+real_v35_aug_5.mp4,0,expanded:0035,train,True,True,selected,new_sources,true
+real_v35_aug_6.mp4,0,expanded:0035,train,True,True,selected,new_sources,true
+real_v35_aug_7.mp4,0,expanded:0035,train,True,True,selected,new_sources,true
+real_v36_aug_0.mp4,0,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+real_v36_aug_1.mp4,0,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+real_v36_aug_2.mp4,0,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+real_v36_aug_3.mp4,0,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+real_v36_aug_4.mp4,0,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+real_v36_aug_5.mp4,0,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+real_v36_aug_6.mp4,0,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+real_v36_aug_7.mp4,0,expanded:0036,calibration,True,False,evaluation augmentation reserved,new_sources,true
+real_v37_aug_0.mp4,0,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v37_aug_1.mp4,0,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v37_aug_2.mp4,0,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v37_aug_3.mp4,0,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v37_aug_4.mp4,0,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v37_aug_5.mp4,0,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v37_aug_6.mp4,0,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v37_aug_7.mp4,0,expanded:0037,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v38_aug_0.mp4,0,expanded:0038,train,True,True,selected,new_sources,true
+real_v38_aug_1.mp4,0,expanded:0038,train,True,True,selected,new_sources,true
+real_v38_aug_2.mp4,0,expanded:0038,train,True,True,selected,new_sources,true
+real_v38_aug_3.mp4,0,expanded:0038,train,True,False,balance reserve,new_sources,true
+real_v38_aug_4.mp4,0,expanded:0038,train,True,False,balance reserve,new_sources,true
+real_v38_aug_5.mp4,0,expanded:0038,train,True,True,selected,new_sources,true
+real_v38_aug_6.mp4,0,expanded:0038,train,True,True,selected,new_sources,true
+real_v38_aug_7.mp4,0,expanded:0038,train,True,True,selected,new_sources,true
+real_v39_aug_0.mp4,0,expanded:0039,train,True,True,selected,new_sources,true
+real_v39_aug_1.mp4,0,expanded:0039,train,True,True,selected,new_sources,true
+real_v39_aug_2.mp4,0,expanded:0039,train,True,True,selected,new_sources,true
+real_v39_aug_3.mp4,0,expanded:0039,train,True,True,selected,new_sources,true
+real_v39_aug_4.mp4,0,expanded:0039,train,True,True,selected,new_sources,true
+real_v39_aug_5.mp4,0,expanded:0039,train,True,True,selected,new_sources,true
+real_v39_aug_6.mp4,0,expanded:0039,train,True,True,selected,new_sources,true
+real_v39_aug_7.mp4,0,expanded:0039,train,True,True,selected,new_sources,true
+real_v40_aug_0.mp4,0,expanded:0040,train,True,True,selected,new_sources,true
+real_v40_aug_1.mp4,0,expanded:0040,train,True,True,selected,new_sources,true
+real_v40_aug_2.mp4,0,expanded:0040,train,True,True,selected,new_sources,true
+real_v40_aug_3.mp4,0,expanded:0040,train,True,True,selected,new_sources,true
+real_v40_aug_4.mp4,0,expanded:0040,train,True,False,balance reserve,new_sources,true
+real_v40_aug_5.mp4,0,expanded:0040,train,True,True,selected,new_sources,true
+real_v40_aug_6.mp4,0,expanded:0040,train,True,True,selected,new_sources,true
+real_v40_aug_7.mp4,0,expanded:0040,train,True,False,balance reserve,new_sources,true
+real_v41_aug_0.mp4,0,expanded:0041,train,True,True,selected,new_sources,true
+real_v41_aug_1.mp4,0,expanded:0041,train,True,True,selected,new_sources,true
+real_v41_aug_2.mp4,0,expanded:0041,train,True,True,selected,new_sources,true
+real_v41_aug_3.mp4,0,expanded:0041,train,True,True,selected,new_sources,true
+real_v41_aug_4.mp4,0,expanded:0041,train,True,True,selected,new_sources,true
+real_v41_aug_5.mp4,0,expanded:0041,train,True,True,selected,new_sources,true
+real_v41_aug_6.mp4,0,expanded:0041,train,True,False,balance reserve,new_sources,true
+real_v41_aug_7.mp4,0,expanded:0041,train,True,True,selected,new_sources,true
+real_v42_aug_0.mp4,0,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v42_aug_1.mp4,0,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v42_aug_2.mp4,0,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v42_aug_3.mp4,0,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v42_aug_4.mp4,0,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v42_aug_5.mp4,0,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v42_aug_6.mp4,0,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v42_aug_7.mp4,0,expanded:0042,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v43_aug_0.mp4,0,expanded:0043,train,True,False,balance reserve,new_sources,true
+real_v43_aug_1.mp4,0,expanded:0043,train,True,True,selected,new_sources,true
+real_v43_aug_2.mp4,0,expanded:0043,train,True,True,selected,new_sources,true
+real_v43_aug_3.mp4,0,expanded:0043,train,True,True,selected,new_sources,true
+real_v43_aug_4.mp4,0,expanded:0043,train,True,True,selected,new_sources,true
+real_v43_aug_5.mp4,0,expanded:0043,train,True,True,selected,new_sources,true
+real_v43_aug_6.mp4,0,expanded:0043,train,True,True,selected,new_sources,true
+real_v43_aug_7.mp4,0,expanded:0043,train,True,True,selected,new_sources,true
+real_v44_aug_0.mp4,0,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v44_aug_1.mp4,0,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v44_aug_2.mp4,0,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v44_aug_3.mp4,0,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v44_aug_4.mp4,0,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v44_aug_5.mp4,0,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v44_aug_6.mp4,0,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v44_aug_7.mp4,0,expanded:0044,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v45_aug_0.mp4,0,expanded:0045,train,True,True,selected,new_sources,true
+real_v45_aug_1.mp4,0,expanded:0045,train,True,True,selected,new_sources,true
+real_v45_aug_2.mp4,0,expanded:0045,train,True,True,selected,new_sources,true
+real_v45_aug_3.mp4,0,expanded:0045,train,True,False,balance reserve,new_sources,true
+real_v45_aug_4.mp4,0,expanded:0045,train,True,True,selected,new_sources,true
+real_v45_aug_5.mp4,0,expanded:0045,train,True,False,balance reserve,new_sources,true
+real_v45_aug_6.mp4,0,expanded:0045,train,True,True,selected,new_sources,true
+real_v45_aug_7.mp4,0,expanded:0045,train,True,True,selected,new_sources,true
+real_v46_aug_0.mp4,0,expanded:0046,train,True,True,selected,new_sources,true
+real_v46_aug_1.mp4,0,expanded:0046,train,True,True,selected,new_sources,true
+real_v46_aug_2.mp4,0,expanded:0046,train,True,True,selected,new_sources,true
+real_v46_aug_3.mp4,0,expanded:0046,train,True,True,selected,new_sources,true
+real_v46_aug_4.mp4,0,expanded:0046,train,True,False,balance reserve,new_sources,true
+real_v46_aug_5.mp4,0,expanded:0046,train,True,True,selected,new_sources,true
+real_v46_aug_6.mp4,0,expanded:0046,train,True,True,selected,new_sources,true
+real_v46_aug_7.mp4,0,expanded:0046,train,True,True,selected,new_sources,true
+real_v47_aug_0.mp4,0,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v47_aug_1.mp4,0,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v47_aug_2.mp4,0,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v47_aug_3.mp4,0,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v47_aug_4.mp4,0,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v47_aug_5.mp4,0,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v47_aug_6.mp4,0,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v47_aug_7.mp4,0,expanded:0047,val,True,False,evaluation augmentation reserved,new_sources,true
+real_v48_aug_0.mp4,0,expanded:0048,train,True,True,selected,new_sources,true
+real_v48_aug_1.mp4,0,expanded:0048,train,True,True,selected,new_sources,true
+real_v48_aug_2.mp4,0,expanded:0048,train,True,True,selected,new_sources,true
+real_v48_aug_3.mp4,0,expanded:0048,train,True,False,balance reserve,new_sources,true
+real_v48_aug_4.mp4,0,expanded:0048,train,True,True,selected,new_sources,true
+real_v48_aug_5.mp4,0,expanded:0048,train,True,True,selected,new_sources,true
+real_v48_aug_6.mp4,0,expanded:0048,train,True,True,selected,new_sources,true
+real_v48_aug_7.mp4,0,expanded:0048,train,True,True,selected,new_sources,true
+real_v49_aug_0.mp4,0,expanded:0049,train,True,True,selected,new_sources,true
+real_v49_aug_1.mp4,0,expanded:0049,train,True,True,selected,new_sources,true
+real_v49_aug_2.mp4,0,expanded:0049,train,False,False,quality excluded,new_sources,true
+real_v49_aug_3.mp4,0,expanded:0049,train,False,False,quality excluded,new_sources,true
+real_v49_aug_4.mp4,0,expanded:0049,train,False,False,quality excluded,new_sources,true
+real_v49_aug_5.mp4,0,expanded:0049,train,False,False,quality excluded,new_sources,true
+real_v49_aug_6.mp4,0,expanded:0049,train,False,False,quality excluded,new_sources,true
+real_v49_aug_7.mp4,0,expanded:0049,train,False,False,quality excluded,new_sources,true
+real_v50_aug_0.mp4,0,expanded:0050,train,True,True,selected,new_sources,true
+real_v50_aug_1.mp4,0,expanded:0050,train,True,True,selected,new_sources,true
+real_v50_aug_2.mp4,0,expanded:0050,train,True,True,selected,new_sources,true
+real_v50_aug_3.mp4,0,expanded:0050,train,True,True,selected,new_sources,true
+real_v50_aug_4.mp4,0,expanded:0050,train,True,True,selected,new_sources,true
+real_v50_aug_5.mp4,0,expanded:0050,train,True,True,selected,new_sources,true
+real_v50_aug_6.mp4,0,expanded:0050,train,True,True,selected,new_sources,true
+real_v50_aug_7.mp4,0,expanded:0050,train,True,True,selected,new_sources,true
+real_v51_aug_0.mp4,0,expanded:0051,train,True,True,selected,new_sources,true
+real_v51_aug_1.mp4,0,expanded:0051,train,True,True,selected,new_sources,true
+real_v51_aug_2.mp4,0,expanded:0051,train,True,True,selected,new_sources,true
+real_v51_aug_3.mp4,0,expanded:0051,train,True,True,selected,new_sources,true
+real_v51_aug_4.mp4,0,expanded:0051,train,True,True,selected,new_sources,true
+real_v51_aug_5.mp4,0,expanded:0051,train,True,False,balance reserve,new_sources,true
+real_v51_aug_6.mp4,0,expanded:0051,train,True,True,selected,new_sources,true
+real_v51_aug_7.mp4,0,expanded:0051,train,True,True,selected,new_sources,true
+real_v52_aug_0.mp4,0,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v52_aug_1.mp4,0,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v52_aug_2.mp4,0,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v52_aug_3.mp4,0,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v52_aug_4.mp4,0,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v52_aug_5.mp4,0,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v52_aug_6.mp4,0,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v52_aug_7.mp4,0,expanded:0052,test,True,False,evaluation augmentation reserved,new_sources,true
+real_v53_aug_0.mp4,0,expanded:0053,train,True,False,balance reserve,new_sources,true
+real_v53_aug_1.mp4,0,expanded:0053,train,True,True,selected,new_sources,true
+real_v53_aug_2.mp4,0,expanded:0053,train,True,True,selected,new_sources,true
+real_v53_aug_3.mp4,0,expanded:0053,train,True,True,selected,new_sources,true
+real_v53_aug_4.mp4,0,expanded:0053,train,True,True,selected,new_sources,true
+real_v53_aug_5.mp4,0,expanded:0053,train,True,True,selected,new_sources,true
+real_v53_aug_6.mp4,0,expanded:0053,train,True,True,selected,new_sources,true
+real_v53_aug_7.mp4,0,expanded:0053,train,True,True,selected,new_sources,true
+v1.mp4,0,expanded:0001,calibration,True,True,selected,new_sources,false
+v10.mp4,0,expanded:0010,train,True,True,selected,new_sources,false
+v11.mp4,0,expanded:0011,val,True,True,selected,new_sources,
+v12.mp4,0,expanded:0012,calibration,True,True,selected,new_sources,
+v13.mp4,0,expanded:0013,test,True,True,selected,new_sources,
+v14.mp4,0,expanded:0014,test,True,True,selected,new_sources,
+v15.mp4,0,expanded:0015,test,True,True,selected,new_sources,
+v16.mp4,0,expanded:0016,val,True,True,selected,new_sources,
+v17.mp4,0,expanded:0017,train,True,True,selected,new_sources,
+v18.mp4,0,expanded:0018,train,True,True,selected,new_sources,
+v19.mp4,0,expanded:0019,train,True,True,selected,new_sources,
+v2.mp4,0,expanded:0002,test,True,True,selected,new_sources,false
+v20.mp4,0,expanded:0020,calibration,True,True,selected,new_sources,
+v21.mp4,0,expanded:0021,train,True,True,selected,new_sources,
+v22.mp4,0,expanded:0022,train,True,True,selected,new_sources,
+v23.mp4,0,expanded:0023,calibration,True,True,selected,new_sources,
+v24.mp4,0,expanded:0024,train,True,True,selected,new_sources,
+v25.mp4,0,expanded:0025,train,True,True,selected,new_sources,
+v26.mp4,0,expanded:0026,train,True,True,selected,new_sources,
+v27.mp4,0,expanded:0027,train,True,True,selected,new_sources,
+v28.mp4,0,expanded:0028,train,True,True,selected,new_sources,
+v29.mp4,0,expanded:0029,train,True,True,selected,new_sources,
+v3.mp4,0,expanded:0003,test,True,True,selected,new_sources,false
+v30.mp4,0,expanded:0030,train,True,False,balance reserve,new_sources,
+v31.mp4,0,expanded:0031,val,True,True,selected,new_sources,
+v32.mp4,0,expanded:0032,train,True,True,selected,new_sources,
+v33.mp4,0,expanded:0033,train,True,True,selected,new_sources,
+v34.mp4,0,expanded:0034,test,True,True,selected,new_sources,
+v35.mp4,0,expanded:0035,train,True,True,selected,new_sources,
+v36.mp4,0,expanded:0036,calibration,True,True,selected,new_sources,
+v37.mp4,0,expanded:0037,test,True,True,selected,new_sources,
+v38.mp4,0,expanded:0038,train,True,True,selected,new_sources,
+v39.mp4,0,expanded:0039,train,True,True,selected,new_sources,
+v4.mp4,0,expanded:0004,val,True,True,selected,new_sources,false
+v40.mp4,0,expanded:0040,train,True,True,selected,new_sources,
+v41.mp4,0,expanded:0041,train,True,True,selected,new_sources,
+v42.mp4,0,expanded:0042,val,True,False,balance reserve,new_sources,
+v43.mp4,0,expanded:0043,train,True,True,selected,new_sources,
+v44.mp4,0,expanded:0044,test,True,True,selected,new_sources,
+v45.mp4,0,expanded:0045,train,True,True,selected,new_sources,
+v46.mp4,0,expanded:0046,train,True,True,selected,new_sources,
+v47.mp4,0,expanded:0047,val,True,True,selected,new_sources,
+v48.mp4,0,expanded:0048,train,True,True,selected,new_sources,
+v49.mp4,0,expanded:0049,train,False,False,quality excluded,new_sources,
+v5.mp4,0,expanded:0005,train,True,True,selected,new_sources,false
+v50.mp4,0,expanded:0050,train,True,True,selected,new_sources,
+v51.mp4,0,expanded:0051,train,True,True,selected,new_sources,
+v52.mp4,0,expanded:0052,test,True,True,selected,new_sources,
+v53.mp4,0,expanded:0053,train,True,True,selected,new_sources,
+v6.mp4,0,expanded:0006,train,True,True,selected,new_sources,false
+v7.mp4,0,expanded:0007,calibration,True,True,selected,new_sources,false
+v8.mp4,0,expanded:0008,train,True,True,selected,new_sources,false
+v9.mp4,0,expanded:0009,test,True,True,selected,new_sources,
+vs1.mp4,1,expanded:0001,calibration,True,True,selected,new_sources,false
+vs10.mp4,1,expanded:0010,train,True,True,selected,new_sources,false
+vs11.mp4,1,expanded:0011,val,False,False,quality excluded,new_sources,false
+vs12.mp4,1,expanded:0012,calibration,True,True,selected,new_sources,false
+vs13.mp4,1,expanded:0013,test,True,True,selected,new_sources,false
+vs14.mp4,1,expanded:0014,test,True,True,selected,new_sources,false
+vs15.mp4,1,expanded:0015,test,True,True,selected,new_sources,false
+vs16.mp4,1,expanded:0016,val,True,True,selected,new_sources,false
+vs17.mp4,1,expanded:0017,train,True,True,selected,new_sources,false
+vs18.mp4,1,expanded:0018,train,True,True,selected,new_sources,false
+vs19.mp4,1,expanded:0019,train,True,True,selected,new_sources,false
+vs2.mp4,1,expanded:0002,test,True,True,selected,new_sources,false
+vs20.mp4,1,expanded:0020,calibration,True,True,selected,new_sources,false
+vs21.mp4,1,expanded:0021,train,True,True,selected,new_sources,false
+vs22.mp4,1,expanded:0022,train,True,True,selected,new_sources,false
+vs23.mp4,1,expanded:0023,calibration,True,True,selected,new_sources,false
+vs24.mp4,1,expanded:0024,train,True,True,selected,new_sources,false
+vs25.mp4,1,expanded:0025,train,True,True,selected,new_sources,false
+vs26.mp4,1,expanded:0026,train,True,True,selected,new_sources,false
+vs27.mp4,1,expanded:0027,train,True,True,selected,new_sources,false
+vs28.mp4,1,expanded:0028,train,True,True,selected,new_sources,false
+vs29.mp4,1,expanded:0029,train,True,True,selected,new_sources,false
+vs3.mp4,1,expanded:0003,test,True,True,selected,new_sources,false
+vs30.mp4,1,expanded:0030,train,True,True,selected,new_sources,false
+vs31.mp4,1,expanded:0031,val,True,True,selected,new_sources,false
+vs32.mp4,1,expanded:0032,train,True,True,selected,new_sources,false
+vs33.mp4,1,expanded:0033,train,True,True,selected,new_sources,false
+vs34.mp4,1,expanded:0034,test,True,True,selected,new_sources,false
+vs35.mp4,1,expanded:0035,train,False,False,quality excluded,new_sources,false
+vs36.mp4,1,expanded:0036,calibration,True,True,selected,new_sources,false
+vs37.mp4,1,expanded:0037,test,True,True,selected,new_sources,false
+vs38.mp4,1,expanded:0038,train,True,True,selected,new_sources,false
+vs39.mp4,1,expanded:0039,train,True,True,selected,new_sources,false
+vs4.mp4,1,expanded:0004,val,True,True,selected,new_sources,false
+vs40.mp4,1,expanded:0040,train,True,True,selected,new_sources,false
+vs41.mp4,1,expanded:0041,train,True,True,selected,new_sources,false
+vs42.mp4,1,expanded:0042,val,True,True,selected,new_sources,false
+vs43.mp4,1,expanded:0043,train,True,True,selected,new_sources,false
+vs44.mp4,1,expanded:0044,test,True,True,selected,new_sources,false
+vs45.mp4,1,expanded:0045,train,True,True,selected,new_sources,false
+vs46.mp4,1,expanded:0046,train,True,True,selected,new_sources,false
+vs47.mp4,1,expanded:0047,val,True,True,selected,new_sources,false
+vs48.mp4,1,expanded:0048,train,True,True,selected,new_sources,false
+vs49.mp4,1,expanded:0049,train,False,False,quality excluded,new_sources,false
+vs5.mp4,1,expanded:0005,train,True,True,selected,new_sources,false
+vs50.mp4,1,expanded:0050,train,True,True,selected,new_sources,false
+vs51.mp4,1,expanded:0051,train,True,True,selected,new_sources,false
+vs52.mp4,1,expanded:0052,test,True,True,selected,new_sources,false
+vs53.mp4,1,expanded:0053,train,True,True,selected,new_sources,false
+vs6.mp4,1,expanded:0006,train,True,True,selected,new_sources,false
+vs7.mp4,1,expanded:0007,calibration,True,True,selected,new_sources,false
+vs8.mp4,1,expanded:0008,train,True,True,selected,new_sources,false
+vs9.mp4,1,expanded:0009,test,True,True,selected,new_sources,false

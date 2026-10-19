@@ -1,36 +1,18 @@
 # Owner-provided video dataset
 
-The current dataset is the owner's 98 uploaded videos: 49 labeled real (`0000.mp4` to
-`0048.mp4`) and 49 labeled fake (`0000_fake.mp4` to `0048_fake.mp4`). These labels come
-from the owner's naming instruction. Dataset origin/license, actual manipulation methods,
-participant consent and donor identities have not been independently established; no
-named benchmark provenance is claimed. The owner should confirm permitted research use.
+The expanded inventory has 822 unique files: 319 Real and 503 Fake. Labels were supplied by the owner. Origin, license, identities and donor relationships were not independently verified. No named benchmark provenance is claimed.
 
-All files passed structural video probing. Inventory records exact SHA-256, size,
-duration, dimensions, frame rate and codec. A successful probe does not establish that
-a label is correct or certify every packet. Face-quality checks exclude 25 inputs from
-model fitting/evaluation; exclusions and reasons remain visible in reports/results.
+The balanced candidate selection has 638 files: 319 per class, comprising 102 original files and 217 supplied augmentations per class. The remaining 184 fake files stay in reserve. Augmentations are variations, not independent sources.
 
-Related original/fake filename stems stay together. Identical content is also grouped;
-identical files carrying different labels cause a hard error. This source-pair grouping
-is conservative but does not prove subjects/donors differ across splits. Supply verified
-identity/source metadata for a stronger future experiment; do not invent subject IDs.
+Private manifests under data/manifests contain the complete inventory (expanded_inventory.csv), equal candidate selection (balanced_pending.csv), extra files (balance_reserve.csv), source-family assignments (splits.csv), and actual quality and selection outcomes (prepared.csv).
 
-Fixed seed 42 allocates 29 source pairs to train, 6 to validation, 6 to calibration and
-8 to final testing. Before face-quality exclusions this is 58/12/12/16 videos. After
-exclusions it is 42/9/12/10. Both classes remain in each usable partition. No frame,
-augmentation or derivative can move independently of its original source group.
+Content hashes deduplicate copies and detect changed files. Legacy 0000/0000_fake stems stay together. New vN/vsN files and real_vN/fake_vsN augmentations share a conservative expanded:N family. This groups possible relationships without claiming that matching numbers establish identity.
 
-The uploaded attachment index is local outside the repository. To reproduce ingestion
-from an authorized local JSON index containing path/name/label records:
+Historical split assignments are preserved. New families are assigned with seed 42. After quality filtering, training is balanced separately for original and augmented files; validation, calibration and testing use balanced original files only. Historical test originals are monitored separately from the primary new-source test cohort. Files reserved for balance or because they are evaluation augmentations are distinguished from quality failures. Balancing deletes no files.
 
-```bash
-deepguard import-uploads /path/to/upload_index.json
-```
+To prepare and train from authorized local data:
 
-Alternatively retain the supplied private manifest with columns path, file, label,
-source_group, sha256 and split, preserving grouping and hashes. Import never infers
-class labels from the visual appearance or generates additional fake examples. Keep raw
-videos, face caches and private manifests out of Git. Hashes detect file changes, not
-truthfulness or authenticity. A larger independently sourced dataset is needed to
-support broad unknown-video conclusions.
+    deepguard prepare-dataset data/manifests/balanced_pending.csv --previous-splits data/manifests/splits.csv
+    deepguard train data/manifests/splits.csv --balanced
+
+Identity-disjoint evaluation requires actual subject/donor metadata, which is unavailable. Raw files and private manifests are not committed to Git and are not needed for inference.

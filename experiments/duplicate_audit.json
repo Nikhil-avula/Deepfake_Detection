@@ -1,0 +1,8 @@
+{
+  "original_real_files_checked": 102,
+  "possible_reencoded_duplicates": 0,
+  "protocol": "Four full-frame 64x64 grayscale thumbnails at 10%, 35%, 60% and 85% duration; compare clips with duration difference <=0.25 seconds; flag mean absolute pixel difference <3 and maximum frame mean difference <5 on the 0..255 scale.",
+  "cross_family_only": true,
+  "identity_independence": "Not established. This conservative content-similarity audit does not identify subjects or rule out different clips of the same person.",
+  "test_scores_used": false
+}

@@ -1,0 +1,30 @@
+{
+  "scope": "Reused inspected reserved originals; regression monitoring, not fresh external testing",
+  "candidate_videos": 638,
+  "eligible_before": 593,
+  "eligible_after": 616,
+  "analyzed_before": 18,
+  "analyzed_after": 20,
+  "original_common_scores_unchanged": true,
+  "accuracy_before": 0.7222222222222222,
+  "accuracy_after": 0.75,
+  "recovered_files": [
+    "v44.mp4",
+    "vs44.mp4"
+  ],
+  "clear_answers": 14,
+  "clear_accuracy": 0.8571428571428571,
+  "pipeline": "Existing standard model first. Retry only when face evidence is insufficient; never replace a scored standard result.",
+  "retry_standalone_accuracy": 0.65,
+  "retry_standalone_not_promoted": "Global replacement regressed; standard outputs preserved.",
+  "decoder_benchmark_seconds": {
+    "seek_24": 1.848,
+    "sequential_24": 0.123
+  },
+  "benchmark_scope": "One clip, decoding only; not end-to-end speed",
+  "thresholds_unchanged": [
+    0.35,
+    0.65
+  ],
+  "windows_runtime": "Not available; failure paths simulated"
+}

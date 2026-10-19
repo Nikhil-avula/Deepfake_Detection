@@ -52,3 +52,33 @@ usable/excluded dataset counts and provides current model restoration instructio
 The full suite passed 39 tests; subsequent focused checks passed all 7 model/UI
 tests and all 9 dataset tests after their final edits. See experiments/validation.txt
 and experiments/retraining_validation.txt for captured results.
+
+## V003 — Expanded balanced training, 2026-10-19
+
+Prepared 638 balanced owner-supplied candidates from 822 unique files. Original/fake
+families and all augmentations were grouped; old assignments were preserved.
+Replaced Haar face localization with checksummed official OpenCV SSD assets before
+inspecting new test classification results, and rebuilt all features. YuNet's host
+was inaccessible; SSD was acquired from the official OpenCV repository instead.
+The independent Real-original thumbnail audit found no flagged cross-family copies.
+
+Quality eligibility: 593/638; actual balanced selected files:
+432. Training uses originals and supplied augmentations;
+validation/calibration/test use originals only. Source-family weights limit repeated
+augmentation evidence. Selected EfficientNet + neural head using validation only from
+five linear and two neural candidates. The image encoder remained frozen on CPU.
+
+Primary evaluation: 72.2% accuracy, ROC-AUC 0.802,
+18/20 reserved new-source originals
+analyzed and selected. Historical testing is reported separately. These results
+do not establish external or identity-disjoint generalization. See EVALUATION_REPORT
+and experiments/retraining.json for the current evidence. No GitHub push was made;
+the owner will test the application first.
+
+## V004 — Two-pass face coverage, 2026-10-19
+
+Standard scored outputs preserved. A retrained 24-frame, dominant-face classifier
+is used only for quality-failed retries. Global replacement regressed and was not
+used. Pipeline quality eligibility increased from 593 to 616/638; reused reserved
+original coverage from 18 to 20/20, with 15 correct at 0.5. These inspected files
+provide regression evidence, not new external generalization evidence.

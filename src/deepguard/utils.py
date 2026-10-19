@@ -20,6 +20,9 @@ def config(path: str | Path | None = None) -> dict:
 
 
 def seed_all(seed: int = 42, threads: int = 4) -> None:
+    import cv2
+    # OpenCV otherwise creates a pool for every visible host core, oversubscribing cloud CPUs.
+    cv2.setNumThreads(min(threads,os.cpu_count() or 1))
     random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
     torch.set_num_threads(min(threads,os.cpu_count() or 1))
     torch.use_deterministic_algorithms(True,warn_only=True)

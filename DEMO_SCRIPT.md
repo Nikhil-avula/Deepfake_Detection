@@ -1,28 +1,12 @@
-# Honest ten-minute project demonstration
+# Demonstrate the updated application
 
-**0–1 min:** State the updated problem: a user uploads a video and receives visual
-real/fake evidence, with a clear uncertain/unsupported outcome when appropriate.
+1. Start the app with bash scripts/run.sh in the cloud checkout, or python -m streamlit run app/main.py in your activated local environment.
+2. Open Start and explain the video-only objective. Use Check a video to upload a short, clearly visible single-person clip.
+3. Explain the actual result: Likely real, Likely fake, Not sure or Cannot analyze. Show the face samples and score explanation. Download the HTML report if useful.
+4. Use a held-out original for a meaningful dataset check. A training-file warning means the clip is not an independent test. Renaming a file cannot change its score.
+5. Open How reliable is it? and quote the current measured accuracy, number of original test videos, source groups and coverage. Do not substitute an older experiment's metrics or claim unknown-video accuracy.
+6. Open Our dataset: candidate Real/Fake counts are equal, and post-quality per-split counts are displayed. Explain that augmentations stay with their original family and are not independent examples.
+7. Show limitations and robustness results. A compressed version of the same reserved clip is a robustness check, not an external dataset.
+8. Use Clear video and result to remove retained evidence. Test malformed or faceless input to show an understandable failure result rather than a fabricated classification.
 
-**1–2 min:** Show Start and the three-step workflow. Explain that the system examines
-faces and cannot guarantee authenticity.
-
-**2–3 min:** Open Our dataset: 49 real-labeled and 49 fake-labeled uploads, grouped source
-pairs, four partitions. Explain unknown origin and unverified identity independence.
-
-**3–5 min:** Check a held-out authorized video. Read the actual result, including a wrong
-or uncertain answer if that occurs. Do not choose a training example and call it external.
-Show face samples and download the escaped HTML report.
-
-**5–6 min:** Try a non-face or damaged file to demonstrate safe refusal rather than a
-fabricated prediction. Clear retained session evidence.
-
-**6–8 min:** Open How reliable is it?: actual 60% accuracy on 10 analyzed held-out videos,
-62.5% coverage over the 16 reserved inputs, errors and unstable small-source intervals.
-Show baseline comparison and measured picture-quality changes. Do not hide errors.
-
-**8–9 min:** Explain frozen EfficientNet features, a genuinely trained classifier head,
-train-only scaling and independent validation/calibration/test partitions.
-
-**9–10 min:** Explain limitations and next experiments: more licensed independent sources,
-verified subject/donor grouping, stronger face detection and external evaluation. A
-working interface and passing software tests do not establish correct unknown-video detection.
+The selected model is recorded in reports/results/model_selection.json. EfficientNet supplies frozen features; validation chooses a regularized linear or small neural head. Only the classifier is fitted on the owner's examples.

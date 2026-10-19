@@ -1,0 +1,104 @@
+[
+  {
+    "model": "EfficientNet transfer classifier",
+    "test": {
+      "videos": 18,
+      "accuracy": 0.7222222222222222,
+      "balanced_accuracy": 0.7222222222222222,
+      "precision": 0.7,
+      "recall": 0.7777777777777778,
+      "f1": 0.7368421052631579,
+      "roc_auc": 0.8024691358024691,
+      "pr_auc": 0.6691654024987358,
+      "average_precision": 0.7219286885953553,
+      "confusion_matrix": [
+        [
+          6,
+          3
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "false_positive_rate": 0.3333333333333333,
+      "false_negative_rate": 0.2222222222222222,
+      "brier": 0.16669875671529066,
+      "ece": 0.1816498702699382,
+      "source_groups": 9,
+      "accuracy_group_bootstrap_95_ci": [
+        0.5555555555555556,
+        0.8888888888888888
+      ],
+      "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
+    }
+  },
+  {
+    "model": "texture_logistic",
+    "test": {
+      "videos": 18,
+      "accuracy": 0.6111111111111112,
+      "balanced_accuracy": 0.6111111111111112,
+      "precision": 0.6666666666666666,
+      "recall": 0.4444444444444444,
+      "f1": 0.5333333333333333,
+      "roc_auc": 0.6296296296296297,
+      "pr_auc": 0.547211711672496,
+      "average_precision": 0.6043881499763852,
+      "confusion_matrix": [
+        [
+          7,
+          2
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "false_positive_rate": 0.2222222222222222,
+      "false_negative_rate": 0.5555555555555556,
+      "brier": 0.2544374255995525,
+      "ece": 0.2080961390998853,
+      "source_groups": 9,
+      "accuracy_group_bootstrap_95_ci": [
+        0.5,
+        0.7777777777777778
+      ],
+      "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
+    }
+  },
+  {
+    "model": "texture_forest",
+    "test": {
+      "videos": 18,
+      "accuracy": 0.6111111111111112,
+      "balanced_accuracy": 0.6111111111111112,
+      "precision": 0.6,
+      "recall": 0.6666666666666666,
+      "f1": 0.631578947368421,
+      "roc_auc": 0.5679012345679013,
+      "pr_auc": 0.4794181127514461,
+      "average_precision": 0.5267374600707934,
+      "confusion_matrix": [
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "false_positive_rate": 0.4444444444444444,
+      "false_negative_rate": 0.3333333333333333,
+      "brier": 0.23016138018378918,
+      "ece": 0.09279558647897454,
+      "source_groups": 9,
+      "accuracy_group_bootstrap_95_ci": [
+        0.5,
+        0.7777777777777778
+      ],
+      "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
+    }
+  }
+]

@@ -1,26 +1,12 @@
-# What this pilot cannot promise
+# Limits of the current detector
 
-- The main classifier achieved 60% accuracy on ten analyzable held-out videos. It is
-  not a reliable general-purpose authenticity service or a perfect college benchmark.
-- Six of sixteen reserved test videos were rejected for insufficient/ambiguous facial
-  evidence. Coverage and errors are reported separately; exclusions are not correct predictions.
-- Labels came from the owner. Origin, manipulation method, participant consent and
-  donor/subject identities were not independently verified.
-- Source pairs are separated, but identity/donor-disjoint testing is unverified.
-- Ninety-eight videos provide limited diversity. Modern unseen generation methods,
-  different populations, lighting, pose and video processing can cause failures.
-- Haar detection can miss profiles or produce false boxes. Blurry or multi-person inputs
-  may be refused, including otherwise legitimate videos.
-- ImageNet features are frozen; the trained head can learn identity or dataset shortcuts
-  rather than general forgery evidence. Feature-distance gating does not solve this.
-- Model scores are not calibrated probabilities of truth. A separate temperature fit
-  was evaluated and does not justify a confidence guarantee.
-- Fixed score thresholds and quality gates are engineering policies. No validated
-  operational false-alarm target has been established.
-- Robustness derivatives of the held-out uploads are not independent external videos.
-  No labeled, newly sourced external corpus has been evaluated.
-- Clear answers can still be wrong. Human/source verification remains necessary.
-- Temporary files use normal deletion, not certified secure erasure. Session evidence
-  persists until cleared or disconnected. No raw media are included in Git by default.
-- Windows setup is documented but was not executed on Windows. There is no real-time,
-  pixel-level forgery localization or identity-verification claim.
+- Current measured accuracy and coverage are reported in reports/results/summary.json and EVALUATION_REPORT.md. No result establishes accuracy on arbitrary unfamiliar videos.
+- The balanced candidate dataset has 102 original files and 217 augmented files per class. Augmented variations are correlated evidence, not additional independent sources.
+- Labels were supplied by the owner. Dataset provenance, participant identities, donor relationships and label correctness were not independently verified.
+- Grouping uses conservative filename relationships. Historical assignments are preserved; identity-disjoint evaluation is not certified. Newly named sources are not necessarily unseen identities or an external benchmark.
+- Quality exclusions and equal-count selection reduce the final number used for learning and evaluation. Coverage must be read alongside accuracy. Augmented held-out variants are robustness checks, not new independent tests.
+- Face localization can miss profile, occluded, small or blurry faces. Multiple people and insufficient suitable samples lead to Cannot analyze. The model examines faces rather than every possible type of video manipulation.
+- Container compression, resolution, lighting or source-specific artifacts may correlate with labels. Realistic testing across independent sources and generation methods is needed to quantify these biases.
+- EfficientNet is a frozen ImageNet encoder; only a compact classifier is fitted. A neural candidate is selected only when its validation performance justifies it.
+- The raw score is not a probability of truth. Temperature calibration on a small separate split may be unstable. The feature-distance uncertainty gate is heuristic.
+- Results are research evidence, not proof of authenticity or manipulation. The project does not promise perfect accuracy, universal detection or guaranteed performance on an unknown upload.

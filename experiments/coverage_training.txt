@@ -1,0 +1,728 @@
+2026-10-19 06:47:29,833 Features 1/638 0000.mp4: 24 face crops, usable=True
+2026-10-19 06:47:31,846 Features 2/638 0000_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:47:33,931 Features 3/638 0001.mp4: 24 face crops, usable=True
+2026-10-19 06:47:36,315 Features 4/638 0001_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:47:38,000 Features 5/638 0002.mp4: 24 face crops, usable=True
+2026-10-19 06:47:39,702 Features 6/638 0002_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:47:41,237 Features 7/638 0003.mp4: 24 face crops, usable=True
+2026-10-19 06:47:42,794 Features 8/638 0003_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:47:44,359 Features 9/638 0004.mp4: 24 face crops, usable=True
+2026-10-19 06:47:45,710 Features 10/638 0004_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:47:47,137 Features 11/638 0005.mp4: 22 face crops, usable=True
+2026-10-19 06:47:48,474 Features 12/638 0005_fake.mp4: 22 face crops, usable=True
+2026-10-19 06:47:49,872 Features 13/638 0006.mp4: 24 face crops, usable=True
+2026-10-19 06:47:51,225 Features 14/638 0006_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:47:52,649 Features 15/638 0007.mp4: 24 face crops, usable=True
+2026-10-19 06:47:54,003 Features 16/638 0007_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:47:55,591 Features 17/638 0008.mp4: 24 face crops, usable=True
+2026-10-19 06:47:57,099 Features 18/638 0008_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:47:58,692 Features 19/638 0009.mp4: 24 face crops, usable=True
+2026-10-19 06:48:00,132 Features 20/638 0009_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:01,910 Features 21/638 0010.mp4: 24 face crops, usable=True
+2026-10-19 06:48:03,513 Features 22/638 0010_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:06,114 Features 23/638 0011.mp4: 24 face crops, usable=True
+2026-10-19 06:48:07,577 Features 24/638 0011_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:08,921 Features 25/638 0012.mp4: 24 face crops, usable=True
+2026-10-19 06:48:10,258 Features 26/638 0012_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:11,743 Features 27/638 0013.mp4: 24 face crops, usable=True
+2026-10-19 06:48:13,020 Features 28/638 0013_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:14,383 Features 29/638 0014.mp4: 24 face crops, usable=True
+2026-10-19 06:48:15,695 Features 30/638 0014_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:17,103 Features 31/638 0015.mp4: 24 face crops, usable=True
+2026-10-19 06:48:18,344 Features 32/638 0015_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:19,614 Features 33/638 0016.mp4: 24 face crops, usable=True
+2026-10-19 06:48:20,895 Features 34/638 0016_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:22,242 Features 35/638 0017.mp4: 24 face crops, usable=True
+2026-10-19 06:48:23,618 Features 36/638 0017_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:25,446 Features 37/638 0018.mp4: 24 face crops, usable=False
+2026-10-19 06:48:26,883 Features 38/638 0018_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:28,313 Features 39/638 0019.mp4: 24 face crops, usable=True
+2026-10-19 06:48:29,746 Features 40/638 0019_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:31,009 Features 41/638 0020.mp4: 24 face crops, usable=True
+2026-10-19 06:48:32,501 Features 42/638 0020_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:34,108 Features 43/638 0021.mp4: 24 face crops, usable=True
+2026-10-19 06:48:35,450 Features 44/638 0021_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:38,053 Features 45/638 0022.mp4: 24 face crops, usable=True
+2026-10-19 06:48:39,544 Features 46/638 0022_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:40,956 Features 47/638 0023.mp4: 24 face crops, usable=True
+2026-10-19 06:48:42,403 Features 48/638 0023_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:44,150 Features 49/638 0024.mp4: 24 face crops, usable=True
+2026-10-19 06:48:45,465 Features 50/638 0024_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:46,997 Features 51/638 0025.mp4: 24 face crops, usable=True
+2026-10-19 06:48:48,404 Features 52/638 0025_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:49,796 Features 53/638 0026.mp4: 24 face crops, usable=True
+2026-10-19 06:48:51,169 Features 54/638 0026_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:52,677 Features 55/638 0027.mp4: 24 face crops, usable=True
+2026-10-19 06:48:53,951 Features 56/638 0027_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:48:55,298 Features 57/638 0028.mp4: 22 face crops, usable=True
+2026-10-19 06:48:56,630 Features 58/638 0028_fake.mp4: 22 face crops, usable=True
+2026-10-19 06:48:57,968 Features 59/638 0029.mp4: 24 face crops, usable=True
+2026-10-19 06:48:59,303 Features 60/638 0029_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:00,749 Features 61/638 0030.mp4: 24 face crops, usable=True
+2026-10-19 06:49:02,369 Features 62/638 0030_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:03,754 Features 63/638 0031.mp4: 24 face crops, usable=True
+2026-10-19 06:49:05,046 Features 64/638 0031_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:06,329 Features 65/638 0032.mp4: 24 face crops, usable=True
+2026-10-19 06:49:07,636 Features 66/638 0032_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:09,000 Features 67/638 0033.mp4: 24 face crops, usable=True
+2026-10-19 06:49:10,241 Features 68/638 0033_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:11,593 Features 69/638 0034.mp4: 21 face crops, usable=True
+2026-10-19 06:49:12,912 Features 70/638 0034_fake.mp4: 23 face crops, usable=True
+2026-10-19 06:49:14,301 Features 71/638 0035.mp4: 24 face crops, usable=True
+2026-10-19 06:49:15,773 Features 72/638 0035_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:17,059 Features 73/638 0036.mp4: 21 face crops, usable=True
+2026-10-19 06:49:18,370 Features 74/638 0036_fake.mp4: 21 face crops, usable=True
+2026-10-19 06:49:19,734 Features 75/638 0037.mp4: 24 face crops, usable=True
+2026-10-19 06:49:21,022 Features 76/638 0037_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:22,374 Features 77/638 0038.mp4: 24 face crops, usable=True
+2026-10-19 06:49:23,723 Features 78/638 0038_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:25,036 Features 79/638 0039.mp4: 24 face crops, usable=True
+2026-10-19 06:49:26,424 Features 80/638 0039_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:27,931 Features 81/638 0040.mp4: 24 face crops, usable=True
+2026-10-19 06:49:29,405 Features 82/638 0040_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:30,827 Features 83/638 0041.mp4: 24 face crops, usable=True
+2026-10-19 06:49:32,264 Features 84/638 0041_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:33,785 Features 85/638 0042.mp4: 24 face crops, usable=True
+2026-10-19 06:49:35,283 Features 86/638 0042_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:36,432 Features 87/638 0043.mp4: 13 face crops, usable=True
+2026-10-19 06:49:37,644 Features 88/638 0043_fake.mp4: 15 face crops, usable=True
+2026-10-19 06:49:39,228 Features 89/638 0044.mp4: 24 face crops, usable=True
+2026-10-19 06:49:40,981 Features 90/638 0044_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:42,485 Features 91/638 0045.mp4: 24 face crops, usable=True
+2026-10-19 06:49:43,978 Features 92/638 0045_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:45,476 Features 93/638 0046.mp4: 23 face crops, usable=True
+2026-10-19 06:49:46,937 Features 94/638 0046_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:48,335 Features 95/638 0047.mp4: 24 face crops, usable=True
+2026-10-19 06:49:49,973 Features 96/638 0047_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:51,326 Features 97/638 0048.mp4: 24 face crops, usable=True
+2026-10-19 06:49:52,690 Features 98/638 0048_fake.mp4: 24 face crops, usable=True
+2026-10-19 06:49:54,074 Features 99/638 fake_vs10_aug_0-if9E0y-c76x32-0x81kS-VFM3mL.mp4: 24 face crops, usable=True
+2026-10-19 06:49:55,413 Features 100/638 fake_vs10_aug_2-9lqvO4-5F1dqq-pQz3tv-3N2Jl5.mp4: 24 face crops, usable=True
+2026-10-19 06:49:56,725 Features 101/638 fake_vs10_aug_4-cPoSYD-yp6rZr-LwA3P1-vuvVhv.mp4: 24 face crops, usable=True
+2026-10-19 06:49:58,047 Features 102/638 fake_vs10_aug_6-97Ynlr-ZeQG3w-4wod5m.mp4: 24 face crops, usable=True
+2026-10-19 06:49:59,245 Features 103/638 fake_vs11_aug_1-DQ6Z9U-9rrS9u-TWfRRh.mp4: 14 face crops, usable=False
+2026-10-19 06:50:00,428 Features 104/638 fake_vs11_aug_2-G3KiF8-DZUu2i-YWSRCC.mp4: 15 face crops, usable=False
+2026-10-19 06:50:01,509 Features 105/638 fake_vs11_aug_3-MMa9v1-h1krLw-l8kKr2.mp4: 13 face crops, usable=False
+2026-10-19 06:50:02,745 Features 106/638 fake_vs11_aug_7-84LrWq-9V2THU-znOTA4.mp4: 14 face crops, usable=False
+2026-10-19 06:50:04,374 Features 107/638 fake_vs12_aug_1-tb9wSy.mp4: 23 face crops, usable=True
+2026-10-19 06:50:05,808 Features 108/638 fake_vs12_aug_2-DHiZ6m.mp4: 24 face crops, usable=True
+2026-10-19 06:50:07,309 Features 109/638 fake_vs12_aug_5-QC6rOA.mp4: 22 face crops, usable=True
+2026-10-19 06:50:09,048 Features 110/638 fake_vs12_aug_7-B8xSQ5.mp4: 22 face crops, usable=True
+2026-10-19 06:50:10,498 Features 111/638 fake_vs13_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:50:11,873 Features 112/638 fake_vs13_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:50:13,482 Features 113/638 fake_vs13_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:50:15,048 Features 114/638 fake_vs13_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:50:15,896 Features 115/638 fake_vs14_aug_1.mp4: 4 face crops, usable=True
+2026-10-19 06:50:17,049 Features 116/638 fake_vs14_aug_2.mp4: 13 face crops, usable=True
+2026-10-19 06:50:18,239 Features 117/638 fake_vs14_aug_3.mp4: 18 face crops, usable=True
+2026-10-19 06:50:19,926 Features 118/638 fake_vs14_aug_5.mp4: 19 face crops, usable=True
+2026-10-19 06:50:21,010 Features 119/638 fake_vs15_aug_0.mp4: 15 face crops, usable=True
+2026-10-19 06:50:22,164 Features 120/638 fake_vs15_aug_2.mp4: 15 face crops, usable=True
+2026-10-19 06:50:23,306 Features 121/638 fake_vs15_aug_3.mp4: 15 face crops, usable=True
+2026-10-19 06:50:24,402 Features 122/638 fake_vs15_aug_5.mp4: 15 face crops, usable=True
+2026-10-19 06:50:25,764 Features 123/638 fake_vs16_aug_1.mp4: 23 face crops, usable=True
+2026-10-19 06:50:27,183 Features 124/638 fake_vs16_aug_2.mp4: 23 face crops, usable=True
+2026-10-19 06:50:28,792 Features 125/638 fake_vs16_aug_5.mp4: 23 face crops, usable=True
+2026-10-19 06:50:30,130 Features 126/638 fake_vs16_aug_6.mp4: 23 face crops, usable=True
+2026-10-19 06:50:31,508 Features 127/638 fake_vs17_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:50:32,861 Features 128/638 fake_vs17_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:50:34,440 Features 129/638 fake_vs17_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:50:35,724 Features 130/638 fake_vs17_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:50:37,127 Features 131/638 fake_vs18_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:50:38,609 Features 132/638 fake_vs18_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:50:40,098 Features 133/638 fake_vs18_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:50:41,793 Features 134/638 fake_vs18_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:50:43,139 Features 135/638 fake_vs19_aug_1.mp4: 15 face crops, usable=True
+2026-10-19 06:50:44,404 Features 136/638 fake_vs19_aug_3.mp4: 13 face crops, usable=True
+2026-10-19 06:50:45,783 Features 137/638 fake_vs19_aug_5.mp4: 14 face crops, usable=True
+2026-10-19 06:50:47,144 Features 138/638 fake_vs19_aug_7.mp4: 13 face crops, usable=True
+2026-10-19 06:50:48,582 Features 139/638 fake_vs1_aug_0-zupq9I-C4qUe7-oAltTD.mp4: 24 face crops, usable=True
+2026-10-19 06:50:50,142 Features 140/638 fake_vs1_aug_1-YxkyoS-OdMFjx-gExZv8.mp4: 24 face crops, usable=True
+2026-10-19 06:50:51,653 Features 141/638 fake_vs1_aug_2-uNHUDk-ZvTdUu-JGS4qN.mp4: 24 face crops, usable=True
+2026-10-19 06:50:53,086 Features 142/638 fake_vs1_aug_6-PYh67y-bn4OOG.mp4: 24 face crops, usable=True
+2026-10-19 06:50:53,990 Features 143/638 fake_vs20_aug_0.mp4: 2 face crops, usable=False
+2026-10-19 06:50:54,929 Features 144/638 fake_vs20_aug_1.mp4: 2 face crops, usable=False
+2026-10-19 06:50:55,975 Features 145/638 fake_vs20_aug_4.mp4: 6 face crops, usable=True
+2026-10-19 06:50:56,874 Features 146/638 fake_vs20_aug_6.mp4: 5 face crops, usable=True
+2026-10-19 06:50:58,286 Features 147/638 fake_vs21_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:50:59,680 Features 148/638 fake_vs21_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:51:01,009 Features 149/638 fake_vs21_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:51:02,314 Features 150/638 fake_vs21_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:51:03,977 Features 151/638 fake_vs22_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:51:05,685 Features 152/638 fake_vs22_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:51:07,109 Features 153/638 fake_vs22_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:51:08,823 Features 154/638 fake_vs22_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:51:10,374 Features 155/638 fake_vs23_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:51:12,041 Features 156/638 fake_vs23_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:51:13,580 Features 157/638 fake_vs23_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:51:15,234 Features 158/638 fake_vs23_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:51:16,636 Features 159/638 fake_vs24_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:51:17,969 Features 160/638 fake_vs24_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:51:19,356 Features 161/638 fake_vs24_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:51:20,736 Features 162/638 fake_vs24_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:51:22,172 Features 163/638 fake_vs25_aug_0.mp4: 22 face crops, usable=True
+2026-10-19 06:51:23,424 Features 164/638 fake_vs25_aug_1.mp4: 16 face crops, usable=True
+2026-10-19 06:51:24,769 Features 165/638 fake_vs25_aug_2.mp4: 18 face crops, usable=True
+2026-10-19 06:51:26,277 Features 166/638 fake_vs26_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:51:27,779 Features 167/638 fake_vs26_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:51:29,363 Features 168/638 fake_vs26_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:51:31,074 Features 169/638 fake_vs26_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:51:32,848 Features 170/638 fake_vs26_aug_7.mp4: 24 face crops, usable=False
+2026-10-19 06:51:34,284 Features 171/638 fake_vs27_aug_2.mp4: 23 face crops, usable=True
+2026-10-19 06:51:35,733 Features 172/638 fake_vs27_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:51:37,163 Features 173/638 fake_vs27_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:51:38,625 Features 174/638 fake_vs27_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:51:39,866 Features 175/638 fake_vs28_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:51:41,083 Features 176/638 fake_vs28_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:51:42,348 Features 177/638 fake_vs28_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:51:43,562 Features 178/638 fake_vs28_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:51:45,024 Features 179/638 fake_vs29_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:51:46,499 Features 180/638 fake_vs29_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:51:47,905 Features 181/638 fake_vs29_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:51:49,267 Features 182/638 fake_vs29_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:51:50,682 Features 183/638 fake_vs2_aug_1-y0aW80-nCc7NI-Z0R7UX.mp4: 24 face crops, usable=True
+2026-10-19 06:51:52,079 Features 184/638 fake_vs2_aug_4-wPrNaN-cpa6Ju.mp4: 24 face crops, usable=True
+2026-10-19 06:51:53,657 Features 185/638 fake_vs2_aug_5-LhtcZB-H9b4wm-73tYoq.mp4: 24 face crops, usable=True
+2026-10-19 06:51:55,169 Features 186/638 fake_vs2_aug_7-W9E72g-XabVNG-cx27lO.mp4: 24 face crops, usable=True
+2026-10-19 06:51:56,452 Features 187/638 fake_vs30_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:51:57,846 Features 188/638 fake_vs30_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:51:59,309 Features 189/638 fake_vs30_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:52:00,580 Features 190/638 fake_vs30_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:52:01,918 Features 191/638 fake_vs30_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:52:03,274 Features 192/638 fake_vs31_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:52:04,618 Features 193/638 fake_vs31_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:52:05,961 Features 194/638 fake_vs31_aug_2.mp4: 23 face crops, usable=True
+2026-10-19 06:52:07,337 Features 195/638 fake_vs31_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:52:08,759 Features 196/638 fake_vs32_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:52:10,153 Features 197/638 fake_vs32_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:52:11,529 Features 198/638 fake_vs32_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:52:12,986 Features 199/638 fake_vs32_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:52:14,823 Features 200/638 fake_vs33_aug_2.mp4: 23 face crops, usable=True
+2026-10-19 06:52:16,531 Features 201/638 fake_vs33_aug_3.mp4: 23 face crops, usable=True
+2026-10-19 06:52:18,137 Features 202/638 fake_vs33_aug_4.mp4: 23 face crops, usable=True
+2026-10-19 06:52:19,861 Features 203/638 fake_vs33_aug_5.mp4: 22 face crops, usable=True
+2026-10-19 06:52:21,213 Features 204/638 fake_vs34_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:52:22,646 Features 205/638 fake_vs34_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:52:24,135 Features 206/638 fake_vs34_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:52:25,673 Features 207/638 fake_vs34_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:52:27,156 Features 208/638 fake_vs35_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:52:28,763 Features 209/638 fake_vs35_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:52:30,416 Features 210/638 fake_vs35_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:52:31,961 Features 211/638 fake_vs35_aug_7.mp4: 24 face crops, usable=False
+2026-10-19 06:52:33,217 Features 212/638 fake_vs36_aug_4.mp4: 19 face crops, usable=True
+2026-10-19 06:52:34,801 Features 213/638 fake_vs36_aug_5.mp4: 19 face crops, usable=True
+2026-10-19 06:52:36,163 Features 214/638 fake_vs36_aug_6.mp4: 19 face crops, usable=True
+2026-10-19 06:52:37,614 Features 215/638 fake_vs36_aug_7.mp4: 19 face crops, usable=True
+2026-10-19 06:52:39,172 Features 216/638 fake_vs37_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:52:40,703 Features 217/638 fake_vs37_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:52:42,175 Features 218/638 fake_vs37_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:52:43,571 Features 219/638 fake_vs37_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:52:45,100 Features 220/638 fake_vs38_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:52:46,601 Features 221/638 fake_vs38_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:52:48,280 Features 222/638 fake_vs38_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:52:49,736 Features 223/638 fake_vs38_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:52:51,069 Features 224/638 fake_vs39_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:52:52,461 Features 225/638 fake_vs39_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:52:53,817 Features 226/638 fake_vs39_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:52:55,131 Features 227/638 fake_vs39_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:52:56,570 Features 228/638 fake_vs3_aug_0-LUqBmw-eijI0M-LbRtQx.mp4: 24 face crops, usable=True
+2026-10-19 06:52:57,848 Features 229/638 fake_vs3_aug_1-PfCTF4-OedqD7.mp4: 24 face crops, usable=True
+2026-10-19 06:52:59,213 Features 230/638 fake_vs3_aug_3-EBMZ4t-lKGI7c-7XeHLs.mp4: 24 face crops, usable=True
+2026-10-19 06:53:00,559 Features 231/638 fake_vs3_aug_5-OARdag-LJ4674.mp4: 24 face crops, usable=True
+2026-10-19 06:53:01,956 Features 232/638 fake_vs40_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:53:03,432 Features 233/638 fake_vs40_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:53:04,904 Features 234/638 fake_vs40_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:53:06,383 Features 235/638 fake_vs40_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:53:07,891 Features 236/638 fake_vs41_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:53:09,445 Features 237/638 fake_vs41_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:53:11,052 Features 238/638 fake_vs41_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:53:12,712 Features 239/638 fake_vs41_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:53:14,161 Features 240/638 fake_vs42_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:53:15,605 Features 241/638 fake_vs42_aug_2.mp4: 23 face crops, usable=True
+2026-10-19 06:53:17,063 Features 242/638 fake_vs42_aug_5.mp4: 23 face crops, usable=True
+2026-10-19 06:53:18,477 Features 243/638 fake_vs42_aug_6.mp4: 22 face crops, usable=True
+2026-10-19 06:53:20,265 Features 244/638 fake_vs42_aug_7.mp4: 22 face crops, usable=True
+2026-10-19 06:53:21,698 Features 245/638 fake_vs43_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:53:23,027 Features 246/638 fake_vs43_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:53:24,397 Features 247/638 fake_vs43_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:53:25,754 Features 248/638 fake_vs43_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:53:26,828 Features 249/638 fake_vs44_aug_0.mp4: 10 face crops, usable=True
+2026-10-19 06:53:27,812 Features 250/638 fake_vs44_aug_2.mp4: 4 face crops, usable=True
+2026-10-19 06:53:28,827 Features 251/638 fake_vs44_aug_3.mp4: 6 face crops, usable=True
+2026-10-19 06:53:29,829 Features 252/638 fake_vs44_aug_4.mp4: 6 face crops, usable=True
+2026-10-19 06:53:31,310 Features 253/638 fake_vs45_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:53:32,703 Features 254/638 fake_vs45_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:53:34,124 Features 255/638 fake_vs45_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:53:35,662 Features 256/638 fake_vs45_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:53:37,128 Features 257/638 fake_vs46_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:53:38,573 Features 258/638 fake_vs46_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:53:40,099 Features 259/638 fake_vs46_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:53:41,462 Features 260/638 fake_vs46_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:53:42,845 Features 261/638 fake_vs47_aug_0.mp4: 23 face crops, usable=True
+2026-10-19 06:53:44,450 Features 262/638 fake_vs47_aug_2.mp4: 23 face crops, usable=True
+2026-10-19 06:53:45,973 Features 263/638 fake_vs47_aug_5.mp4: 23 face crops, usable=True
+2026-10-19 06:53:47,278 Features 264/638 fake_vs47_aug_6.mp4: 23 face crops, usable=True
+2026-10-19 06:53:48,694 Features 265/638 fake_vs48_aug_2-Zf8rvv.mp4: 23 face crops, usable=True
+2026-10-19 06:53:50,231 Features 266/638 fake_vs48_aug_3-rVAcgX.mp4: 23 face crops, usable=True
+2026-10-19 06:53:51,671 Features 267/638 fake_vs48_aug_4-fxE1RL.mp4: 24 face crops, usable=True
+2026-10-19 06:53:52,944 Features 268/638 fake_vs48_aug_6-lZMVlI.mp4: 23 face crops, usable=True
+2026-10-19 06:53:53,811 Features 269/638 fake_vs49_aug_2.mp4: 4 face crops, usable=True
+2026-10-19 06:53:54,638 Features 270/638 fake_vs49_aug_3.mp4: 2 face crops, usable=False
+2026-10-19 06:53:55,493 Features 271/638 fake_vs49_aug_4.mp4: 2 face crops, usable=False
+2026-10-19 06:53:56,562 Features 272/638 fake_vs49_aug_5.mp4: 2 face crops, usable=False
+2026-10-19 06:53:58,023 Features 273/638 fake_vs4_aug_0-lEKGPF-aIl7WQ.mp4: 24 face crops, usable=True
+2026-10-19 06:53:59,503 Features 274/638 fake_vs4_aug_3-4lK4Wp.mp4: 24 face crops, usable=True
+2026-10-19 06:54:01,043 Features 275/638 fake_vs4_aug_5-bnS1pw-m8wzMx.mp4: 24 face crops, usable=True
+2026-10-19 06:54:02,406 Features 276/638 fake_vs4_aug_6-CxXZJP-sma92O.mp4: 24 face crops, usable=True
+2026-10-19 06:54:03,845 Features 277/638 fake_vs4_aug_7-KhMieg-mdbe2D-WDnnRR.mp4: 24 face crops, usable=True
+2026-10-19 06:54:04,963 Features 278/638 fake_vs50_aug_0.mp4: 12 face crops, usable=True
+2026-10-19 06:54:07,344 Features 279/638 fake_vs50_aug_2.mp4: 13 face crops, usable=True
+2026-10-19 06:54:09,041 Features 280/638 fake_vs50_aug_3.mp4: 14 face crops, usable=True
+2026-10-19 06:54:10,310 Features 281/638 fake_vs50_aug_5.mp4: 14 face crops, usable=True
+2026-10-19 06:54:11,719 Features 282/638 fake_vs51_aug_0-we4gCS.mp4: 24 face crops, usable=True
+2026-10-19 06:54:13,172 Features 283/638 fake_vs51_aug_1-bDUVdw.mp4: 24 face crops, usable=True
+2026-10-19 06:54:14,687 Features 284/638 fake_vs51_aug_5-x4xv3P.mp4: 24 face crops, usable=True
+2026-10-19 06:54:16,022 Features 285/638 fake_vs51_aug_6-L21Zcq.mp4: 24 face crops, usable=True
+2026-10-19 06:54:17,601 Features 286/638 fake_vs51_aug_7-FgBsr5.mp4: 24 face crops, usable=True
+2026-10-19 06:54:18,931 Features 287/638 fake_vs52_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:54:21,835 Features 288/638 fake_vs52_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:54:23,466 Features 289/638 fake_vs52_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:54:24,834 Features 290/638 fake_vs52_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:54:26,398 Features 291/638 fake_vs53_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:54:28,315 Features 292/638 fake_vs53_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:54:30,259 Features 293/638 fake_vs53_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:54:31,701 Features 294/638 fake_vs53_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:54:33,263 Features 295/638 fake_vs5_aug_1 - Copy-dUnQf0-xvVW5c.mp4: 24 face crops, usable=True
+2026-10-19 06:54:34,800 Features 296/638 fake_vs5_aug_3 - Copy-V3umPG-9pIInH-cKuvZT.mp4: 24 face crops, usable=True
+2026-10-19 06:54:36,527 Features 297/638 fake_vs5_aug_5-oyhVwO-WBSN53.mp4: 24 face crops, usable=True
+2026-10-19 06:54:38,114 Features 298/638 fake_vs5_aug_7-dtN7QC-m8lWQG.mp4: 24 face crops, usable=True
+2026-10-19 06:54:39,593 Features 299/638 fake_vs6_aug_0-ri3Pu1-gnxDGN-IuvduL.mp4: 24 face crops, usable=True
+2026-10-19 06:54:41,034 Features 300/638 fake_vs6_aug_1-ya9s20-FjAn2I-ME4c6i.mp4: 24 face crops, usable=True
+2026-10-19 06:54:42,473 Features 301/638 fake_vs6_aug_3-gn5CE2-RQrOGy-J1c8ZV.mp4: 24 face crops, usable=True
+2026-10-19 06:54:43,911 Features 302/638 fake_vs6_aug_4-BM4JZo-DVgemQ.mp4: 24 face crops, usable=True
+2026-10-19 06:54:45,336 Features 303/638 fake_vs7_aug_0-0qWAvv-VEmVNy-tMrWeF.mp4: 24 face crops, usable=True
+2026-10-19 06:54:46,563 Features 304/638 fake_vs7_aug_2-f0Tblt-7QJIDe-3dlVXN.mp4: 9 face crops, usable=True
+2026-10-19 06:54:47,780 Features 305/638 fake_vs7_aug_4-Or8lRA-ED1viU-RVMTzW.mp4: 14 face crops, usable=True
+2026-10-19 06:54:49,189 Features 306/638 fake_vs7_aug_5-W0yCXr-lsqMfc-X4kTS9.mp4: 13 face crops, usable=True
+2026-10-19 06:54:50,616 Features 307/638 fake_vs8_aug_0-gMyEbP-HLMX4f-LKSXk3.mp4: 24 face crops, usable=True
+2026-10-19 06:54:51,968 Features 308/638 fake_vs8_aug_1-CpCli9-kk8TOF.mp4: 24 face crops, usable=True
+2026-10-19 06:54:53,384 Features 309/638 fake_vs8_aug_2-4B3ehL-fnOFwd.mp4: 24 face crops, usable=True
+2026-10-19 06:54:54,768 Features 310/638 fake_vs8_aug_3-0Ow2PP-oPoYXx-lQXiVp.mp4: 24 face crops, usable=True
+2026-10-19 06:54:56,231 Features 311/638 fake_vs8_aug_5-EV9CCJ.mp4: 24 face crops, usable=True
+2026-10-19 06:54:57,799 Features 312/638 fake_vs9_aug_1-iX7UCc-NDd6Zt-RnJM9j.mp4: 24 face crops, usable=True
+2026-10-19 06:54:59,325 Features 313/638 fake_vs9_aug_2-lR9zpg-BGY8o2-lRfqj4.mp4: 24 face crops, usable=True
+2026-10-19 06:55:00,899 Features 314/638 fake_vs9_aug_3-ISQ4lD-2mBOHv-DC0aHv.mp4: 24 face crops, usable=True
+2026-10-19 06:55:02,395 Features 315/638 fake_vs9_aug_4-SHpzA8-ok6Uvs-cuhUDl.mp4: 24 face crops, usable=True
+2026-10-19 06:55:03,780 Features 316/638 real_v25_aug_3.mp4: 15 face crops, usable=True
+2026-10-19 06:55:05,316 Features 317/638 real_v26_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:55:06,839 Features 318/638 real_v26_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:55:08,319 Features 319/638 real_v26_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:55:09,973 Features 320/638 real_v26_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:55:11,624 Features 321/638 real_v26_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:55:13,247 Features 322/638 real_v26_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:55:14,659 Features 323/638 real_v26_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:55:16,171 Features 324/638 real_v26_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:55:17,579 Features 325/638 real_v27_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:55:19,134 Features 326/638 real_v27_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:55:20,622 Features 327/638 real_v27_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:55:22,042 Features 328/638 real_v27_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:55:23,524 Features 329/638 real_v27_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:55:25,145 Features 330/638 real_v27_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:55:26,481 Features 331/638 real_v27_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:55:27,988 Features 332/638 real_v27_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:55:29,407 Features 333/638 real_v28_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:55:30,752 Features 334/638 real_v28_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:55:32,099 Features 335/638 real_v28_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:55:33,485 Features 336/638 real_v28_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:55:34,753 Features 337/638 real_v28_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:55:36,087 Features 338/638 real_v28_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:55:37,643 Features 339/638 real_v29_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:55:39,165 Features 340/638 real_v29_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:55:40,653 Features 341/638 real_v29_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:55:42,149 Features 342/638 real_v29_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:55:43,822 Features 343/638 real_v29_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:55:45,504 Features 344/638 real_v29_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:55:46,873 Features 345/638 real_v29_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:55:48,729 Features 346/638 real_v29_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:55:50,116 Features 347/638 real_v30_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:55:51,476 Features 348/638 real_v30_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:55:52,891 Features 349/638 real_v30_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:55:54,174 Features 350/638 real_v30_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:55:55,520 Features 351/638 real_v30_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:55:56,796 Features 352/638 real_v30_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:55:58,198 Features 353/638 real_v31_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:55:59,658 Features 354/638 real_v31_aug_1.mp4: 23 face crops, usable=True
+2026-10-19 06:56:01,019 Features 355/638 real_v31_aug_2.mp4: 22 face crops, usable=True
+2026-10-19 06:56:02,439 Features 356/638 real_v31_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:56:03,849 Features 357/638 real_v31_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:56:05,283 Features 358/638 real_v31_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:56:06,661 Features 359/638 real_v32_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:56:08,045 Features 360/638 real_v32_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:56:09,612 Features 361/638 real_v32_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:56:10,994 Features 362/638 real_v32_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:56:12,546 Features 363/638 real_v32_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:56:14,049 Features 364/638 real_v32_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:56:15,318 Features 365/638 real_v33_aug_0.mp4: 9 face crops, usable=True
+2026-10-19 06:56:16,914 Features 366/638 real_v33_aug_1.mp4: 23 face crops, usable=True
+2026-10-19 06:56:18,530 Features 367/638 real_v33_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:56:20,462 Features 368/638 real_v33_aug_3.mp4: 23 face crops, usable=True
+2026-10-19 06:56:22,429 Features 369/638 real_v33_aug_4.mp4: 23 face crops, usable=True
+2026-10-19 06:56:24,344 Features 370/638 real_v33_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:56:25,864 Features 371/638 real_v33_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:56:27,783 Features 372/638 real_v33_aug_7.mp4: 23 face crops, usable=True
+2026-10-19 06:56:29,343 Features 373/638 real_v34_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:56:30,691 Features 374/638 real_v34_aug_1.mp4: 23 face crops, usable=True
+2026-10-19 06:56:32,105 Features 375/638 real_v34_aug_2.mp4: 23 face crops, usable=True
+2026-10-19 06:56:33,521 Features 376/638 real_v34_aug_3.mp4: 23 face crops, usable=True
+2026-10-19 06:56:34,892 Features 377/638 real_v34_aug_4.mp4: 23 face crops, usable=True
+2026-10-19 06:56:36,602 Features 378/638 real_v34_aug_5.mp4: 23 face crops, usable=True
+2026-10-19 06:56:37,855 Features 379/638 real_v34_aug_6.mp4: 23 face crops, usable=True
+2026-10-19 06:56:39,219 Features 380/638 real_v34_aug_7.mp4: 23 face crops, usable=True
+2026-10-19 06:56:40,672 Features 381/638 real_v35_aug_0.mp4: 20 face crops, usable=True
+2026-10-19 06:56:42,086 Features 382/638 real_v35_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:56:43,530 Features 383/638 real_v35_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:56:45,067 Features 384/638 real_v35_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:56:46,489 Features 385/638 real_v35_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:56:48,008 Features 386/638 real_v35_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:56:49,368 Features 387/638 real_v35_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:56:50,877 Features 388/638 real_v35_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:56:52,012 Features 389/638 real_v36_aug_0.mp4: 15 face crops, usable=True
+2026-10-19 06:56:53,340 Features 390/638 real_v36_aug_1.mp4: 20 face crops, usable=True
+2026-10-19 06:56:54,665 Features 391/638 real_v36_aug_2.mp4: 17 face crops, usable=True
+2026-10-19 06:56:56,303 Features 392/638 real_v36_aug_3.mp4: 19 face crops, usable=True
+2026-10-19 06:56:57,644 Features 393/638 real_v36_aug_4.mp4: 19 face crops, usable=True
+2026-10-19 06:56:59,208 Features 394/638 real_v36_aug_5.mp4: 19 face crops, usable=True
+2026-10-19 06:57:00,386 Features 395/638 real_v36_aug_6.mp4: 18 face crops, usable=True
+2026-10-19 06:57:01,788 Features 396/638 real_v36_aug_7.mp4: 19 face crops, usable=True
+2026-10-19 06:57:03,237 Features 397/638 real_v37_aug_0.mp4: 23 face crops, usable=True
+2026-10-19 06:57:04,686 Features 398/638 real_v37_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:57:06,272 Features 399/638 real_v37_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:57:07,798 Features 400/638 real_v37_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:57:09,314 Features 401/638 real_v37_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:57:10,934 Features 402/638 real_v37_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:57:12,399 Features 403/638 real_v37_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:57:14,004 Features 404/638 real_v37_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:57:15,798 Features 405/638 real_v38_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:57:17,266 Features 406/638 real_v38_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:57:18,958 Features 407/638 real_v38_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:57:20,496 Features 408/638 real_v38_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:57:21,991 Features 409/638 real_v38_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:57:23,659 Features 410/638 real_v38_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:57:25,127 Features 411/638 real_v38_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:57:26,712 Features 412/638 real_v38_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:57:28,041 Features 413/638 real_v39_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:57:29,347 Features 414/638 real_v39_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:57:30,619 Features 415/638 real_v39_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:57:31,924 Features 416/638 real_v39_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:57:33,200 Features 417/638 real_v39_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:57:34,517 Features 418/638 real_v39_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:57:35,782 Features 419/638 real_v39_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:57:37,060 Features 420/638 real_v39_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:57:38,477 Features 421/638 real_v40_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:57:39,915 Features 422/638 real_v40_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:57:41,354 Features 423/638 real_v40_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:57:42,826 Features 424/638 real_v40_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:57:44,288 Features 425/638 real_v40_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:57:45,812 Features 426/638 real_v40_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:57:47,107 Features 427/638 real_v40_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:57:48,597 Features 428/638 real_v40_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:57:50,059 Features 429/638 real_v41_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:57:51,454 Features 430/638 real_v41_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:57:53,087 Features 431/638 real_v41_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:57:54,514 Features 432/638 real_v41_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:57:55,968 Features 433/638 real_v41_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:57:57,432 Features 434/638 real_v41_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:57:58,770 Features 435/638 real_v41_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:58:00,297 Features 436/638 real_v41_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:58:01,674 Features 437/638 real_v42_aug_0.mp4: 23 face crops, usable=True
+2026-10-19 06:58:03,050 Features 438/638 real_v42_aug_1.mp4: 20 face crops, usable=True
+2026-10-19 06:58:04,476 Features 439/638 real_v42_aug_2.mp4: 23 face crops, usable=True
+2026-10-19 06:58:05,992 Features 440/638 real_v42_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:58:07,577 Features 441/638 real_v42_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:58:09,483 Features 442/638 real_v42_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:58:10,892 Features 443/638 real_v42_aug_6.mp4: 23 face crops, usable=True
+2026-10-19 06:58:12,433 Features 444/638 real_v42_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:58:13,885 Features 445/638 real_v43_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:58:15,227 Features 446/638 real_v43_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:58:16,557 Features 447/638 real_v43_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:58:17,924 Features 448/638 real_v43_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:58:19,267 Features 449/638 real_v43_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:58:20,631 Features 450/638 real_v43_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:58:21,875 Features 451/638 real_v43_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:58:23,244 Features 452/638 real_v43_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:58:24,234 Features 453/638 real_v44_aug_0.mp4: 8 face crops, usable=True
+2026-10-19 06:58:25,209 Features 454/638 real_v44_aug_1.mp4: 5 face crops, usable=True
+2026-10-19 06:58:26,191 Features 455/638 real_v44_aug_2.mp4: 7 face crops, usable=True
+2026-10-19 06:58:27,226 Features 456/638 real_v44_aug_3.mp4: 8 face crops, usable=True
+2026-10-19 06:58:28,247 Features 457/638 real_v44_aug_4.mp4: 8 face crops, usable=True
+2026-10-19 06:58:29,306 Features 458/638 real_v44_aug_5.mp4: 8 face crops, usable=True
+2026-10-19 06:58:30,204 Features 459/638 real_v44_aug_6.mp4: 8 face crops, usable=True
+2026-10-19 06:58:31,297 Features 460/638 real_v44_aug_7.mp4: 8 face crops, usable=True
+2026-10-19 06:58:32,716 Features 461/638 real_v45_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:58:34,123 Features 462/638 real_v45_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:58:35,578 Features 463/638 real_v45_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:58:37,000 Features 464/638 real_v45_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:58:38,433 Features 465/638 real_v45_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:58:40,007 Features 466/638 real_v45_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:58:41,406 Features 467/638 real_v45_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:58:42,946 Features 468/638 real_v45_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:58:44,463 Features 469/638 real_v46_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:58:46,073 Features 470/638 real_v46_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:58:47,579 Features 471/638 real_v46_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:58:49,110 Features 472/638 real_v46_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:58:50,540 Features 473/638 real_v46_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:58:52,040 Features 474/638 real_v46_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:58:53,384 Features 475/638 real_v46_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:58:54,877 Features 476/638 real_v46_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:58:56,242 Features 477/638 real_v47_aug_0.mp4: 21 face crops, usable=True
+2026-10-19 06:58:57,667 Features 478/638 real_v47_aug_1.mp4: 21 face crops, usable=True
+2026-10-19 06:58:59,128 Features 479/638 real_v47_aug_2.mp4: 21 face crops, usable=True
+2026-10-19 06:59:00,602 Features 480/638 real_v47_aug_3.mp4: 21 face crops, usable=True
+2026-10-19 06:59:02,076 Features 481/638 real_v47_aug_4.mp4: 21 face crops, usable=True
+2026-10-19 06:59:03,929 Features 482/638 real_v47_aug_5.mp4: 21 face crops, usable=True
+2026-10-19 06:59:05,347 Features 483/638 real_v47_aug_6.mp4: 21 face crops, usable=True
+2026-10-19 06:59:06,977 Features 484/638 real_v47_aug_7.mp4: 21 face crops, usable=True
+2026-10-19 06:59:08,272 Features 485/638 real_v48_aug_0.mp4: 16 face crops, usable=True
+2026-10-19 06:59:09,848 Features 486/638 real_v48_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:59:11,271 Features 487/638 real_v48_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:59:12,781 Features 488/638 real_v48_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:59:14,237 Features 489/638 real_v48_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:59:15,851 Features 490/638 real_v48_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:59:17,303 Features 491/638 real_v48_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:59:18,878 Features 492/638 real_v48_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:59:19,970 Features 493/638 real_v49_aug_0.mp4: 9 face crops, usable=True
+2026-10-19 06:59:20,959 Features 494/638 real_v49_aug_1.mp4: 7 face crops, usable=True
+2026-10-19 06:59:21,866 Features 495/638 real_v49_aug_2.mp4: 3 face crops, usable=False
+2026-10-19 06:59:22,696 Features 496/638 real_v49_aug_3.mp4: 1 face crops, usable=False
+2026-10-19 06:59:23,558 Features 497/638 real_v49_aug_4.mp4: 1 face crops, usable=False
+2026-10-19 06:59:24,576 Features 498/638 real_v49_aug_5.mp4: 1 face crops, usable=False
+2026-10-19 06:59:25,349 Features 499/638 real_v49_aug_6.mp4: 1 face crops, usable=False
+2026-10-19 06:59:26,223 Features 500/638 real_v49_aug_7.mp4: 1 face crops, usable=False
+2026-10-19 06:59:27,225 Features 501/638 real_v50_aug_0.mp4: 10 face crops, usable=True
+2026-10-19 06:59:28,289 Features 502/638 real_v50_aug_1.mp4: 12 face crops, usable=True
+2026-10-19 06:59:29,321 Features 503/638 real_v50_aug_2.mp4: 11 face crops, usable=True
+2026-10-19 06:59:30,324 Features 504/638 real_v50_aug_3.mp4: 11 face crops, usable=True
+2026-10-19 06:59:31,299 Features 505/638 real_v50_aug_4.mp4: 10 face crops, usable=True
+2026-10-19 06:59:32,344 Features 506/638 real_v50_aug_5.mp4: 11 face crops, usable=True
+2026-10-19 06:59:33,266 Features 507/638 real_v50_aug_6.mp4: 9 face crops, usable=True
+2026-10-19 06:59:34,327 Features 508/638 real_v50_aug_7.mp4: 12 face crops, usable=True
+2026-10-19 06:59:35,718 Features 509/638 real_v51_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:59:37,206 Features 510/638 real_v51_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:59:38,683 Features 511/638 real_v51_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:59:40,163 Features 512/638 real_v51_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:59:41,731 Features 513/638 real_v51_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:59:43,388 Features 514/638 real_v51_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:59:44,724 Features 515/638 real_v51_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:59:46,190 Features 516/638 real_v51_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:59:47,466 Features 517/638 real_v52_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:59:48,744 Features 518/638 real_v52_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 06:59:50,000 Features 519/638 real_v52_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 06:59:51,270 Features 520/638 real_v52_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 06:59:52,530 Features 521/638 real_v52_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 06:59:53,835 Features 522/638 real_v52_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 06:59:55,086 Features 523/638 real_v52_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 06:59:56,350 Features 524/638 real_v52_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 06:59:57,780 Features 525/638 real_v53_aug_0.mp4: 24 face crops, usable=True
+2026-10-19 06:59:59,386 Features 526/638 real_v53_aug_1.mp4: 24 face crops, usable=True
+2026-10-19 07:00:00,929 Features 527/638 real_v53_aug_2.mp4: 24 face crops, usable=True
+2026-10-19 07:00:02,345 Features 528/638 real_v53_aug_3.mp4: 24 face crops, usable=True
+2026-10-19 07:00:03,815 Features 529/638 real_v53_aug_4.mp4: 24 face crops, usable=True
+2026-10-19 07:00:05,487 Features 530/638 real_v53_aug_5.mp4: 24 face crops, usable=True
+2026-10-19 07:00:06,992 Features 531/638 real_v53_aug_6.mp4: 24 face crops, usable=True
+2026-10-19 07:00:08,570 Features 532/638 real_v53_aug_7.mp4: 24 face crops, usable=True
+2026-10-19 07:00:09,950 Features 533/638 v1.mp4: 24 face crops, usable=True
+2026-10-19 07:00:11,314 Features 534/638 v10.mp4: 24 face crops, usable=True
+2026-10-19 07:00:12,413 Features 535/638 v11.mp4: 16 face crops, usable=True
+2026-10-19 07:00:13,780 Features 536/638 v12.mp4: 23 face crops, usable=True
+2026-10-19 07:00:15,141 Features 537/638 v13.mp4: 24 face crops, usable=True
+2026-10-19 07:00:16,127 Features 538/638 v14.mp4: 11 face crops, usable=True
+2026-10-19 07:00:17,182 Features 539/638 v15.mp4: 15 face crops, usable=True
+2026-10-19 07:00:18,529 Features 540/638 v16.mp4: 22 face crops, usable=True
+2026-10-19 07:00:19,825 Features 541/638 v17.mp4: 24 face crops, usable=True
+2026-10-19 07:00:21,154 Features 542/638 v18.mp4: 24 face crops, usable=True
+2026-10-19 07:00:22,113 Features 543/638 v19.mp4: 7 face crops, usable=True
+2026-10-19 07:00:23,440 Features 544/638 v2.mp4: 24 face crops, usable=True
+2026-10-19 07:00:24,377 Features 545/638 v20.mp4: 8 face crops, usable=True
+2026-10-19 07:00:25,646 Features 546/638 v21.mp4: 24 face crops, usable=True
+2026-10-19 07:00:26,945 Features 547/638 v22.mp4: 24 face crops, usable=True
+2026-10-19 07:00:28,289 Features 548/638 v23.mp4: 24 face crops, usable=True
+2026-10-19 07:00:29,594 Features 549/638 v24.mp4: 24 face crops, usable=True
+2026-10-19 07:00:30,720 Features 550/638 v25.mp4: 16 face crops, usable=True
+2026-10-19 07:00:32,091 Features 551/638 v26.mp4: 24 face crops, usable=True
+2026-10-19 07:00:33,422 Features 552/638 v27.mp4: 24 face crops, usable=True
+2026-10-19 07:00:34,641 Features 553/638 v28.mp4: 24 face crops, usable=True
+2026-10-19 07:00:35,966 Features 554/638 v29.mp4: 24 face crops, usable=True
+2026-10-19 07:00:37,216 Features 555/638 v3.mp4: 24 face crops, usable=True
+2026-10-19 07:00:38,450 Features 556/638 v30.mp4: 24 face crops, usable=True
+2026-10-19 07:00:39,745 Features 557/638 v31.mp4: 24 face crops, usable=True
+2026-10-19 07:00:41,011 Features 558/638 v32.mp4: 24 face crops, usable=True
+2026-10-19 07:00:42,393 Features 559/638 v33.mp4: 22 face crops, usable=True
+2026-10-19 07:00:43,653 Features 560/638 v34.mp4: 23 face crops, usable=True
+2026-10-19 07:00:45,021 Features 561/638 v35.mp4: 24 face crops, usable=True
+2026-10-19 07:00:46,439 Features 562/638 v36.mp4: 19 face crops, usable=True
+2026-10-19 07:00:51,304 Features 563/638 v37.mp4: 24 face crops, usable=True
+2026-10-19 07:00:55,421 Features 564/638 v38.mp4: 24 face crops, usable=True
+2026-10-19 07:00:57,013 Features 565/638 v39.mp4: 24 face crops, usable=True
+2026-10-19 07:00:58,405 Features 566/638 v4.mp4: 24 face crops, usable=True
+2026-10-19 07:00:59,773 Features 567/638 v40.mp4: 24 face crops, usable=True
+2026-10-19 07:01:01,221 Features 568/638 v41.mp4: 24 face crops, usable=True
+2026-10-19 07:01:02,602 Features 569/638 v42.mp4: 24 face crops, usable=True
+2026-10-19 07:01:03,869 Features 570/638 v43.mp4: 24 face crops, usable=True
+2026-10-19 07:01:04,869 Features 571/638 v44.mp4: 9 face crops, usable=True
+2026-10-19 07:01:06,213 Features 572/638 v45.mp4: 24 face crops, usable=True
+2026-10-19 07:01:07,545 Features 573/638 v46.mp4: 24 face crops, usable=True
+2026-10-19 07:01:08,932 Features 574/638 v47.mp4: 21 face crops, usable=True
+2026-10-19 07:01:10,382 Features 575/638 v48.mp4: 24 face crops, usable=True
+2026-10-19 07:01:11,357 Features 576/638 v49.mp4: 3 face crops, usable=False
+2026-10-19 07:01:12,941 Features 577/638 v5.mp4: 24 face crops, usable=True
+2026-10-19 07:01:13,923 Features 578/638 v50.mp4: 11 face crops, usable=True
+2026-10-19 07:01:15,311 Features 579/638 v51.mp4: 24 face crops, usable=True
+2026-10-19 07:01:17,178 Features 580/638 v52.mp4: 24 face crops, usable=True
+2026-10-19 07:01:18,767 Features 581/638 v53.mp4: 24 face crops, usable=True
+2026-10-19 07:01:20,196 Features 582/638 v6.mp4: 24 face crops, usable=True
+2026-10-19 07:01:21,361 Features 583/638 v7.mp4: 13 face crops, usable=True
+2026-10-19 07:01:22,773 Features 584/638 v8.mp4: 24 face crops, usable=True
+2026-10-19 07:01:24,238 Features 585/638 v9.mp4: 24 face crops, usable=True
+2026-10-19 07:01:25,602 Features 586/638 vs1.mp4: 24 face crops, usable=True
+2026-10-19 07:01:26,932 Features 587/638 vs10.mp4: 24 face crops, usable=True
+2026-10-19 07:01:28,142 Features 588/638 vs11.mp4: 14 face crops, usable=False
+2026-10-19 07:01:29,848 Features 589/638 vs12.mp4: 23 face crops, usable=True
+2026-10-19 07:01:31,945 Features 590/638 vs13.mp4: 24 face crops, usable=True
+2026-10-19 07:01:33,265 Features 591/638 vs14.mp4: 20 face crops, usable=True
+2026-10-19 07:01:34,456 Features 592/638 vs15.mp4: 16 face crops, usable=True
+2026-10-19 07:01:35,857 Features 593/638 vs16.mp4: 23 face crops, usable=True
+2026-10-19 07:01:37,214 Features 594/638 vs17.mp4: 24 face crops, usable=True
+2026-10-19 07:01:38,631 Features 595/638 vs18.mp4: 24 face crops, usable=True
+2026-10-19 07:01:39,877 Features 596/638 vs19.mp4: 13 face crops, usable=True
+2026-10-19 07:01:41,367 Features 597/638 vs2.mp4: 24 face crops, usable=True
+2026-10-19 07:01:42,336 Features 598/638 vs20.mp4: 5 face crops, usable=True
+2026-10-19 07:01:43,784 Features 599/638 vs21.mp4: 24 face crops, usable=True
+2026-10-19 07:01:45,255 Features 600/638 vs22.mp4: 24 face crops, usable=True
+2026-10-19 07:01:46,850 Features 601/638 vs23.mp4: 24 face crops, usable=True
+2026-10-19 07:01:48,266 Features 602/638 vs24.mp4: 24 face crops, usable=True
+2026-10-19 07:01:49,537 Features 603/638 vs25.mp4: 16 face crops, usable=True
+2026-10-19 07:01:51,027 Features 604/638 vs26.mp4: 24 face crops, usable=True
+2026-10-19 07:01:52,580 Features 605/638 vs27.mp4: 24 face crops, usable=True
+2026-10-19 07:01:53,894 Features 606/638 vs28.mp4: 24 face crops, usable=True
+2026-10-19 07:01:55,320 Features 607/638 vs29.mp4: 24 face crops, usable=True
+2026-10-19 07:01:56,727 Features 608/638 vs3.mp4: 24 face crops, usable=True
+2026-10-19 07:01:58,115 Features 609/638 vs30.mp4: 24 face crops, usable=True
+2026-10-19 07:01:59,473 Features 610/638 vs31.mp4: 24 face crops, usable=True
+2026-10-19 07:02:00,774 Features 611/638 vs32.mp4: 24 face crops, usable=True
+2026-10-19 07:02:02,236 Features 612/638 vs33.mp4: 23 face crops, usable=True
+2026-10-19 07:02:03,572 Features 613/638 vs34.mp4: 24 face crops, usable=True
+2026-10-19 07:02:05,135 Features 614/638 vs35.mp4: 24 face crops, usable=False
+2026-10-19 07:02:06,813 Features 615/638 vs36.mp4: 19 face crops, usable=True
+2026-10-19 07:02:08,490 Features 616/638 vs37.mp4: 24 face crops, usable=True
+2026-10-19 07:02:09,963 Features 617/638 vs38.mp4: 24 face crops, usable=True
+2026-10-19 07:02:11,358 Features 618/638 vs39.mp4: 24 face crops, usable=True
+2026-10-19 07:02:12,996 Features 619/638 vs4.mp4: 24 face crops, usable=True
+2026-10-19 07:02:14,453 Features 620/638 vs40.mp4: 24 face crops, usable=True
+2026-10-19 07:02:15,842 Features 621/638 vs41.mp4: 24 face crops, usable=True
+2026-10-19 07:02:17,201 Features 622/638 vs42.mp4: 22 face crops, usable=True
+2026-10-19 07:02:18,534 Features 623/638 vs43.mp4: 24 face crops, usable=True
+2026-10-19 07:02:19,468 Features 624/638 vs44.mp4: 6 face crops, usable=True
+2026-10-19 07:02:20,907 Features 625/638 vs45.mp4: 24 face crops, usable=True
+2026-10-19 07:02:22,955 Features 626/638 vs46.mp4: 24 face crops, usable=True
+2026-10-19 07:02:24,876 Features 627/638 vs47.mp4: 23 face crops, usable=True
+2026-10-19 07:02:26,391 Features 628/638 vs48.mp4: 24 face crops, usable=True
+2026-10-19 07:02:27,197 Features 629/638 vs49.mp4: 1 face crops, usable=False
+2026-10-19 07:02:28,705 Features 630/638 vs5.mp4: 24 face crops, usable=True
+2026-10-19 07:02:29,788 Features 631/638 vs50.mp4: 14 face crops, usable=True
+2026-10-19 07:02:31,192 Features 632/638 vs51.mp4: 24 face crops, usable=True
+2026-10-19 07:02:32,493 Features 633/638 vs52.mp4: 24 face crops, usable=True
+2026-10-19 07:02:33,995 Features 634/638 vs53.mp4: 24 face crops, usable=True
+2026-10-19 07:02:35,388 Features 635/638 vs6.mp4: 24 face crops, usable=True
+2026-10-19 07:02:36,500 Features 636/638 vs7.mp4: 13 face crops, usable=True
+2026-10-19 07:02:37,810 Features 637/638 vs8.mp4: 24 face crops, usable=True
+2026-10-19 07:02:39,261 Features 638/638 vs9.mp4: 24 face crops, usable=True
+{
+  "scope": "video-only visual pilot",
+  "received_videos": 638,
+  "usable_videos": 616,
+  "selected_videos": 440,
+  "balance_reserved_videos": 176,
+  "classifier": "EfficientNet + neural head",
+  "evaluation_scope": "new-source original videos only",
+  "balanced_class_counts": {
+    "train": {
+      "0": 179,
+      "1": 179
+    },
+    "val": {
+      "0": 11,
+      "1": 11
+    },
+    "calibration": {
+      "0": 12,
+      "1": 12
+    },
+    "test": {
+      "0": 18,
+      "1": 18
+    }
+  },
+  "primary_test_class_counts": {
+    "0": 10,
+    "1": 10
+  },
+  "training_original_class_counts": {
+    "0": 57,
+    "1": 57
+  },
+  "training_augmented_class_counts": {
+    "1": 122,
+    "0": 122
+  },
+  "excluded_videos": 22,
+  "test_total": 20,
+  "test_evaluated": 20,
+  "test_coverage": 1.0,
+  "split_counts": {
+    "train": 358,
+    "val": 22,
+    "calibration": 24,
+    "test": 36
+  },
+  "test_metrics": {
+    "videos": 20,
+    "accuracy": 0.65,
+    "balanced_accuracy": 0.6499999999999999,
+    "precision": 0.6666666666666666,
+    "recall": 0.6,
+    "f1": 0.631578947368421,
+    "roc_auc": 0.8,
+    "pr_auc": 0.7736201298701297,
+    "average_precision": 0.7893939393939393,
+    "confusion_matrix": [
+      [
+        7,
+        3
+      ],
+      [
+        4,
+        6
+      ]
+    ],
+    "false_positive_rate": 0.3,
+    "false_negative_rate": 0.4,
+    "brier": 0.29356945425913006,
+    "ece": 0.313686217083902,
+    "source_groups": 10,
+    "accuracy_group_bootstrap_95_ci": [
+      0.5,
+      0.8
+    ],
+    "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
+  },
+  "seconds_including_preprocessing": 924.8653815430007,
+  "head_bytes": 2523608,
+  "backbone_bytes": 21444401,
+  "model_sha256": "7e7991782274fab2d24bddc59cd4014440edb0de091593d9bec34d0dfc47b78f",
+  "limitations": [
+    "Small user-labeled dataset",
+    "Identity/donor-disjoint splits not verified",
+    "External unfamiliar-video accuracy not measured",
+    "No perfect accuracy or universal detection claim"
+  ]
+}

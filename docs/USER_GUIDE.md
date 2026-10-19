@@ -11,7 +11,20 @@ a result about the video. Check INSTALLATION.md for Windows PATH and model setup
 6. Inspect the face samples and download a report if useful.
 7. Use Clear video and result to remove the retained preview and evidence from the session.
 
-The pilot's measured test accuracy is 60% on ten analyzable videos. It may be wrong even
-when the score looks strong. Never treat this student demo as the only evidence for a
-financial, legal or identity decision. Open How reliable is it? to see actual mistakes
-and test coverage. An exact training example is explicitly flagged as a familiar input.
+Open How reliable is it? for the current measured accuracy, original-video test count,
+mistakes and coverage. These measurements do not establish accuracy on arbitrary
+internet videos. A strong score can still be wrong. Exact training, validation and
+calibration inputs are flagged so they are not mistaken for independent tests.
+
+## When a video cannot be checked
+
+Read the specific warning below the result. The app shows how many face samples
+were found and offers preview frames from across the clip. The additional face search needs
+at least four sampled face crops and 15% facial coverage. The standard search is
+retained and is retried only if its evidence is insufficient. A main foreground person
+can have small background faces; several similarly sized people remain ambiguous.
+Try a section with a visible face, crop closer to the intended person, or use a
+clearer original. Videos with no face are outside this facial detector’s scope.
+Setup required means a missing dependency or mismatched model/configuration; follow
+INSTALLATION.md rather than changing the video. Replace the entire project when
+updating so the trained model, face assets and configuration match.

@@ -1,76 +1,68 @@
-# Actual video-only evaluation report
+# V004 — Two-pass coverage and performance evaluation
 
-## Dataset and separation
+## Behavior
 
-The owner supplied 98 user-labeled videos, 49 per class. Structural probing passed for
-all 98; file content hashes were unique. Filename-related originals/derivatives remain
-in one source group. Seed 42 fixes 58 train, 12 validation, 12 calibration and 16 test
-inputs. Identity/donor metadata was absent: this is **not a certified identity-disjoint
-or externally sourced benchmark**. Dataset origin and labels were not independently verified.
+The existing standard classifier and its exact 16-frame preprocessing are preserved.
+Only a Cannot analyze result triggers a second search: 24 whole-clip samples, sequential
+decoding, at least four usable face crops and 15% coverage. A foreground face can be
+selected when its area is at least four times the next face. Comparable people and
+blur still cause abstention. The retry classifier was retrained on this exact input
+pipeline. Neither a scored standard result nor its uncertainty decision is overwritten.
+Both use frozen, verified EfficientNet-B0 features and fitted compact classifiers.
 
-Quality filtering retained 73 videos: 42 train, 9 validation, 12 calibration,
-10 test. All 25 excluded videos and reasons are in reports/results/excluded.csv. The
-reserved test denominator remains 16; exclusion is not success. Coverage is 62.5%.
+## Data and fitting
 
-## Primary result: raw visual classifier score at a fixed 0.5 threshold
+638 balanced owner-labeled candidates (319/class) come from 822 unique files; 184 extra
+Fake files remain reserved. Augmentations are not independent sources. Original/fake
+families and augmentations stay in one split. Identity/donor independence is unverified.
 
-| Metric | Actual measured value |
-|---|---|
-| Evaluated videos / source groups | 10 / 5 |
-| Accuracy / balanced accuracy | 60.0% / 60.0% |
-| Precision / recall / F1 | 0.600 / 0.600 / 0.600 |
-| ROC-AUC | 0.800 |
-| PR-AUC (trapezoid) | 0.846 |
-| Average precision (distinct metric) | 0.858 |
-| False positive / false negative rate | 40.0% / 40.0% |
-| Brier score / 10-bin ECE | 0.2828 / 0.3177 |
-| Source-pair bootstrap accuracy interval | 50%–80% |
+| Component | Quality eligible | Train Real / Fake | Validation Real / Fake | Calibration Real / Fake |
+|---|---:|---:|---:|---:|
+| Standard | 593 | 177 / 177 | 11 / 11 | 11 / 11 |
+| Retry | 616 | 179 / 179 | 11 / 11 | 12 / 12 |
 
-Confusion matrix, rows=true and columns=predicted, order Real/Fake: [[3, 2], [2, 3]].
-Six correct and four incorrect classifications occurred among ten analyzed test videos.
-Intervals use 1,000 source-pair bootstrap draws and are unstable with only five source
-groups. Subject independence is not established. A high ranking AUC does not erase
-wrong decisions or establish perfect accuracy.
+Standard selected files: 432; retry selected files: 440.
+Only training includes augmented files. Component reports and full selection records
+are in reports/standard_training and reports/retry_training. Each classifier was selected
+using validation ROC-AUC and validation Brier tie-breaks, with calibration fitted on
+separate originals. The retry classifier's common-validation AUC was 0.760 versus 0.727
+for standard. It regressed as a global replacement (65% on the reused reserved pool),
+so it is used exclusively for insufficient-evidence retries. This observation is retained
+rather than hidden. Its global accuracy is not advertised as an improvement.
 
-## Fair comparisons
+## Pipeline regression evidence
 
-| Model | Held-out accuracy | ROC-AUC |
-|---|---|---|
-| EfficientNet transfer classifier | 60% | 0.80 |
-| texture_logistic | 70% | 0.64 |
-| texture_forest | 60% | 0.56 |
+The existing reserved files were inspected during development. These measurements are
+regression monitoring, not a fresh blinded test or proof of accuracy on unknown videos.
 
-Candidates for the main classifier were chosen using validation only. Baselines used
-training-only features/scaling and the same test sources. We did not switch the deployed
-model to whichever scored best on test. Raw and temperature-scaled outputs are retained
-separately; the small calibration fit did not establish trustworthy confidence. The app
-therefore presents raw scores as scores, not probability of truth.
+- Quality-eligible candidates: 593/638 before, 616/638 after.
+- Reserved originals analyzed: 18/20 before, 20/20 after.
+- Accuracy at the 0.5 boundary: 72.2% on 18 before;
+  75.0% on 20 after (15 correct).
+- All previously scored original-video outputs are unchanged within 1e-7.
+- Clear answers: 14/20; accuracy on those answers: 85.7%.
+- ROC-AUC 0.840; F1 0.762; confusion matrix [[7, 3], [2, 8]].
+- Source-family bootstrap accuracy interval: [0.6, 0.9].
 
-## Actual upload-route robustness evaluation
+The thresholds remain 0.35 and 0.65. Unfamiliar features and near-boundary scores still
+produce Not sure. Scores are fake-pattern evidence, not probabilities of truth. Face-free
+videos still cannot be classified. No arbitrary Real/Fake answer is forced.
 
-| Picture condition | Analyzed / reserved | Accuracy at 0.5 | Clear app answers |
-|---|---|---|---|
-| original | 10/16 | 60% | 9 |
-| compression | 10/16 | 50% | 8 |
-| blur | 10/16 | 70% | 9 |
-| darkness | 10/16 | 60% | 9 |
+## Stress checks on the same 20 reserved originals
 
-These are fixed derivatives of held-out source videos, **not independent external data**.
-Compression uses H264 CRF35, blur Gaussian sigma1.2, and darkness brightness -0.12.
-All conditions use unchanged model parameters. Mean complete check time was about
-1.34 seconds on original inputs in this environment. These
-latencies are measurements on short local videos, not guarantees for arbitrary lengths.
-The app also uses an uncertainty band and quality/distance gates; its clear-answer
-coverage/accuracy are reported separately, not substituted for the 0.5 benchmark.
+| Condition | Analyzed / pool | Accuracy at 0.5 | Clear answers |
+|---|---:|---:|---:|
+| original | 20/20 | 75.0% | 14 |
+| compression | 19/20 | 68.4% | 11 |
+| blur | 19/20 | 73.7% | 12 |
+| darkness | 20/20 | 75.0% | 11 |
 
-## Reproducible evidence and practical limits
+Transformed files are not new independent data. End-to-end timing is recorded in
+robustness/summary.json. One representative 24-sample decoding benchmark was 1.848s
+with seeks and 0.123s sequentially; it is not a universal or end-to-end speed guarantee.
+Only the retry path changes decoder behavior; standard predictions remain identical.
 
-Actual JSON/CSV files, per-file predictions, comparison curves and robustness outputs
-are in reports/results. checkpoints/visual.json is a real fitted 201,871-byte head at
-this run; the frozen official backbone is approximately 21.4 MB. Source and artifact
-hashes are recorded. The full feature extraction/first fit took about 137 seconds;
-a cached refit took about 5.61 seconds.
-
-Unit and integration test success verifies software contracts, not universal unknown-video
-accuracy. Labeled external videos were not supplied or evaluated. This model is suitable
-for demonstrating the workflow and its failures, not for reliable real-world decisions.
+The result screen reports actual face counts and quality reasons and previews frames
+across the clip. Windows cleanup and dependency failure paths are tested by simulation;
+a real Windows runtime was unavailable. External-video accuracy remains unmeasured.
+Model files, config and assets must be updated together. See INSTALLATION.md.

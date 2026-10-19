@@ -1,0 +1,23 @@
+file,label,split,quality_reason
+0018.mp4,0,train,The face looks too blurry for a useful result.
+fake_vs11_aug_1-DQ6Z9U-9rrS9u-TWfRRh.mp4,1,val,The face looks too blurry for a useful result.
+fake_vs11_aug_2-G3KiF8-DZUu2i-YWSRCC.mp4,1,val,The face looks too blurry for a useful result.
+fake_vs11_aug_3-MMa9v1-h1krLw-l8kKr2.mp4,1,val,The face looks too blurry for a useful result.
+fake_vs11_aug_7-84LrWq-9V2THU-znOTA4.mp4,1,val,The face looks too blurry for a useful result.
+fake_vs20_aug_0.mp4,1,calibration,"Found 2 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+fake_vs20_aug_1.mp4,1,calibration,"Found 2 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+fake_vs26_aug_7.mp4,1,train,The face looks too blurry for a useful result.
+fake_vs35_aug_7.mp4,1,train,The face looks too blurry for a useful result.
+fake_vs49_aug_3.mp4,1,train,"Found 2 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+fake_vs49_aug_4.mp4,1,train,"Found 2 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+fake_vs49_aug_5.mp4,1,train,"Found 2 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+real_v49_aug_2.mp4,0,train,"Found 3 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+real_v49_aug_3.mp4,0,train,"Found 1 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+real_v49_aug_4.mp4,0,train,"Found 1 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+real_v49_aug_5.mp4,0,train,"Found 1 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+real_v49_aug_6.mp4,0,train,"Found 1 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+real_v49_aug_7.mp4,0,train,"Found 1 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+v49.mp4,0,train,"Found 3 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."
+vs11.mp4,1,val,The face looks too blurry for a useful result.
+vs35.mp4,1,train,The face looks too blurry for a useful result.
+vs49.mp4,1,train,"Found 1 usable face samples in 24 frames; at least 4 samples and 15% coverage are needed. Try a longer section where the face is visible, or crop closer to the person."

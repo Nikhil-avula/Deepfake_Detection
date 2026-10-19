@@ -1,0 +1,21 @@
+file,label,source_group,condition,decision,fake_score,seconds,unfamiliar_features,reason
+v13.mp4,0,expanded:0013,compression,Not sure,0.5413860469934332,2.9170629270083737,False,The result is too close to the decision boundary to give a clear answer.
+v14.mp4,0,expanded:0014,compression,Cannot analyze,,1.3201013999932911,False,Too few clear front-facing faces were found.
+v15.mp4,0,expanded:0015,compression,Not sure,0.6007301050738985,1.2009457669919357,False,The result is too close to the decision boundary to give a clear answer.
+v2.mp4,0,expanded:0002,compression,Likely real,0.26169716168704577,2.152006869990146,False,
+v3.mp4,0,expanded:0003,compression,Not sure,0.41207502907408633,1.5895996300096158,False,The result is too close to the decision boundary to give a clear answer.
+v34.mp4,0,expanded:0034,compression,Likely fake,0.6968482919305713,2.595942398009356,False,
+v37.mp4,0,expanded:0037,compression,Likely real,0.1230204444147778,3.59408479402191,False,
+v44.mp4,0,expanded:0044,compression,Cannot analyze,,2.1917755150061566,False,Too few clear front-facing faces were found.
+v52.mp4,0,expanded:0052,compression,Not sure,0.6321363623171561,1.201917938014958,False,The result is too close to the decision boundary to give a clear answer.
+v9.mp4,0,expanded:0009,compression,Likely real,0.08532396001364467,1.808563279977534,False,
+vs13.mp4,1,expanded:0013,compression,Likely fake,0.7409263508907785,1.4772334720182698,False,
+vs14.mp4,1,expanded:0014,compression,Cannot analyze,,0.8542612369928975,False,Too few clear front-facing faces were found.
+vs15.mp4,1,expanded:0015,compression,Not sure,0.6401883117878637,0.9656002050032839,False,The result is too close to the decision boundary to give a clear answer.
+vs2.mp4,1,expanded:0002,compression,Not sure,0.6316691323293455,1.975483370013535,False,The result is too close to the decision boundary to give a clear answer.
+vs3.mp4,1,expanded:0003,compression,Likely fake,0.7320547145072066,1.125273047015071,False,
+vs34.mp4,1,expanded:0034,compression,Likely fake,0.8828732988344552,1.2402579940098803,False,
+vs37.mp4,1,expanded:0037,compression,Likely fake,0.6796653118981898,1.9171658139966894,False,
+vs44.mp4,1,expanded:0044,compression,Likely fake,0.8691189032573563,1.5485721220029518,False,
+vs52.mp4,1,expanded:0052,compression,Not sure,0.6444691739729723,1.1014895339903887,False,The result is too close to the decision boundary to give a clear answer.
+vs9.mp4,1,expanded:0009,compression,Not sure,0.3675789671243202,1.7885159729921725,False,The result is too close to the decision boundary to give a clear answer.

@@ -1,0 +1,21 @@
+file,label,source_group,condition,decision,fake_score,seconds,unfamiliar_features,reason
+v13.mp4,0,expanded:0013,blur,Not sure,0.45332519608167576,1.6428575979953166,False,The result is too close to the decision boundary to give a clear answer.
+v14.mp4,0,expanded:0014,blur,Cannot analyze,,1.0959591890277807,False,Too few clear front-facing faces were found.
+v15.mp4,0,expanded:0015,blur,Not sure,0.5098718378875147,1.1190552900079638,False,The result is too close to the decision boundary to give a clear answer.
+v2.mp4,0,expanded:0002,blur,Likely real,0.10398818289225632,2.0732550600077957,False,
+v3.mp4,0,expanded:0003,blur,Likely real,0.20681116684167428,1.9290328670176677,False,
+v34.mp4,0,expanded:0034,blur,Likely real,0.32672264318181254,1.793688509002095,False,
+v37.mp4,0,expanded:0037,blur,Likely real,0.054230513437669846,2.3948224659834523,False,
+v44.mp4,0,expanded:0044,blur,Cannot analyze,,2.021681879006792,False,Too few clear front-facing faces were found.
+v52.mp4,0,expanded:0052,blur,Not sure,0.637957012027934,1.3673032239894383,False,The result is too close to the decision boundary to give a clear answer.
+v9.mp4,0,expanded:0009,blur,Likely real,0.037500286537315,2.409287882008357,False,
+vs13.mp4,1,expanded:0013,blur,Likely fake,0.7002989452922735,1.6818489730067085,False,
+vs14.mp4,1,expanded:0014,blur,Cannot analyze,,1.2187149399833288,False,Too few clear front-facing faces were found.
+vs15.mp4,1,expanded:0015,blur,Not sure,0.4519219804804743,1.135067100985907,False,The result is too close to the decision boundary to give a clear answer.
+vs2.mp4,1,expanded:0002,blur,Not sure,0.4732643951996216,2.1201761970005464,False,The result is too close to the decision boundary to give a clear answer.
+vs3.mp4,1,expanded:0003,blur,Not sure,0.6258606059654332,1.7367010180023499,False,The result is too close to the decision boundary to give a clear answer.
+vs34.mp4,1,expanded:0034,blur,Likely fake,0.6655905680124888,1.5778274110052735,False,
+vs37.mp4,1,expanded:0037,blur,Cannot analyze,,2.1870409520051908,False,The face looks too blurry for a useful result.
+vs44.mp4,1,expanded:0044,blur,Cannot analyze,,2.1457138379919343,False,Too few clear front-facing faces were found.
+vs52.mp4,1,expanded:0052,blur,Not sure,0.6019487161750604,1.4815091910131741,False,The result is too close to the decision boundary to give a clear answer.
+vs9.mp4,1,expanded:0009,blur,Likely real,0.3240908509360252,2.4212951609806623,False,

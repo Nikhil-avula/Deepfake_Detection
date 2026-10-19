@@ -2,10 +2,11 @@
 from __future__ import annotations
 import tempfile
 import time
+import json
 from pathlib import Path
 import pandas as pd
 import numpy as np
-from .data import assert_no_leakage
+from .data import assert_no_leakage,augmentation_mask
 from .inference import Analyzer
 from .robustness import perturb
 from .evaluation import evaluate
@@ -14,6 +15,10 @@ from .utils import write_json
 
 def evaluate_robustness(cfg: dict,model: str="checkpoints/visual.json",manifest: str="data/manifests/splits.csv") -> list[dict]:
     frame=pd.read_csv(manifest,dtype={"source_group":str});assert_no_leakage(frame)
+    expanded=json.loads(Path(model).read_text()).get('config',{}).get('balanced_training',False)
+    if expanded:
+        original=~augmentation_mask(frame)
+        frame=frame[original & frame.evaluation_cohort.eq('new_sources')]
     heldout=frame[frame.split=="test"]
     analyzer=Analyzer(cfg,model)
     summaries=[]
@@ -28,6 +33,7 @@ def evaluate_robustness(cfg: dict,model: str="checkpoints/visual.json",manifest:
                 result,_=analyzer.analyze(path)
                 rows.append({"file":row.file,"label":int(row.label),"source_group":row.source_group,
                     "condition":condition,"decision":result["decision"],"fake_score":result["fake_score"],
+                    "analysis_pass":result.get('analysis_pass','standard'),
                     "seconds":result["seconds"],"unfamiliar_features":result.get("unfamiliar_features",False),
                     "reason":" ".join(result["reasons"])})
         table=pd.DataFrame(rows);output=Path("reports/results/robustness")/condition;output.mkdir(parents=True,exist_ok=True)
@@ -41,8 +47,20 @@ def evaluate_robustness(cfg: dict,model: str="checkpoints/visual.json",manifest:
                           "Clear answers":int(clear.sum()),"Accuracy on clear answers":selective,
                           "Mean check seconds":float(table.seconds.mean())})
         write_json("reports/results/robustness/summary.json",summaries)
-    write_json("reports/results/robustness/protocol.json",{"source":"Same held-out source pairs as primary evaluation",
+    write_json("reports/results/robustness/protocol.json",{"source":"New-source held-out originals before quality/balance exclusions" if expanded else "Same held-out source pairs as primary evaluation",
         "conditions":{"compression":"H264 CRF35","blur":"Gaussian sigma1.2","darkness":"brightness -0.12"},
         "not_external":"Transformed held-out uploads, not an independent real-world dataset",
         "accuracy_note":"Raw-score accuracy at 0.5 and application abstention are reported separately"})
+    if cfg.get('retry_model'):
+        # A two-pass deployment must display pipeline metrics, not stale single-head metrics.
+        summary_path=Path('reports/results/summary.json')
+        if summary_path.exists():
+            summary=json.loads(summary_path.read_text())
+            original=pd.read_csv('reports/results/robustness/original/predictions.csv')
+            valid=original.fake_score.notna()
+            metrics=json.loads(Path('reports/results/robustness/original/metrics.json').read_text())
+            summary.update(test_total=len(original),test_evaluated=int(valid.sum()),test_coverage=float(valid.mean()),
+                test_metrics=metrics,classifier='EfficientNet standard classifier with quality-triggered retry classifier',
+                evaluation_scope='Reused inspected reserved originals; regression monitoring, not fresh external testing')
+            write_json(summary_path,summary)
     return summaries

@@ -1,0 +1,17 @@
+seed: 42
+face_detector: res10
+frames: 24
+image_size: 224
+max_duration: 120
+max_upload_mb: 100
+max_pixels: 8294400
+min_faces: 4
+min_face_fraction: 0.15
+max_multiple_fraction: 0.25
+min_sharpness: 8
+real_threshold: 0.35
+fake_threshold: 0.65
+threads: 4
+batch_size: 8
+dominant_face_area_ratio: 4.0
+video_sampler: sequential_v1

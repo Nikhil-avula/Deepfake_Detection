@@ -1,0 +1,104 @@
+[
+  {
+    "model": "EfficientNet transfer classifier",
+    "test": {
+      "videos": 20,
+      "accuracy": 0.65,
+      "balanced_accuracy": 0.6499999999999999,
+      "precision": 0.6666666666666666,
+      "recall": 0.6,
+      "f1": 0.631578947368421,
+      "roc_auc": 0.8,
+      "pr_auc": 0.7736201298701297,
+      "average_precision": 0.7893939393939393,
+      "confusion_matrix": [
+        [
+          7,
+          3
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "false_positive_rate": 0.3,
+      "false_negative_rate": 0.4,
+      "brier": 0.29356945425913006,
+      "ece": 0.313686217083902,
+      "source_groups": 10,
+      "accuracy_group_bootstrap_95_ci": [
+        0.5,
+        0.8
+      ],
+      "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
+    }
+  },
+  {
+    "model": "texture_logistic",
+    "test": {
+      "videos": 20,
+      "accuracy": 0.55,
+      "balanced_accuracy": 0.55,
+      "precision": 0.5555555555555556,
+      "recall": 0.5,
+      "f1": 0.5263157894736842,
+      "roc_auc": 0.61,
+      "pr_auc": 0.6166533685612632,
+      "average_precision": 0.6439627477785371,
+      "confusion_matrix": [
+        [
+          6,
+          4
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "false_positive_rate": 0.4,
+      "false_negative_rate": 0.5,
+      "brier": 0.24772948523004962,
+      "ece": 0.18625885518573881,
+      "source_groups": 10,
+      "accuracy_group_bootstrap_95_ci": [
+        0.5,
+        0.65
+      ],
+      "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
+    }
+  },
+  {
+    "model": "texture_forest",
+    "test": {
+      "videos": 20,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "roc_auc": 0.56,
+      "pr_auc": 0.4971699787140964,
+      "average_precision": 0.5501745395127748,
+      "confusion_matrix": [
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "false_positive_rate": 0.5,
+      "false_negative_rate": 0.5,
+      "brier": 0.23963555740922043,
+      "ece": 0.1386521564283435,
+      "source_groups": 10,
+      "accuracy_group_bootstrap_95_ci": [
+        0.3,
+        0.7
+      ],
+      "interval_limit": "Source-pair bootstrap; identity independence is unverified; small-sample intervals are unstable."
+    }
+  }
+]

@@ -1,5 +1,5 @@
 {
-  "source": "Same held-out source pairs as primary evaluation",
+  "source": "New-source held-out originals before quality/balance exclusions",
   "conditions": {
     "compression": "H264 CRF35",
     "blur": "Gaussian sigma1.2",

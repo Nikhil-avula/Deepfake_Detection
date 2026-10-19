@@ -1,50 +1,22 @@
-# Video-only architecture
+# Video-only application architecture
 
-```mermaid
-flowchart TD
- A[Owner-labeled video dataset] --> B[Decode and hash audit]
- B --> C[Group original/fake pairs and duplicate content]
- C --> D[Train / validation / calibration / test]
- D --> E[Uniform whole-video frame samples]
- E --> F[Single-face crops and quality checks]
- F --> G[Frozen EfficientNet-B0 image encoder]
- G --> H[Video mean and variation plus texture]
- H --> I[Training-only scaling and fitted classifier]
- I --> J[Score and uncertainty gates]
- J --> K[Plain-language result and HTML report]
-```
+    Video upload -> temporary file -> FFprobe validation
+      -> whole-clip frame sampling -> neural SSD face detector
+      -> quality checks -> frozen EfficientNet-B0 face embeddings
+      -> mean/std + texture -> training-only fitted scaler
+      -> validation-selected linear or neural classifier
+      -> raw score + uncertainty gate -> plain-language result and report
 
-`data.py` preserves owner labels, hashes inputs, probes media and splits filename-related
-source pairs. All byte-identical copies are grouped; conflicting identical labels fail.
-The grouping does not certify person/donor independence because those metadata were not
-provided. The seed and split membership are fixed before final evaluation.
+The temporary video is deleted after analysis. Session previews and extracted images remain until the user clears the session or it ends. No audio features are used.
 
-`media.py` validates size, duration, dimensions and video frame rate. Sixteen timestamps
-cover the entire clip. Haar detection accepts one face per sample and skips ambiguous
-frames. More than a quarter of sampled frames with several faces, insufficient faces,
-or median sharpness below the configured gate causes abstention. The detector is a
-limited baseline: false/missed boxes and pose sensitivity remain known risks.
+media.py probes size, duration and dimensions. The standard model retains its original 16-frame sampling and quality gates. Only insufficient evidence triggers a separate 24-frame sequential search with a dominant foreground face policy (area ratio at least four), a four-crop minimum and 15% facial coverage. Comparable faces and blur remain quality failures. Each pass uses a classifier trained with that exact preprocessing. SSD detector assets are checksummed; legacy Haar support exists only for explicitly configured artifacts.
 
-`models.py` loads verified official ImageNet EfficientNet-B0 parameters. Its 1,280-wide
-frame embeddings are summarized by mean and standard deviation; eight texture features
-produce a 2,568-dimensional video representation. A fitted standardized logistic head
-is stored as safe JSON. Filename, class name and file-size metadata are never model
-features. The backbone is frozen; the head is genuinely trained on owner media.
+models.py verifies official EfficientNet weights, aggregates 2,568 visual values, validates safe JSON classifier arrays and computes linear or neural predictions. selection.py fits training-only scaling and compares seven candidate classifiers on validation data, with source-family weights.
 
-`training.py` selects regularization using validation only, fits temperature on a
-separate calibration split, evaluates raw/scaled scores and two simpler baselines, and
-records all predictions and exclusions. Cached features make repeat runs inexpensive.
-`evaluation.py` produces real metrics, source-group bootstrap intervals and curves.
-`experiments.py` tests the same held-out inputs through actual inference and fixed visual
-changes. These are robustness derivatives, not a new external dataset.
+data.py validates labels and hashes, groups potential original/fake and augmentation families, preserves earlier split assignments, and balances quality-eligible files. Augmentations from reserved source families never enter fitting. Original-only validation, calibration and test rows are selected without model scores.
 
-`inference.py` refuses inadequate faces/media, returns a raw model score, and uses a
-predeclared uncertainty band plus a heuristic feature-distance gate. It recognizes exact
-training-file hashes only to warn about nonindependent demos; that lookup never changes
-the predicted score. Unknown-source accuracy is not established. `reporting.py` escapes
-untrusted text in portable HTML reports.
+training.py fits and exports the actual model, calibration, per-video predictions, baseline comparisons, quality exclusions and balance decisions. The new-source test cohort is the primary report; older previously inspected test videos are monitored separately. Model type, regularization and neural epoch are selected using validation only.
 
-`app/main.py` has six pages: Start, Check a video, Your result, How reliable is it?, Our
-dataset, About this project. Models are cached by checkpoint modification version.
-Temporary disk uploads are removed even after exceptions. Clear video and result resets
-session evidence and the uploader. No remote inference service is required.
+inference.py applies the same preprocessing and classifier, with feature-distance and score uncertainty. reports/results provides reproducible metrics and public split membership without raw paths. app/main.py exposes six plain-language pages, actual measurements, face evidence and a downloadable report. The UI checks model/preprocessing version compatibility before allowing a check.
+
+The trained classifier, detector assets and generic pretrained encoder weights suffice for inference. Original training videos and private manifests are not inference dependencies. configs/default.yaml and the model must describe the same preprocessing.

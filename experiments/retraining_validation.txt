@@ -1,7 +1,1 @@
-Post-edit UI/model checks:
-.......                                                                  [100%]
-7 passed in 15.73s
-
-Post-edit dataset checks:
-.........                                                                [100%]
-9 passed in 3.99s
+V004: 63 full-suite tests passed, zero failures/skips. Portable: 58 passed, five private-video skips. pip check passed. Streamlit health ok. See validation.txt and portable-validation.txt. Windows failure paths simulated; actual Windows runtime unavailable. GitHub publication authorized for owner fresh-clone testing.

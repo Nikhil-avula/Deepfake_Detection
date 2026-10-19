@@ -1,26 +1,46 @@
 file,label,split,quality_reason
-0002.mp4,0,test,Too many frames contain several faces. Please use a single-person video.
-0002_fake.mp4,1,test,Too many frames contain several faces. Please use a single-person video.
-0008.mp4,0,test,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
-0008_fake.mp4,1,test,Too many frames contain several faces. Please use a single-person video.
 0018.mp4,0,train,The face looks too blurry for a useful result.
-0020.mp4,0,train,Too many frames contain several faces. Please use a single-person video.
-0020_fake.mp4,1,train,Too many frames contain several faces. Please use a single-person video.
-0028.mp4,0,train,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
-0028_fake.mp4,1,train,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
-0029.mp4,0,train,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
-0029_fake.mp4,1,train,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
-0031.mp4,0,train,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
-0031_fake.mp4,1,train,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
 0034.mp4,0,train,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
 0034_fake.mp4,1,train,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
-0038.mp4,0,train,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
-0038_fake.mp4,1,train,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
-0040.mp4,0,train,Too many frames contain several faces. Please use a single-person video.
-0042_fake.mp4,1,val,Too many frames contain several faces. Please use a single-person video.
-0043.mp4,0,val,Too few clear front-facing faces were found.
-0043_fake.mp4,1,val,Too few clear front-facing faces were found.
-0044.mp4,0,train,Too many frames contain several faces. Please use a single-person video.
-0044_fake.mp4,1,train,Too many frames contain several faces. Please use a single-person video.
-0047.mp4,0,test,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
-0047_fake.mp4,1,test,Too many frames contain several faces. Please use a single-person video. Too few clear front-facing faces were found.
+fake_vs11_aug_1-DQ6Z9U-9rrS9u-TWfRRh.mp4,1,val,The face looks too blurry for a useful result.
+fake_vs11_aug_2-G3KiF8-DZUu2i-YWSRCC.mp4,1,val,The face looks too blurry for a useful result.
+fake_vs11_aug_3-MMa9v1-h1krLw-l8kKr2.mp4,1,val,The face looks too blurry for a useful result.
+fake_vs11_aug_7-84LrWq-9V2THU-znOTA4.mp4,1,val,The face looks too blurry for a useful result.
+fake_vs13_aug_7.mp4,1,test,The face looks too blurry for a useful result.
+fake_vs14_aug_1.mp4,1,test,Too few clear front-facing faces were found.
+fake_vs20_aug_0.mp4,1,calibration,Too few clear front-facing faces were found.
+fake_vs20_aug_1.mp4,1,calibration,Too few clear front-facing faces were found.
+fake_vs20_aug_4.mp4,1,calibration,Too few clear front-facing faces were found.
+fake_vs20_aug_6.mp4,1,calibration,Too few clear front-facing faces were found.
+fake_vs26_aug_7.mp4,1,train,The face looks too blurry for a useful result.
+fake_vs35_aug_7.mp4,1,train,The face looks too blurry for a useful result.
+fake_vs44_aug_2.mp4,1,test,Too few clear front-facing faces were found.
+fake_vs44_aug_3.mp4,1,test,Too few clear front-facing faces were found.
+fake_vs44_aug_4.mp4,1,test,Too few clear front-facing faces were found.
+fake_vs49_aug_2.mp4,1,train,Too few clear front-facing faces were found.
+fake_vs49_aug_3.mp4,1,train,Too few clear front-facing faces were found.
+fake_vs49_aug_4.mp4,1,train,Too few clear front-facing faces were found.
+fake_vs49_aug_5.mp4,1,train,Too few clear front-facing faces were found.
+real_v44_aug_1.mp4,0,test,Too few clear front-facing faces were found.
+real_v44_aug_2.mp4,0,test,Too few clear front-facing faces were found.
+real_v44_aug_3.mp4,0,test,Too few clear front-facing faces were found.
+real_v44_aug_4.mp4,0,test,Too few clear front-facing faces were found.
+real_v44_aug_5.mp4,0,test,Too few clear front-facing faces were found.
+real_v44_aug_6.mp4,0,test,Too few clear front-facing faces were found.
+real_v44_aug_7.mp4,0,test,Too few clear front-facing faces were found.
+real_v49_aug_1.mp4,0,train,Too few clear front-facing faces were found.
+real_v49_aug_2.mp4,0,train,Too few clear front-facing faces were found.
+real_v49_aug_3.mp4,0,train,Too few clear front-facing faces were found.
+real_v49_aug_4.mp4,0,train,Too few clear front-facing faces were found.
+real_v49_aug_5.mp4,0,train,Too few clear front-facing faces were found.
+real_v49_aug_6.mp4,0,train,Too few clear front-facing faces were found.
+real_v49_aug_7.mp4,0,train,Too few clear front-facing faces were found.
+v19.mp4,0,train,Too few clear front-facing faces were found.
+v20.mp4,0,calibration,Too few clear front-facing faces were found.
+v44.mp4,0,test,Too few clear front-facing faces were found.
+v49.mp4,0,train,Too few clear front-facing faces were found.
+vs11.mp4,1,val,The face looks too blurry for a useful result.
+vs20.mp4,1,calibration,Too few clear front-facing faces were found.
+vs35.mp4,1,train,The face looks too blurry for a useful result.
+vs44.mp4,1,test,Too few clear front-facing faces were found.
+vs49.mp4,1,train,Too few clear front-facing faces were found.

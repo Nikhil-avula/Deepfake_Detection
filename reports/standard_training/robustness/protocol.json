@@ -1,0 +1,10 @@
+{
+  "source": "New-source held-out originals before quality/balance exclusions",
+  "conditions": {
+    "compression": "H264 CRF35",
+    "blur": "Gaussian sigma1.2",
+    "darkness": "brightness -0.12"
+  },
+  "not_external": "Transformed held-out uploads, not an independent real-world dataset",
+  "accuracy_note": "Raw-score accuracy at 0.5 and application abstention are reported separately"
+}

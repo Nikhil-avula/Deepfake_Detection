@@ -2,36 +2,36 @@
   {
     "band": 0,
     "coverage": 1.0,
-    "error_rate": 0.5
+    "error_rate": 0.3157894736842105
   },
   {
     "band": 0.05,
-    "coverage": 1.0,
-    "error_rate": 0.5
+    "coverage": 0.9473684210526315,
+    "error_rate": 0.2777777777777778
   },
   {
     "band": 0.1,
-    "coverage": 0.9,
-    "error_rate": 0.4444444444444444
+    "coverage": 0.8947368421052632,
+    "error_rate": 0.29411764705882354
   },
   {
     "band": 0.15,
-    "coverage": 0.8,
-    "error_rate": 0.375
+    "coverage": 0.5789473684210527,
+    "error_rate": 0.18181818181818182
   },
   {
     "band": 0.2,
-    "coverage": 0.8,
-    "error_rate": 0.375
+    "coverage": 0.47368421052631576,
+    "error_rate": 0.1111111111111111
   },
   {
     "band": 0.3,
-    "coverage": 0.7,
-    "error_rate": 0.42857142857142855
+    "coverage": 0.3157894736842105,
+    "error_rate": 0.16666666666666666
   },
   {
     "band": 0.4,
-    "coverage": 0.6,
+    "coverage": 0.15789473684210525,
     "error_rate": 0.3333333333333333
   }
 ]

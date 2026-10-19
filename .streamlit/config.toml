@@ -1,0 +1,3 @@
+[server]
+# PyTorch exposes dynamic module attributes that Streamlit's source watcher cannot inspect.
+fileWatcherType = "none"

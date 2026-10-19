@@ -1,4 +1,5 @@
 seed: 42
+face_detector: res10
 frames: 16
 image_size: 224
 max_duration: 120
@@ -12,3 +13,4 @@ real_threshold: 0.35
 fake_threshold: 0.65
 threads: 4
 batch_size: 8
+retry_model: checkpoints/coverage_retry.json

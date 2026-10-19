@@ -1,0 +1,21 @@
+file,label,source_group,condition,decision,fake_score,seconds,unfamiliar_features,reason
+v13.mp4,0,expanded:0013,darkness,Likely real,0.24172182522476332,1.601133877004031,False,
+v14.mp4,0,expanded:0014,darkness,Cannot analyze,,1.3520331889740191,False,Too few clear front-facing faces were found.
+v15.mp4,0,expanded:0015,darkness,Not sure,0.506093522282737,1.2046986449859105,False,The result is too close to the decision boundary to give a clear answer.
+v2.mp4,0,expanded:0002,darkness,Likely real,0.07442964867254373,2.1055503349925857,False,
+v3.mp4,0,expanded:0003,darkness,Likely real,0.039092123468591124,1.5728969060000964,False,
+v34.mp4,0,expanded:0034,darkness,Likely real,0.2187798641925853,1.6654343480186071,False,
+v37.mp4,0,expanded:0037,darkness,Likely real,0.014206774701083256,2.336297450005077,False,
+v44.mp4,0,expanded:0044,darkness,Cannot analyze,,1.9786658509983681,False,Too few clear front-facing faces were found.
+v52.mp4,0,expanded:0052,darkness,Not sure,0.585871637265105,1.600703717005672,False,The result is too close to the decision boundary to give a clear answer.
+v9.mp4,0,expanded:0009,darkness,Likely real,0.034219349567088865,2.887433705996955,False,
+vs13.mp4,1,expanded:0013,darkness,Likely fake,0.6952471079282208,1.8555889400013257,False,
+vs14.mp4,1,expanded:0014,darkness,Likely fake,0.7476250000673869,1.4549022749997675,False,
+vs15.mp4,1,expanded:0015,darkness,Not sure,0.5860381214904933,1.1822123720194213,False,The result is too close to the decision boundary to give a clear answer.
+vs2.mp4,1,expanded:0002,darkness,Not sure,0.4826170039787756,2.670080052979756,False,The result is too close to the decision boundary to give a clear answer.
+vs3.mp4,1,expanded:0003,darkness,Not sure,0.5928423196605673,1.7080680239887442,False,The result is too close to the decision boundary to give a clear answer.
+vs34.mp4,1,expanded:0034,darkness,Not sure,0.5389206966386489,1.4742950910003856,False,The result is too close to the decision boundary to give a clear answer.
+vs37.mp4,1,expanded:0037,darkness,Not sure,0.6310204096150247,2.2286588120041415,False,The result is too close to the decision boundary to give a clear answer.
+vs44.mp4,1,expanded:0044,darkness,Not sure,0.5901807450770079,1.9879439439973794,False,The result is too close to the decision boundary to give a clear answer.
+vs52.mp4,1,expanded:0052,darkness,Not sure,0.571327176133064,1.5071344249881804,False,The result is too close to the decision boundary to give a clear answer.
+vs9.mp4,1,expanded:0009,darkness,Likely real,0.283365307843512,2.7905342069861945,False,

@@ -3,6 +3,7 @@ import pandas as pd
 import pytest
 from pathlib import Path
 from deepguard.data import split_pairs,assert_no_leakage
+from deepguard.data import filename_family,expanded_splits,balanced_eligible,augmentation_mask
 
 
 def frame():
@@ -64,3 +65,47 @@ def test_confirmed_manifest_integrity_before_training(tmp_path,monkeypatch,fault
         assert_no_leakage(result)
         assert result.source_group.nunique()==49
         assert len(result)==98 and output.exists()
+
+
+def test_augmented_fake_and_real_families_are_grouped():
+    assert filename_family('v12.mp4')==filename_family('vs12.mp4')
+    assert filename_family('real_v12_aug_4.mp4')==filename_family('fake_vs12_aug_4 - Copy-random.mp4')
+    assert filename_family('0012.mp4')!=filename_family('v12.mp4')
+    with pytest.raises(ValueError):filename_family('unrelated.mp4')
+
+
+def test_augmentation_flags_survive_csv_boolean_inference():
+    f=pd.DataFrame({'is_augmented':[True,False,None,'true','false','TRUE']})
+    assert augmentation_mask(f).tolist()==[True,False,False,True,False,True]
+
+
+def test_expanded_split_preserves_history_and_is_repeatable():
+    old=frame();old['file']=[f'{i:04}'+('_fake' if label else '')+'.mp4' for i in range(49) for label in [0,1]]
+    old=split_pairs(old)
+    new=[]
+    for i in range(1,31):
+        for label,prefix in [(0,'v'),(1,'vs')]:
+            for aug in [False,True]:
+                name=f'{prefix}{i}.mp4' if not aug else f'{"fake_vs" if label else "real_v"}{i}_aug_0.mp4'
+                new.append(dict(file=name,path='/'+name,label=label,source_group='untrusted',sha256='hash-'+name))
+    result=expanded_splits(pd.concat([old,pd.DataFrame(new)],ignore_index=True),old)
+    assert result.iloc[:len(old)].split.tolist()==old.split.tolist()
+    assert result.groupby('source_group').split.nunique().eq(1).all()
+    again=expanded_splits(result,result)
+    pd.testing.assert_frame_equal(result,again)
+    assert set(result.evaluation_cohort)=={'historical','new_sources'}
+
+
+def test_quality_balance_and_original_only_evaluation():
+    records=[]
+    for split in ['train','val','calibration','test']:
+        for label in [0,1]:
+            for i in range(4+label):
+                for augmented in [False,True]:
+                    key=f'{split}-{label}-{i}-{augmented}'
+                    records.append(dict(path='/'+key,file=key,sha256=key,source_group=f'{split}-{i}',split=split,label=label,
+                        usable=i!=0,is_augmented='true' if augmented else '',evaluation_cohort='new_sources'))
+    result=balanced_eligible(pd.DataFrame(records));chosen=result[result.selected]
+    assert not result.loc[~result.usable,'selected'].any()
+    assert chosen.groupby('split').label.value_counts().unstack().nunique(axis=1).eq(1).all()
+    assert not chosen.loc[chosen.split!='train','is_augmented'].eq('true').any()

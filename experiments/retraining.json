@@ -1,57 +1,46 @@
 {
-  "completed_utc": "2026-10-18T12:28:27.203167+00:00",
-  "scope": "retraining on owner-confirmed visual-only uploads",
-  "received": 98,
-  "real": 49,
-  "fake": 49,
-  "new_unique_videos_relative_to_previous_training": 0,
-  "feature_extraction": "reused verified frozen EfficientNet feature cache",
-  "classifier": "supervised logistic head refitted; validation-only candidate selection",
-  "split_seed": 42,
-  "source_grouping": "filename pairs, not verified subject identity",
-  "usable": 73,
-  "excluded": 25,
-  "split_counts": {
-    "train": 42,
-    "val": 9,
-    "calibration": 12,
-    "test": 10
+  "experiment": "V004 two-pass coverage",
+  "completed_utc": "2026-10-19T07:08:23.598448+00:00",
+  "primary_model_sha256": "58b1c05534013c037ab7aa04fd13b298a50d78decddf2479f436923d3695cf5f",
+  "retry_model_sha256": "7e7991782274fab2d24bddc59cd4014440edb0de091593d9bec34d0dfc47b78f",
+  "retry_training_seconds": 924.8653815430007,
+  "comparison": {
+    "scope": "Reused inspected reserved originals; regression monitoring, not fresh external testing",
+    "candidate_videos": 638,
+    "eligible_before": 593,
+    "eligible_after": 616,
+    "analyzed_before": 18,
+    "analyzed_after": 20,
+    "original_common_scores_unchanged": true,
+    "accuracy_before": 0.7222222222222222,
+    "accuracy_after": 0.75,
+    "recovered_files": [
+      "v44.mp4",
+      "vs44.mp4"
+    ],
+    "clear_answers": 14,
+    "clear_accuracy": 0.8571428571428571,
+    "pipeline": "Existing standard model first. Retry only when face evidence is insufficient; never replace a scored standard result.",
+    "retry_standalone_accuracy": 0.65,
+    "retry_standalone_not_promoted": "Global replacement regressed; standard outputs preserved.",
+    "decoder_benchmark_seconds": {
+      "seek_24": 1.848,
+      "sequential_24": 0.123
+    },
+    "benchmark_scope": "One clip, decoding only; not end-to-end speed",
+    "thresholds_unchanged": [
+      0.35,
+      0.65
+    ],
+    "windows_runtime": "Not available; failure paths simulated"
   },
-  "test_accuracy": 0.6,
-  "test_coverage": 0.625,
-  "model_sha256": "b05bf9ce5279551b18c6ed07f923d818004d8fcfc5e48ec7d0e2fffc26176edb",
-  "full_suite_passed": 39,
-  "full_suite_failures": 0,
-  "post_edit_dataset_passed": 9,
-  "post_edit_model_ui_passed": 7,
-  "application_health": "HTTP 200; model/UI functional tests passed",
-  "unseen_external_accuracy": "not measured",
-  "robustness": [
-    {
-      "Condition": "original",
-      "Reserved videos": 16,
-      "Analyzed": 10,
-      "Accuracy at 0.5": 0.6
-    },
-    {
-      "Condition": "compression",
-      "Reserved videos": 16,
-      "Analyzed": 10,
-      "Accuracy at 0.5": 0.5
-    },
-    {
-      "Condition": "blur",
-      "Reserved videos": 16,
-      "Analyzed": 10,
-      "Accuracy at 0.5": 0.7
-    },
-    {
-      "Condition": "darkness",
-      "Reserved videos": 16,
-      "Analyzed": 10,
-      "Accuracy at 0.5": 0.6
-    }
-  ],
-  "training_command_exit_code": 0,
-  "final_manifest_matches_training_manifest": true
+  "publication": "Owner authorized GitHub publication for fresh-clone application testing",
+  "validation": {
+    "passed": 63,
+    "failed": 0,
+    "portable_passed": 58,
+    "portable_skipped": 5,
+    "health": "ok",
+    "windows_actual_runtime": false
+  }
 }

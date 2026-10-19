@@ -1,13 +1,20 @@
 {
-  "files": 98,
-  "bytes": 154505158,
+  "files": 638,
+  "inventory_files": 822,
   "class_counts": {
-    "0": 49,
-    "1": 49
+    "0": 319,
+    "1": 319
   },
+  "originals_per_class": 102,
+  "augmentations_per_class": 217,
+  "reserved_files": 184,
   "corrupt_files": 0,
-  "unique_hashes": 98,
-  "dataset_origin": "Not verified; no named benchmark provenance claimed",
-  "grouping": "Matching filename stems are conservatively treated as related originals/derivatives",
-  "identity_disjoint": "Not verified; identity/donor metadata was not supplied"
+  "quality_excluded": 45,
+  "selected_files": 432,
+  "dataset_origin": "Owner uploads; not independently verified",
+  "identity_disjoint": "Not verified",
+  "grouping": "Conservative filename families, originals and augmentations together",
+  "pipeline_quality_excluded": 22,
+  "primary_classifier_selected_files": 432,
+  "retry_classifier_selected_files": 440
 }

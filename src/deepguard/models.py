@@ -39,24 +39,44 @@ def aggregate(embeddings: np.ndarray,faces: np.ndarray) -> np.ndarray:
 
 def cache_key(path: str | Path,cfg: dict) -> str:
     feature_cfg={k:cfg[k] for k in ["frames","image_size","max_duration","max_upload_mb","max_pixels","min_faces","min_face_fraction","max_multiple_fraction","min_sharpness"]}
+    feature_cfg['face_detector']=cfg.get('face_detector','haar')
+    feature_cfg['dominant_face_area_ratio']=cfg.get('dominant_face_area_ratio')
+    feature_cfg['video_sampler']=cfg.get('video_sampler','seek')
     return sha256(path)+"-"+hashlib.sha256(json.dumps(feature_cfg,sort_keys=True).encode()).hexdigest()[:16]
+
+
+def head_logits(features: np.ndarray,head: dict) -> np.ndarray:
+    x=np.atleast_2d(features)
+    z=(x-np.asarray(head["mean"]))/np.asarray(head["scale"])
+    if head.get('feature_clip'):z=np.clip(z,-head['feature_clip'],head['feature_clip'])
+    if head.get('classifier_type','linear')=='mlp':
+        z=np.maximum(0,z@np.asarray(head['hidden_weight'])+np.asarray(head['hidden_bias']))
+    return z@np.asarray(head["coef"])+head["intercept"]
 
 
 def predict_head(features: np.ndarray,head: dict,calibrated: bool=True) -> np.ndarray:
     from scipy.special import expit
-    x=np.atleast_2d(features)
-    logits=((x-np.asarray(head["mean"]))/np.asarray(head["scale"])) @ np.asarray(head["coef"])+head["intercept"]
-    return expit(logits/(head.get("temperature",1.) if calibrated else 1.))
+    return expit(head_logits(features,head)/(head.get('temperature',1.) if calibrated else 1.))
 
 
 def load_head(path: str | Path) -> dict:
     head=json.loads(Path(path).read_text())
     if head.get("schema")!=2 or head.get("kind")!="visual" or head.get("training_videos",0)<1:
         raise ValueError("This is not a trained video-only model artifact.")
-    size=len(head.get("coef",[]))
-    arrays=[np.asarray(head[k],dtype=float) for k in ["mean","scale","coef"]]
-    if size!=2568 or any(a.shape!=(size,) or not np.isfinite(a).all() for a in arrays) or (arrays[1]<=0).any():
+    kind=head.get('classifier_type','linear')
+    arrays=[np.asarray(head.get(k,[]),dtype=float) for k in ['mean','scale']]
+    if kind not in ('linear','mlp') or any(a.shape!=(2568,) or not np.isfinite(a).all() for a in arrays) or (arrays[1]<=0).any():
         raise ValueError("Invalid visual classifier parameters.")
+    coef=np.asarray(head.get('coef',[]),dtype=float)
+    width=len(coef)
+    if not np.isfinite(coef).all() or coef.shape!=(width,) or (kind=='linear' and width!=2568):
+        raise ValueError('Invalid visual classifier coefficients')
+    if kind=='mlp':
+        hidden=np.asarray(head.get('hidden_weight',[]),dtype=float);bias=np.asarray(head.get('hidden_bias',[]),dtype=float)
+        if not 1<=width<=128 or hidden.shape!=(2568,width) or bias.shape!=(width,) or not np.isfinite(hidden).all() or not np.isfinite(bias).all():
+            raise ValueError('Invalid neural classifier parameters')
+    if 'feature_clip' in head and (not np.isfinite(head['feature_clip']) or head['feature_clip']<=0):
+        raise ValueError('Invalid feature clipping limit')
     if not np.isfinite(head["intercept"]) or not .05<=head.get("temperature",1.)<=20:
         raise ValueError("Invalid model calibration parameters.")
     return head

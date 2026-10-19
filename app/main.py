@@ -64,6 +64,10 @@ def show_result():
         "Likely real":"The model found fewer of the visual patterns it learned to associate with manipulated faces. This does not prove the video is authentic.",
         "Not sure":"The model cannot give a clear answer for this video. Check the original source or use an independent verification method.",
         "Cannot analyze":"We could not obtain enough usable face samples from this video. The specific reason and next step appear below."}
+    if title=="Not sure":
+        descriptions[title]=("The video was analyzed, but its visual patterns differ from those this model learned. The model needs broader training and independent testing before it can reliably judge videos like this."
+            if result.get('unfamiliar_features') else
+            "The video was analyzed, but the model found mixed evidence for real and fake. Its score is in the uncertain range. Rechecking the same file will not make the model more certain.")
     style="fake" if title=="Likely fake" else "real" if title=="Likely real" else "unsure"
     st.markdown(f'<div class="decision {style}"><div class="eyebrow">Your video check</div><h2>{html.escape(title)}</h2><p>{descriptions[title]}</p></div>',unsafe_allow_html=True)
     for reason in result["reasons"]:st.warning(reason)

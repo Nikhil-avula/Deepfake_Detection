@@ -98,3 +98,24 @@ should be installed in this environment. Extract the entire updated review archi
 into a fresh folder so code, configuration, assets and the trained model match.
 The included Streamlit configuration disables its development source watcher to
 avoid the separate `torch.classes` inspection warning. Restart manually after edits.
+
+## Start Windows with the correct environment
+
+After completing the virtual-environment installation above, use:
+
+```powershell
+.\run_windows.cmd
+```
+
+This uses this checkout's `.venv` and source directory explicitly, verifies FFprobe,
+face assets, both trained classifiers and the image encoder, and disables the
+Streamlit/PyTorch file-watcher conflict. It stops with a named failed check if setup
+is incomplete. The encoder may download its verified official weights on first use.
+For a printable diagnostic independently of the launcher:
+
+```powershell
+.\.venv\Scripts\python.exe -m deepguard.cli doctor --encoder
+```
+
+A successful startup check establishes environment readiness, not classification
+accuracy. Known model errors remain listed in MODEL_RELIABILITY_AUDIT.md.

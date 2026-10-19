@@ -1,0 +1,6 @@
+2026-10-19: pytest -q
+65 passed, 15 warnings in 31.41s
+Environment: Linux, Python 3.12, /workspace/deepguard-venv
+CLI doctor --encoder: all five startup checks passed.
+Windows launcher inspected but not executed on Windows.
+Model weights and classification thresholds unchanged.

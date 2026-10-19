@@ -11,6 +11,7 @@ def main():
     p.add_argument("--config",default=None)
     sub=p.add_subparsers(dest="command",required=True)
     sub.add_parser("hardware")
+    a=sub.add_parser("doctor");a.add_argument("--encoder",action="store_true",help="Also verify/download the image encoder")
     a=sub.add_parser("prepare-dataset");a.add_argument("manifest")
     a.add_argument("--output",default="data/manifests/splits.csv")
     a.add_argument('--previous-splits',default=None,help='Preserve previous filename-family partitions when adding new sources')
@@ -20,7 +21,12 @@ def main():
     a.add_argument('--balanced',action='store_true',help='Balance quality-eligible classes and evaluate new-source originals')
     a=sub.add_parser("analyze");a.add_argument("video");a.add_argument("output");a.add_argument("--model",default="checkpoints/visual.json")
     a=sub.add_parser("robustness");a.add_argument("--model",default="checkpoints/visual.json")
-    args=p.parse_args();cfg=config(args.config);seed_all(cfg["seed"],cfg["threads"])
+    args=p.parse_args()
+    if args.command=="doctor":
+        from .diagnostics import diagnose
+        report=diagnose(args.encoder);print(json.dumps(report,indent=2))
+        raise SystemExit(0 if report['ready'] else 1)
+    cfg=config(args.config);seed_all(cfg["seed"],cfg["threads"])
     logging.basicConfig(level=logging.INFO,format="%(asctime)s %(message)s")
     if args.command=="hardware":print(json.dumps(provenance(),indent=2))
     elif args.command=="prepare-dataset":
